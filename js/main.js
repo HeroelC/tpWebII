@@ -5,7 +5,7 @@ let coleccion = "banda";
 
 document.addEventListener('DOMContentLoaded', cargarHome);
 
-//Función para cargar el inicio. 
+//Función para cargar el inicio.
 function cargarHome(){
 let contenedor = document.getElementById('contenido');
 
@@ -58,7 +58,6 @@ function cargaDinamica(){
   .catch(e => {
     contenedor.innerHTML = "ERROR: No se pudo conectar con el servidor";
   })
-
 
 }
 
