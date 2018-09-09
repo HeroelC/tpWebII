@@ -32,6 +32,7 @@ function cargaDinamica(){
   console.log(this.getAttribute('href'));
 
   let contenedor = document.getElementById('contenido');
+  let timer;
 
   fetch(url).then(response => {
     if(response.ok){
@@ -103,18 +104,18 @@ function guardarTabla() {
 function cargarTabla(){
   let tabla = document.querySelector("#tablaTour");
   let tablaEdit = "";
-  let filtro = document.querySelector('#selectFiltro').value;
+  let filtro = document.querySelector('#selectFiltro');
   fetch(baseURL+grupo+"/"+coleccion).then(response=> {
     if (response.ok) {
       response.json().then(t=> {
         for (let info of t.banda) {
-          if (filtro == 2) {
+          if (filtro.value == 2) {
             if (info.thing.price <= "500") {
               tablaEdit += '<tr><td>'+ info.thing.city + '</td><td>'+ info.thing.stadium +'</td><td>'+ "$" +info.thing.price +
               '</td><td><button type="button" class="btn-borrar btn btn-warning" name="'+info._id+'">Delete</button>  <button type="button" class="btn-editar btn btn-light" name="'+info._id+'">Edit</button></td></tr>';
 
             }
-          }else if (filtro == 3) {
+          }else if (filtro.value == 3) {
             if (info.thing.price > "500") {
               tablaEdit += '<tr><td>'+ info.thing.city + '</td><td>'+ info.thing.stadium +'</td><td>'+ "$" +info.thing.price +
               '</td><td><button type="button" class="btn-borrar btn btn-warning" name="'+info._id+'">Delete</button>  <button type="button" class="btn-editar btn btn-light" name="'+info._id+'">Edit</button></td></tr>';
