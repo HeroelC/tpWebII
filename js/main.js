@@ -38,7 +38,7 @@ function cargaDinamica(){
     if(response.ok){
       response.text().then(t => {
         contenedor.innerHTML = t;
-
+        //window.location = url;
         //Si esta en tour le agregamos las funciones a los botones de la tabla.
         if(url === "tour.html"){
           document.querySelector("#btn-post").addEventListener('click', guardarTabla);
