@@ -29,15 +29,16 @@ class EstadiosModel
 //Insertamos un estadio
     function Insert($nombre,$capacidad){
 
-      $sentencia = $this->db->prepare("INSERT INTO estadio(nombre, capacidad) VALUES(?,?,?)");
+      $sentencia = $this->db->prepare("INSERT INTO estadio(nombre, capacidad) VALUES(?,?)");
       $sentencia->execute(array($nombre, $capacidad));
     }
 
-//Eliminamos un estadio
+//Eliminamos un estadio, preguntar lo de la sentencia $sentencia->execute(array($idEstadio));
+//Probada la funcion eliminar
     function Delete($idEstadio){
 
-      $sentencia = $this->db->prepare( "DELETE FROM estadio where id=?");
-      $sentencia->execute(array($idEstadio));
+      $sentencia = $this->db->prepare( "DELETE FROM estadio where id_estadio=?");
+      $sentencia->execute(($idEstadio));
     }
 
 }

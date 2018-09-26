@@ -9,7 +9,7 @@ class ConfigApp
       'home'=> 'TareasController#Home',
       'music'=> 'TareasController#Music',
       'tour'=> 'TareasController#Tour',
-      'completada'=> 'TareasController#CompletarTarea'
+      'eliminar' => 'TareasController#Eliminar'
     ];
 
 }

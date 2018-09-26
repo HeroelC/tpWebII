@@ -25,9 +25,15 @@ class TareasController
   }
 
   function Home(){
-    $Recitales = $this->EstadiosModel->get();
-    $this->view->Home($Recitales);
+    $Estadios = $this->EstadiosModel->get();
+    $this->view->Home($Estadios);
   }
+
+  function Eliminar($idEstadio){
+    $this->EstadiosModel->Delete($idEstadio);
+    $this->Home();
+  }
+
 }
 
 
