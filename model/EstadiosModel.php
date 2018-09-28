@@ -5,9 +5,11 @@ class EstadiosModel
 
   //Atributos
   private $db;
+  private $EstadiosController;
 
   function __construct()
   {
+
     //Conectamos a la base de datos
     $this->db = $this->Connect();
   }

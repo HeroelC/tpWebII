@@ -14,7 +14,7 @@ class TareasView
     echo '<h1>Estadios</h1>';
     echo '<table><tr>';
 
-    echo '<td>id</td><td>nombre</td><td>capacidad</td>';
+    echo '<td>ID</td><td>Nombre</td><td>Capacidad</td>';
 
     foreach ($Estadios as $estadio) {
 
@@ -32,14 +32,23 @@ class TareasView
 
     echo '<table><tr>';
 
-    echo '<td>id</td><td>nombre</td><td>precio</td><td>id_estadio</td>';
+    echo '<td>ID</td><td>Nombre</td><td>Precio</td><td>ID_Estadio</td>';
 
     foreach($Recitales as $recital){
       echo '<tr>';
       echo '<td>'.$recital['id_recital'].'</td> <td>'.$recital['nombre'].'</td> <td>'.$recital['precio'].'</td> <td>'.$recital['estadio_id'].'</td>';
       echo '</tr>';
+
+
     }
+    echo '<form action="agregarRecital" method="post">
+    <input type="text" name="nombre" value="">
+    <input type="number" name="precio" value="">
+    <input type="number" name="id_estadio" value="">
+    <button type="submit" name="button">Enviar</button>
+    </form>';
   }
+
 }
 
 

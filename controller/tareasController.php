@@ -6,7 +6,7 @@ require_once "./view/TareasView.php";
 require_once "./model/EstadiosModel.php";
 //Se incluye el model de Recitales.
 require_once "./model/RecitalesModel.php";
-
+//Incluye el model de Estadios;
 
 class TareasController
 {
@@ -21,10 +21,10 @@ class TareasController
 
       //Creamos una instancia de la vista
       $this->view = new TareasView();
-      //Creamos una instancia del modelo estadio
-      $this->EstadiosModel = new EstadiosModel();
       //Creamos una instancia del modelo recital
       $this->RecitalesModel = new RecitalesModel();
+      //Creamos una instancia del modelo de estadio
+      $this->EstadiosModel = new EstadiosModel();
   }
 
 //Esto no es home, es el mostrar tabla de estadios
@@ -45,33 +45,20 @@ class TareasController
   function EliminarRecital($idRecital){
 
     $this->RecitalesModel->Delete($idRecital);
-    $this->Home(); //No va aca
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function AgregarRecital($Recital){
+  function AgregarRecital(){
+    print_r($_POST);
+    $Recital[0] = $_POST["nombre"];
+    $Recital[1] = $_POST["precio"];
+    $Recital[2] = $_POST["id_estadio"];
 
+    echo 'console.log(enviado)';
+    echo 'console.log('.print_r($Recital).')';
     $this->RecitalesModel->Insert($Recital);
-    $this->Home(); //Esto no va acá, modificar la funcion Delete en EstadiosModel para que vuelva al script
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
-
-  function MostrarEstadios(){
-
-   $Estadios = $this->EstadiosModel->get();
-   $this->view->Home($Estadios);
-  }
-
-  function EliminarEstadio($idEstadio){
-
-    $this->EstadiosModel->Delete($idEstadio);
-    $this->Home(); //Esto no va acá, modificar la funcion Delete en EstadiosModel para que vuelva al script
-  }
-
-  function AgregarEstadio($estadio){
-
-    $this->EstadiosModel->Insert($estadio);
-    $this->Home(); //Esto no va acá, modificar la funcion Delete en EstadiosModel para que vuelva al script
-  }
-
 
 
 }

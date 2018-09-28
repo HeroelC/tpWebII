@@ -9,8 +9,8 @@ class ConfigApp
       'home'=> 'TareasController#Home',
       'music'=> 'TareasController#Music',
       'tour'=> 'TareasController#Tour',
-      'eliminarEstadio' => 'TareasController#EliminarEstadio',
-      'agregarEstadio' => 'TareasController#AgregarEstadio',
+      'eliminarEstadio' => 'EstadiosController#EliminarEstadio',
+      'agregarEstadio' => 'EstadiosController#AgregarEstadio',
       'mostrarRecitales' => 'TareasController#MostrarRecitales',
       'eliminarRecital' => 'TareasController#EliminarRecital',
       'agregarRecital' => 'TareasController#AgregarRecital'

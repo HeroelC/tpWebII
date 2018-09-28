@@ -5,6 +5,8 @@ require_once "config/ConfigApp.php";
 //Incluimos el archivo del controlador
 require_once "controller\TareasController.php";
 
+require_once "controller/EstadiosController.php";
+
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);
