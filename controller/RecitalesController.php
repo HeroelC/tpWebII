@@ -22,7 +22,7 @@ class RecitalesController
   }
 
   function AgregarRecital(){
-    
+
     print_r($_POST);
     $Recital[0] = $_POST["nombre"];
     $Recital[1] = $_POST["precio"];

@@ -1,3 +1,7 @@
+<head>
+  <base href="http://localhost/tpwebii/">
+</head>
+
 <?php
 
 class TareasView
@@ -25,7 +29,6 @@ class TareasView
     echo '</tr></table>';
   }
 
-
   function mostrarRecitales($Recitales){
 
     echo '<h1>Recitales</h1>';
@@ -41,6 +44,9 @@ class TareasView
 
 
     }
+
+    echo '<img src="img/album1.jpg">';
+
     echo '<form action="agregarRecital" method="post">
     <input type="text" name="nombre" value="">
     <input type="number" name="precio" value="">
