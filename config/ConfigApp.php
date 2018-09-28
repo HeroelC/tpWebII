@@ -11,9 +11,9 @@ class ConfigApp
       'tour'=> 'TareasController#Tour',
       'eliminarEstadio' => 'EstadiosController#EliminarEstadio',
       'agregarEstadio' => 'EstadiosController#AgregarEstadio',
-      'mostrarRecitales' => 'TareasController#MostrarRecitales',
-      'eliminarRecital' => 'TareasController#EliminarRecital',
-      'agregarRecital' => 'TareasController#AgregarRecital'
+      'mostrarRecitales' => 'RecitalesController#MostrarRecitales',
+      'eliminarRecital' => 'RecitalesController#EliminarRecital',
+      'agregarRecital' => 'RecitalesController#AgregarRecital'
     ];
 
 }
