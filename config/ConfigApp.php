@@ -12,7 +12,8 @@ class ConfigApp
       'eliminarEstadio' => 'TareasController#EliminarEstadio',
       'agregarEstadio' => 'TareasController#AgregarEstadio',
       'mostrarRecitales' => 'TareasController#MostrarRecitales',
-      'eliminarRecitales' => 'TareasController#EliminarRecital'
+      'eliminarRecital' => 'TareasController#EliminarRecital',
+      'agregarRecital' => 'TareasController#AgregarRecital'
     ];
 
 }

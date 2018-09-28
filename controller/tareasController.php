@@ -43,9 +43,15 @@ class TareasController
   }
 
   function EliminarRecital($idRecital){
-    
+
     $this->RecitalesModel->Delete($idRecital);
     $this->Home(); //No va aca
+  }
+
+  function AgregarRecital($Recital){
+
+    $this->RecitalesModel->Insert($Recital);
+    $this->Home(); //Esto no va acá, modificar la funcion Delete en EstadiosModel para que vuelva al script
   }
 
   function MostrarEstadios(){

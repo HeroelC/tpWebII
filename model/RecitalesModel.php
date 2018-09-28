@@ -18,19 +18,27 @@ class RecitalesModel
     , 'root', '');
   }
 
-  //Funcion para traer los estadios
+  //Funcion para obtener los recitales
   function Get(){
 
-        $sentencia = $this->db->prepare( "SELECT * FROM recital");
-        $sentencia->execute();
-        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      $sentencia = $this->db->prepare( "SELECT * FROM recital");
+      $sentencia->execute();
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+ //Funcion para eliminar recitales
   function Delete($idRecital){
 
       $sentencia = $this->db->prepare( "DELETE FROM recital where id_recital=?");
       $sentencia->execute(array($idRecital[0]));
     }
+
+  //Funcion para añadir un recital
+  function Insert($Recital){
+
+    $sentencia = $this->db->prepare("INSERT INTO recital(nombre, precio, estadio_id) VALUES(?,?,?)");
+    $sentencia->execute(array($Recital[0], $Recital[1], $Recital[2]));
+  }
 
 
 
