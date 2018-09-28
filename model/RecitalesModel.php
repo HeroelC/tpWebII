@@ -18,7 +18,15 @@ class RecitalesModel
     , 'root', '');
   }
 
-  
+  //Funcion para traer los estadios
+  function Get(){
+
+        $sentencia = $this->db->prepare( "SELECT * FROM recital");
+        $sentencia->execute();
+        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 
 }
 

@@ -18,21 +18,47 @@ class TareasController
 
   function __construct()
   {
+
       //Creamos una instancia de la vista
       $this->view = new TareasView();
-      //Creamos una instancia del modelo
+      //Creamos una instancia del modelo estadio
       $this->EstadiosModel = new EstadiosModel();
+      //Creamos una instancia del modelo recital
+      $this->RecitalesModel = new RecitalesModel();
   }
 
+//Esto no es home, es el mostrar tabla de estadios
   function Home(){
+
     $Estadios = $this->EstadiosModel->get();
     $this->view->Home($Estadios);
   }
 
-  function Eliminar($idEstadio){
-    $this->EstadiosModel->Delete($idEstadio);
-    $this->Home();
+  function MostrarRecitales(){
+
+    $Recitales = $this->RecitalesModel->get();
+    $this->view->mostrarRecitales($Recitales);
   }
+
+  function MostrarEstadios(){
+
+   $Estadios = $this->EstadiosModel->get();
+   $this->view->Home($Estadios);
+  }
+
+  function EliminarEstadio($idEstadio){
+
+    $this->EstadiosModel->Delete($idEstadio);
+    $this->Home(); //Esto no va acá, modificar la funcion Delete en EstadiosModel para que vuelva al script
+  }
+
+  function AgregarEstadio($estadio){
+
+    $this->EstadiosModel->Insert($estadio);
+    $this->Home(); //Esto no va acá, modificar la funcion Delete en EstadiosModel para que vuelva al script
+  }
+
+
 
 }
 

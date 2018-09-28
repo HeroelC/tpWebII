@@ -27,18 +27,18 @@ class EstadiosModel
     }
 
 //Insertamos un estadio
-    function Insert($nombre,$capacidad){
+    function Insert($estadio){
 
       $sentencia = $this->db->prepare("INSERT INTO estadio(nombre, capacidad) VALUES(?,?)");
-      $sentencia->execute(array($nombre, $capacidad));
+      $sentencia->execute(array($estadio[0], $estadio[1]));
     }
 
-//Eliminamos un estadio, preguntar lo de la sentencia $sentencia->execute(array($idEstadio));
-//Probada la funcion eliminar
+//Probada la funcion eliminar, ahora elimina bien.
+//Preguntar tema de eliminar cuando esta asociado a otra tabla.
     function Delete($idEstadio){
 
       $sentencia = $this->db->prepare( "DELETE FROM estadio where id_estadio=?");
-      $sentencia->execute(($idEstadio));
+      $sentencia->execute(array($idEstadio[0]));
     }
 
 }

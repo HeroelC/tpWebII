@@ -9,7 +9,9 @@ class ConfigApp
       'home'=> 'TareasController#Home',
       'music'=> 'TareasController#Music',
       'tour'=> 'TareasController#Tour',
-      'eliminar' => 'TareasController#Eliminar'
+      'eliminarEstadio' => 'TareasController#EliminarEstadio',
+      'agregarEstadio' => 'TareasController#AgregarEstadio',
+      'mostrarRecitales' => 'TareasController#MostrarRecitales'
     ];
 
 }
