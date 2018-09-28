@@ -41,6 +41,8 @@ class EstadiosModel
       $sentencia->execute(array($idEstadio[0]));
     }
 
+
+
 }
 
 

@@ -30,14 +30,22 @@ class TareasController
 //Esto no es home, es el mostrar tabla de estadios
   function Home(){
 
+  //Todo esto no va acá solo es para probar
     $Estadios = $this->EstadiosModel->get();
     $this->view->Home($Estadios);
+    $this->MostrarRecitales();
   }
 
   function MostrarRecitales(){
 
     $Recitales = $this->RecitalesModel->get();
     $this->view->mostrarRecitales($Recitales);
+  }
+
+  function EliminarRecital($idRecital){
+    
+    $this->RecitalesModel->Delete($idRecital);
+    $this->Home(); //No va aca
   }
 
   function MostrarEstadios(){

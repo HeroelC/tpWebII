@@ -26,6 +26,12 @@ class RecitalesModel
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+  function Delete($idRecital){
+
+      $sentencia = $this->db->prepare( "DELETE FROM recital where id_recital=?");
+      $sentencia->execute(array($idRecital[0]));
+    }
+
 
 
 }
