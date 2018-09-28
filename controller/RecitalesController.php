@@ -1,12 +1,20 @@
 <?php
 
+require_once "./view/EstadiosView.php";
+require_once "./model/EstadiosModel.php";
 
 class RecitalesController
 {
 
+  private $RecitalesView;
+  private $RecitalesModel;
+
   function __construct()
   {
 
+    //Inicializamos las clases que vamos a necesaitar.
+    $this->RecitalesView = new RecitalesView();
+    $this->RecitalesModel = new RecitalesModel();
   }
 
   function MostrarRecitales(){

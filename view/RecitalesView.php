@@ -1,10 +1,7 @@
-<head>
-  <base href="http://localhost/tpwebii/">
-</head>
-
 <?php
 
-class TareasView
+
+class RecitalesView
 {
 
   function __construct()
@@ -13,23 +10,7 @@ class TareasView
 
   }
 
-  function Home($Estadios){
-
-    echo '<h1>Estadios</h1>';
-    echo '<table><tr>';
-
-    echo '<td>ID</td><td>Nombre</td><td>Capacidad</td>';
-
-    foreach ($Estadios as $estadio) {
-
-      echo '<tr>';
-      echo '<td>'.$estadio['id_estadio'].'</td><td>'.$estadio['nombre'].'</td><td>'.$estadio['capacidad'].'</td>';
-      echo '</tr>';
-    }
-    echo '</tr></table>';
-  }
-
-  function mostrarRecitales($Recitales){
+  function Mostrar($Recitales){
 
     echo '<h1>Recitales</h1>';
 
@@ -56,8 +37,6 @@ class TareasView
   }
 
 }
-
-
 
 
  ?>

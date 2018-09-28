@@ -1,26 +1,30 @@
 <?php
 
-//Se incluye la vista
-require_once "./view/TareasView.php";
 //Se incluye el model estadio
 require_once "./model/EstadiosModel.php";
 //Se incluye el model de Recitales.
 require_once "./model/RecitalesModel.php";
 //Incluye el model de Estadios;
+require_once "./view/RecitalesView.php";
+
+require_once "./view/EstadiosView.php";
 
 class TareasController
 {
-
+  //Esta clase no sirve para nada esta para probar solamente.
   //Atributos
-  private $view;
+  private $RecitalesView;
   private $RecitalesModel;
+  private $EstadiosView;
   private $EstadiosModel;
 
   function __construct()
   {
 
-      //Creamos una instancia de la vista
-      $this->view = new TareasView();
+      //Creamos una instancia de la vistas de recitales
+      $this->RecitalesView = new RecitalesView();
+      //Creamos una instancia de la vista de estadios
+      $this->EstadiosView = new EstadiosView();
       //Creamos una instancia del modelo recital
       $this->RecitalesModel = new RecitalesModel();
       //Creamos una instancia del modelo de estadio
@@ -31,9 +35,12 @@ class TareasController
   function Home(){
 
   //Todo esto no va acá solo es para probar
-    $Estadios = $this->EstadiosModel->get();
-    $this->view->Home($Estadios);
-    $this->MostrarRecitales();
+    $Estadios = $this->EstadiosModel->Get();
+    $this->EstadiosView->Mostrar($Estadios);
+
+    $Recitales = $this->RecitalesModel->get();
+    $this->RecitalesView->Mostrar($Recitales);
+
   }
 
 
