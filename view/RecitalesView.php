@@ -20,7 +20,8 @@ class RecitalesView
 
     foreach($Recitales as $recital){
       echo '<tr>';
-      echo '<td>'.$recital['id_recital'].'</td> <td>'.$recital['nombre'].'</td> <td>'.$recital['precio'].'</td> <td>'.$recital['estadio_id'].'</td>';
+      echo '<td>'.$recital['id_recital'].'</td> <td>'.$recital['nombre'].'</td> <td>'.$recital['precio'].'</td> <td>'.$recital['estadio_id'].
+      '<a href=eliminarRecital/'.$recital['id_recital'].'>Borrar</a></td>';
       echo '</tr>';
 
 

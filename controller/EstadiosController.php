@@ -31,10 +31,10 @@ class EstadiosController
   function agregarEstadio(){
 
     if((isset($_POST['nombre'])) && (isset($_POST['capacidad']))){
-      $estadio[0] = $_POST['nombre'];
-      $estadio[1] = $_POST['capacidad'];
+      $nombre = $_POST['nombre'];
+      $capacidad = $_POST['capacidad'];
 
-      $this->EstadiosModel->insert($estadio);
+      $this->EstadiosModel->insert($nombre, $capacidad);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     }
 

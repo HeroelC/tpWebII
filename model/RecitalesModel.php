@@ -19,7 +19,7 @@ class RecitalesModel
   }
 
   //Funcion para obtener los recitales
-  function Get(){
+  function get(){
 
       $sentencia = $this->db->prepare( "SELECT * FROM recital");
       $sentencia->execute();
@@ -27,17 +27,17 @@ class RecitalesModel
     }
 
  //Funcion para eliminar recitales
-  function Delete($idRecital){
+  function delete($idRecital){
 
       $sentencia = $this->db->prepare( "DELETE FROM recital where id_recital=?");
       $sentencia->execute(array($idRecital[0]));
     }
 
   //Funcion para añadir un recital
-  function insert($Recital){
+  function insert($nombre, $precio, $idEstadio){
 
     $sentencia = $this->db->prepare("INSERT INTO recital(nombre, precio, estadio_id) VALUES(?,?,?)");
-    $sentencia->execute(array($Recital[0], $Recital[1], $Recital[2]));
+    $sentencia->execute(array($nombre, $precio, $idEstadio));
   }
 
 

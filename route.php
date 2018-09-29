@@ -2,12 +2,12 @@
 
 //Incluimos el archivo de configuracion
 require_once "config/ConfigApp.php";
-//Incluimos el archivo del controlador .
-require_once "controller\TareasController.php"; //Despues de las pruebas eliminar este require, no se usa más aca.
 //Incluimos el controlador de estadios.
 require_once "controller/EstadiosController.php";
 //Incluimos el controlador de recitales.
 require_once "controller/RecitalesController.php";
+//Incluimos el controlador de usuarios.
+require_once "controller/UsuariosController.php";
 
 function parseURL($url)
 {
@@ -37,7 +37,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new TareasController();
+      $controller =  new UsuariosController();
       echo $controller->Home();
     }
 }

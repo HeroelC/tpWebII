@@ -18,7 +18,8 @@ class EstadiosView
     foreach ($Estadios as $estadio) {
 
       echo '<tr>';
-      echo '<td>'.$estadio['id_estadio'].'</td><td>'.$estadio['nombre'].'</td><td>'.$estadio['capacidad'].'</td>';
+      echo '<td>'.$estadio['id_estadio'].'</td><td>'.$estadio['nombre'].'</td><td>'.$estadio['capacidad'].'
+      <a href=eliminarEstadio/'.$estadio['id_estadio'].'>Borrar</a></td>';
       echo '</tr>';
     }
     echo '</tr></table>';

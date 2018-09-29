@@ -23,9 +23,10 @@ class RecitalesController
     $this->view->mostrarRecitales($Recitales);
   }
 
+//¿Y si no esta seteado?
   function eliminarRecital($idRecital){
 
-    $this->RecitalesModel->Delete($idRecital);
+    $this->RecitalesModel->delete($idRecital);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
@@ -33,11 +34,11 @@ class RecitalesController
   function agregarRecital(){
 
     if((isset($_POST["nombre"])) && (isset($_POST["precio"])) &&(isset($_POST["id_estadio"]))){
-      $Recital[0] = $_POST["nombre"];
-      $Recital[1] = $_POST["precio"];
-      $Recital[2] = $_POST["id_estadio"];
+      $nombre = $_POST["nombre"];
+      $precio = $_POST["precio"];
+      $id_Estadio = $_POST["id_estadio"];
 
-      $this->RecitalesModel->Insert($Recital);
+      $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     }
 
