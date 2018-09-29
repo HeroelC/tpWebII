@@ -17,29 +17,30 @@ class RecitalesController
     $this->RecitalesModel = new RecitalesModel();
   }
 
-  function MostrarRecitales(){
+  function mostrarRecitales(){
 
     $Recitales = $this->RecitalesModel->get();
     $this->view->mostrarRecitales($Recitales);
   }
 
-  function EliminarRecital($idRecital){
+  function eliminarRecital($idRecital){
 
     $this->RecitalesModel->Delete($idRecital);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function AgregarRecital(){
+//Faltaria agregar el error si no carga todo los datos
+  function agregarRecital(){
 
-    print_r($_POST);
-    $Recital[0] = $_POST["nombre"];
-    $Recital[1] = $_POST["precio"];
-    $Recital[2] = $_POST["id_estadio"];
+    if((isset($_POST["nombre"])) && (isset($_POST["precio"])) &&(isset($_POST["id_estadio"]))){
+      $Recital[0] = $_POST["nombre"];
+      $Recital[1] = $_POST["precio"];
+      $Recital[2] = $_POST["id_estadio"];
 
-    echo 'console.log(enviado)';
-    echo 'console.log('.print_r($Recital).')';
-    $this->RecitalesModel->Insert($Recital);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $this->RecitalesModel->Insert($Recital);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    }
+
   }
 
 }

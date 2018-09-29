@@ -4,9 +4,9 @@
 require_once "./model/EstadiosModel.php";
 //Se incluye el model de Recitales.
 require_once "./model/RecitalesModel.php";
-//Incluye el model de Estadios;
+//Incluye la vista de recitales.
 require_once "./view/RecitalesView.php";
-
+//Incluye la vista de estadios.
 require_once "./view/EstadiosView.php";
 
 class TareasController

@@ -22,6 +22,12 @@ class EstadiosView
       echo '</tr>';
     }
     echo '</tr></table>';
+
+    echo '<form action="agregarEstadio" method="post">
+    <input type="text" name="nombre" value="">
+    <input type="number" name="capacidad" value="">
+    <button type="submit" name="button">Enviar</button>
+    </form>';
   }
 
 }

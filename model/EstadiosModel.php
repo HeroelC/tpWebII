@@ -5,7 +5,6 @@ class EstadiosModel
 
   //Atributos
   private $db;
-  private $EstadiosController;
 
   function __construct()
   {
@@ -29,7 +28,7 @@ class EstadiosModel
     }
 
 //Insertamos un estadio
-    function Insert($estadio){
+    function insert($estadio){
 
       $sentencia = $this->db->prepare("INSERT INTO estadio(nombre, capacidad) VALUES(?,?)");
       $sentencia->execute(array($estadio[0], $estadio[1]));

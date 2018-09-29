@@ -1,11 +1,15 @@
-#Tabla EstadiosModel
+#EstadiosModel
 
 Se puede mostrar, eliminar y agregar estadios.
 
-#Tabla RecitalesModel
+#RecitalesModel
 
 Se puede mostrar, agregar y eliminar.
 Añadido formulario para cargar recitales.
+Añadida restriccion para que tenga que setear todo los parametros para agregar el recital.
+
+#UsuarioModel
+
 
 #Necesario:
 

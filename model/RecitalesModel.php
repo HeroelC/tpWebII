@@ -34,7 +34,7 @@ class RecitalesModel
     }
 
   //Funcion para añadir un recital
-  function Insert($Recital){
+  function insert($Recital){
 
     $sentencia = $this->db->prepare("INSERT INTO recital(nombre, precio, estadio_id) VALUES(?,?,?)");
     $sentencia->execute(array($Recital[0], $Recital[1], $Recital[2]));

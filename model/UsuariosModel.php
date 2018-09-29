@@ -1,6 +1,6 @@
 <?php
 
-class UsuarioController
+class UsuariosModel
 {
 
   function __construct()
@@ -8,6 +8,10 @@ class UsuarioController
     // code...
   }
 
+  function insert(){
+
+
+  }
 
 }
 

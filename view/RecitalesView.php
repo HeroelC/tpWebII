@@ -26,7 +26,7 @@ class RecitalesView
 
     }
 
-    echo '<img src="img/album1.jpg">';
+    //echo '<img src="img/album1.jpg">';
 
     echo '<form action="agregarRecital" method="post">
     <input type="text" name="nombre" value="">

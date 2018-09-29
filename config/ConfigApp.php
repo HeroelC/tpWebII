@@ -10,7 +10,7 @@ class ConfigApp
       'music'=> 'TareasController#Music',
       'tour'=> 'TareasController#Tour',
       'eliminarEstadio' => 'EstadiosController#EliminarEstadio',
-      'agregarEstadio' => 'EstadiosController#AgregarEstadio',
+      'agregarEstadio' => 'EstadiosController#agregarEstadio',
       'mostrarRecitales' => 'RecitalesController#MostrarRecitales',
       'eliminarRecital' => 'RecitalesController#EliminarRecital',
       'agregarRecital' => 'RecitalesController#AgregarRecital'
