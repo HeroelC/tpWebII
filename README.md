@@ -1,6 +1,7 @@
 #EstadiosModel
 
-Se puede obtener, eliminar y agregar estadios.
+Se puede obtener (get), eliminar (delete) y agregar (insert) estadios.
+Se puede obtener un estadio por ID. (getId).
 
 #EstadiosController
 
@@ -13,7 +14,7 @@ Añadido formulario para cargar estadios.
 #RecitalesModel
 
 Se puede obtener (get), agregar (insert) y eliminar (delete).
-Se puede obtener un estadio por ID. (getId).
+Se puede obtener un recital por ID. (getId).
 
 #RecitalesController
 

@@ -31,7 +31,7 @@ class EstadiosModel
   function getId($idEstadio){
 
     $sentencia = $this->db->prepare( "SELECT * FROM estadio WHERE id_estadio=?");
-    $sentencia->execute(array($idEstadio));
+    $sentencia->execute(array($idEstadio[0]));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 

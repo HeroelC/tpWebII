@@ -18,10 +18,18 @@ class UsuariosModel
   }
 
 //Obtener los usuarios
-  function get(){
+  function getAll(){
 
     $sentencia = $this->db->prepare( "SELECT * FROM usuario");
     $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+//Obtener usuario mediante ID
+  function getId($idUsuario){
+
+    $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE id_usuario=?");
+    $sentencia->execute(array($idUsuario[0]));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 

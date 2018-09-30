@@ -42,7 +42,7 @@ class EstadiosController
 
   function editarEstadio($idEstadio){
     $Estadio = $this->EstadiosModel->getId($idEstadio);
-    $this->view->Home($Estadio);
+    $this->EstadiosView->mostrar($Estadio);
   }
 }
 

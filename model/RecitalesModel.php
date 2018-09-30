@@ -26,6 +26,14 @@ class RecitalesModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+  //Obtener recitales mediante id
+  function getId($idRecital){
+
+      $sentencia = $this->db->prepare( "SELECT * FROM recital WHERE id_recital=?");
+      $sentencia->execute(array($idRecital));
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
  //Funcion para eliminar recitales
   function delete($idRecital){
 
