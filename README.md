@@ -28,6 +28,10 @@ Añadido formulario para cargar recitales.
 
 Se pueden obtener los usuarios
 
+#Smarty
+
+Añadidas las librerias de smarty
+
 #Necesario:
 
 Usuario: Añadir funcionalidad a usuarios
