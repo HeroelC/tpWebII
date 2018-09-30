@@ -19,13 +19,21 @@ class EstadiosModel
     , 'root', '');
   }
 
-//Traemos los estadios
-  function Get(){
+//Obtenemos todo los estadios
+  function getAll(){
 
-        $sentencia = $this->db->prepare( "SELECT * FROM estadio");
-        $sentencia->execute();
-        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      $sentencia = $this->db->prepare( "SELECT * FROM estadio");
+      $sentencia->execute();
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
+
+//Obtener un estadio en especifico por id
+  function getId($idEstadio){
+
+    $sentencia = $this->db->prepare( "SELECT * FROM estadio WHERE id_estadio=?");
+    $sentencia->execute(array($idEstadio));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 
 //Insertamos un estadio
     function insert($nombre, $capacidad){

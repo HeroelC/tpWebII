@@ -12,7 +12,8 @@ Añadido formulario para cargar estadios.
 
 #RecitalesModel
 
-Se puede obtener, agregar y eliminar.
+Se puede obtener (get), agregar (insert) y eliminar (delete).
+Se puede obtener un estadio por ID. (getId).
 
 #RecitalesController
 

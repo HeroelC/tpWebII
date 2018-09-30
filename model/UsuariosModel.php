@@ -20,16 +20,16 @@ class UsuariosModel
 //Obtener los usuarios
   function get(){
 
-    $sentencia = $this->db->prepare( "select * from usuario");
+    $sentencia = $this->db->prepare( "SELECT * FROM usuario");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
 //Agregar usuario
-  function insert($nombre, $pass){
+  function insert($nombre, $clave, $email){
 
-      $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, clave, email) VALUES(?,?)");
-      $sentencia->execute(array($nombre, $pass));
+      $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, clave, email) VALUES(?,?,?)");
+      $sentencia->execute(array($nombre, $clave, $email));
     }
 
 

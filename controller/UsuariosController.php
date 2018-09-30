@@ -34,8 +34,14 @@ class UsuariosController
   function Home(){
 
   //Todo esto no va acá solo es para probar
-    $Estadios = $this->EstadiosModel->Get();
+    $Estadios = $this->EstadiosModel->getAll();
     $this->EstadiosView->Mostrar($Estadios);
+
+    echo '<h1>Probando GET ID</h1>';
+
+    $Estadio = $this->EstadiosModel->getId(21);
+    $this->EstadiosView->mostrar($Estadio);
+
 
     $Recitales = $this->RecitalesModel->get();
     $this->RecitalesView->Mostrar($Recitales);

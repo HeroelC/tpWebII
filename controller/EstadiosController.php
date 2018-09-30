@@ -28,6 +28,7 @@ class EstadiosController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
+//¿Por que si no estan seteados los parametros me deja cargarlos igual?
   function agregarEstadio(){
 
     if((isset($_POST['nombre'])) && (isset($_POST['capacidad']))){
@@ -37,9 +38,11 @@ class EstadiosController
       $this->EstadiosModel->insert($nombre, $capacidad);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
     }
-
   }
 
+  function editarEstadio($idEstadio){
+    $Estadio = $this->EstadiosModel->get();
+  }
 }
 
  ?>
