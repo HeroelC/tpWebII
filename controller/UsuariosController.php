@@ -1,50 +1,32 @@
 <?php
 
-//Se incluye el model estadio
-require_once "./model/EstadiosModel.php";
-//Se incluye el model de Recitales.
-require_once "./model/RecitalesModel.php";
-//Incluye la vista de recitales.
-require_once "./view/RecitalesView.php";
-//Incluye la vista de estadios.
-require_once "./view/EstadiosView.php";
+require_once "./controller/EstadiosController.php";
+require_once "./controller/RecitalesController.php";
 
 class UsuariosController
 {
   //Atributos
-  private $RecitalesView;
-  private $RecitalesModel;
-  private $EstadiosView;
-  private $EstadiosModel;
+
+  private $EstadiosController;
+  private $RecitalesController;
 
   function __construct()
   {
 
-      //Creamos una instancia de la vistas de recitales
-      $this->RecitalesView = new RecitalesView();
-      //Creamos una instancia de la vista de estadios
-      $this->EstadiosView = new EstadiosView();
-      //Creamos una instancia del modelo recital
-      $this->RecitalesModel = new RecitalesModel();
-      //Creamos una instancia del modelo de estadio
-      $this->EstadiosModel = new EstadiosModel();
+      $this->EstadiosController = new EstadiosController;
+      $this->RecitalesController = new RecitalesController;
   }
 
 //Esto no es home, es el mostrar tabla de estadios
   function Home(){
 
-  //Todo esto no va acá solo es para probar
-    $Estadios = $this->EstadiosModel->getAll();
-    $this->EstadiosView->Mostrar($Estadios);
+    $this->EstadiosController->mostrarEstadios();
+    $this->RecitalesController->mostrarRecitales();
 
     echo '<h1>Probando GET ID</h1>';
 
-    $Estadio = $this->EstadiosModel->getId(21);
-    $this->EstadiosView->mostrar($Estadio);
-
-
-    $Recitales = $this->RecitalesModel->get();
-    $this->RecitalesView->Mostrar($Recitales);
+    // $Estadio = $this->EstadiosModel->getId(21);
+    // $this->EstadiosView->mostrar($Estadio);
 
   }
 

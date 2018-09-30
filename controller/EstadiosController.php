@@ -18,8 +18,8 @@ class EstadiosController
 
   function mostrarEstadios(){
 
-   $Estadios = $this->EstadiosModel->get();
-   $this->view->Home($Estadios);
+   $Estadios = $this->EstadiosModel->getAll();
+   $this->EstadiosView->mostrar($Estadios);
   }
 
   function eliminarEstadio($idEstadio){
@@ -41,7 +41,8 @@ class EstadiosController
   }
 
   function editarEstadio($idEstadio){
-    $Estadio = $this->EstadiosModel->get();
+    $Estadio = $this->EstadiosModel->getId($idEstadio);
+    $this->view->Home($Estadio);
   }
 }
 

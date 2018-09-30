@@ -19,7 +19,7 @@ class RecitalesModel
   }
 
   //Funcion para obtener los recitales
-  function get(){
+  function getAll(){
 
       $sentencia = $this->db->prepare( "SELECT * FROM recital");
       $sentencia->execute();

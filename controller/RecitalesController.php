@@ -1,7 +1,7 @@
 <?php
 
-require_once "./view/EstadiosView.php";
-require_once "./model/EstadiosModel.php";
+require_once "./view/RecitalesView.php";
+require_once "./model/RecitalesModel.php";
 
 class RecitalesController
 {
@@ -19,8 +19,8 @@ class RecitalesController
 
   function mostrarRecitales(){
 
-    $Recitales = $this->RecitalesModel->get();
-    $this->view->mostrarRecitales($Recitales);
+    $Recitales = $this->RecitalesModel->getAll();
+    $this->RecitalesView->mostrar($Recitales);
   }
 
 //¿Y si no esta seteado?
@@ -33,10 +33,10 @@ class RecitalesController
 //Faltaria agregar el error si no carga todo los datos
   function agregarRecital(){
 
-    if((isset($_POST["nombre"])) && (isset($_POST["precio"])) &&(isset($_POST["id_estadio"]))){
-      $nombre = $_POST["nombre"];
-      $precio = $_POST["precio"];
-      $id_Estadio = $_POST["id_estadio"];
+    if((isset($_POST['nombre'])) && (isset($_POST['precio'])) &&(isset($_POST['id_estadio']))){
+      $nombre = $_POST['nombre'];
+      $precio = $_POST['precio'];
+      $id_Estadio = $_POST['id_estadio'];
 
       $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));

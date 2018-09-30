@@ -4,7 +4,7 @@ Se puede obtener, eliminar y agregar estadios.
 
 #EstadiosController
 
-Añadida restriccion para cargar estadios.
+Añadida restriccion para cargar estadios. (Preguntar en clase porque si no esta seteado deja mandarlo igual)
 
 #EstadiosView
 

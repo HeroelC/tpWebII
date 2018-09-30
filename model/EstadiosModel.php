@@ -50,6 +50,10 @@ class EstadiosModel
       $sentencia->execute(array($idEstadio[0]));
     }
 
+    function edit($idEstadio){
+
+    }
+
 
 
 }
