@@ -33,6 +33,8 @@ class UsuariosModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+//Obtener usuario
+
 //Agregar usuario
   function insert($nombre, $clave, $email){
 

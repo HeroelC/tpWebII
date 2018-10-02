@@ -17,21 +17,21 @@ class RecitalesController
     $this->RecitalesModel = new RecitalesModel();
   }
 
-  function mostrarRecitales(){
+  function mostrar(){
 
     $Recitales = $this->RecitalesModel->getAll();
     $this->RecitalesView->mostrar($Recitales);
   }
 
 //¿Y si no esta seteado?
-  function eliminarRecital($idRecital){
+  function eliminar($idRecital){
 
     $this->RecitalesModel->delete($idRecital);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
 //Faltaria agregar el error si no carga todo los datos
-  function agregarRecital(){
+  function agregar(){
 
     if((isset($_POST['nombre'])) && (isset($_POST['precio'])) &&(isset($_POST['id_estadio']))){
       $nombre = $_POST['nombre'];

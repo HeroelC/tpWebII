@@ -55,7 +55,7 @@
       </div>
       <div class = 'noticia col-lg-3 col-md-3 col-sm-3 col-xs-3'>
         <a href="http://www.rollingstones.com/2018/03/29/exhibitionism-opens-in-nashville-today/">
-          <img width="90%" src="img/news1.jpg" alt="Image News"><h3>EXHIBITIONISM OPENS IN NASHVILLE TODAY</h3></a>
+          <img width="90%" src="img/news1.jpg" alt="Image News"><h3>EXHIBITIONISM OPENS</h3></a>
       </div>
       <div class = 'noticia col-lg-3 col-md-3 col-sm-3 col-xs-3'>
         <a href="http://www.rollingstones.com/2018/03/23/dublin-on-general-sale-now/">
@@ -75,7 +75,7 @@
       </div>
       <div class="noticia col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <a href="http://www.rollingstones.com/2018/03/15/southampton-coventry-on-general-sale-now/">
-          <img width="90%" src="img/news6.jpg" alt="Image News 6"><h3>SOUTHAMPTON & COVENTRY ON GENERAL SALE NOW</h3></a>
+          <img width="90%" src="img/news6.jpg" alt="Image News 6"><h3>SOUTHAMPTON & COVENTRY</h3></a>
       </div>
       <div class = 'noticia col-lg-3 col-md-3 col-sm-3 col-xs-3'>
         <a href="http://www.rollingstones.com/2018/03/09/prague-general-sale-now-on/">

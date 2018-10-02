@@ -16,6 +16,7 @@ class UsuariosController
   private $UsuariosView;
   private $UsuariosModel;
 
+  private $EstadiosModel;
   function __construct()
   {
 
@@ -24,20 +25,9 @@ class UsuariosController
 
       $this->UsuariosView = new UsuariosView;
       $this->UsuariosModel = new UsuariosModel;
-  }
 
-//Esto no es home, es el mostrar tabla de estadios, esto cuando se termine se va
-  function Home(){
-    $this->UsuariosView->mostrar();
-
-    $this->EstadiosController->mostrarEstadios();
-    $this->RecitalesController->mostrarRecitales();
-
-    echo '<h1>Probando GET ID</h1>';
-
-    // $Estadio = $this->EstadiosModel->getId(21);
-    // $this->EstadiosView->mostrar($Estadio);
-
+      $this->EstadiosModel = new EstadiosModel;
+      $this->RecitalesModel = new RecitalesModel;
   }
 
   function signUp(){
@@ -45,20 +35,37 @@ class UsuariosController
     $this->UsuariosView->signUp();
   }
 
-  function agregarUsuario(){
+  function login(){
+
+    $this->UsuariosView->login();
+  }
+
+  function tour(){
+
+    $Estadios = $this->EstadiosModel->getAll();
+    $Recitales = $this->RecitalesModel->getAll();
+
+    $this->UsuariosView->tour($Estadios, $Recitales);
+
+  }
+
+  function agregar(){
 
     if(isset($_POST['nombre'])){
+       $length = strlen($_POST['nombre']);
+      if ($length > 0) {
 
-      $nombre = $_POST['nombre'];
-      $clave = $_POST['clave'];
-      $email = $_POST['email'];
+        $nombre = $_POST['nombre'];
+        $clave = $_POST['clave'];
+        $email = $_POST['email'];
 
-      $this->UsuariosModel->insert($nombre, $clave, $email);
-    }
+        $this->UsuariosModel->insert($nombre, $clave, $email);
+        header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      }
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
 }
 
- ?>
+}
+?>

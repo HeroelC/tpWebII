@@ -1,5 +1,6 @@
 <?php
 
+require_once "./libs/Smarty.class.php";
 
 class RecitalesView
 {
@@ -12,29 +13,11 @@ class RecitalesView
 
   function Mostrar($Recitales){
 
-    echo '<h1>Recitales</h1>';
+    $smarty = new Smarty();
 
-    echo '<table><tr>';
+    $smarty->assign('Recitales', $Recitales);
 
-    echo '<td>ID</td><td>Nombre</td><td>Precio</td><td>ID_Estadio</td>';
-
-    foreach($Recitales as $recital){
-      echo '<tr>';
-      echo '<td>'.$recital['id_recital'].'</td> <td>'.$recital['nombre'].'</td> <td>'.$recital['precio'].'</td> <td>'.$recital['estadio_id'].
-      '<a href=eliminarRecital/'.$recital['id_recital'].'>Borrar</a></td>';
-      echo '</tr>';
-
-
-    }
-
-    //echo '<img src="img/album1.jpg">';
-
-    echo '<form action="agregarRecital" method="post">
-    <input type="text" name="nombre" value="">
-    <input type="number" name="precio" value="">
-    <input type="number" name="id_estadio" value="">
-    <button type="submit" name="button">Enviar</button>
-    </form>';
+    $smarty->display('./templates/recitales.tpl');
   }
 
 }

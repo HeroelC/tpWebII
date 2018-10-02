@@ -1,5 +1,7 @@
 <?php
 
+require_once "./libs/Smarty.class.php";
+
 class EstadiosView
 {
 
@@ -10,25 +12,12 @@ class EstadiosView
 
   function Mostrar($Estadios){
 
-    echo '<h1>Estadios</h1>';
-    echo '<table><tr>';
+    $smarty = new Smarty();
 
-    echo '<td>ID</td><td>Nombre</td><td>Capacidad</td>';
+    $smarty->assign('Estadios', $Estadios);
 
-    foreach ($Estadios as $estadio) {
+    $smarty->display('./templates/estadios.tpl');
 
-      echo '<tr>';
-      echo '<td>'.$estadio['id_estadio'].'</td><td>'.$estadio['nombre'].'</td><td>'.$estadio['capacidad'].'
-      <a href=eliminarEstadio/'.$estadio['id_estadio'].'>Borrar</a></td>';
-      echo '</tr>';
-    }
-    echo '</tr></table>';
-
-    echo '<form action="agregarEstadio" method="post">
-    <input type="text" name="nombre" value="">
-    <input type="number" name="capacidad" value="">
-    <button type="submit" name="button">Enviar</button>
-    </form>';
   }
 
 }

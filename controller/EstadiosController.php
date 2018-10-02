@@ -16,20 +16,20 @@ class EstadiosController
     $this->EstadiosView = new EstadiosView;
   }
 
-  function mostrarEstadios(){
+  function mostrar(){
 
    $Estadios = $this->EstadiosModel->getAll();
    $this->EstadiosView->mostrar($Estadios);
   }
 
-  function eliminarEstadio($idEstadio){
+  function eliminar($idEstadio){
 
     $this->EstadiosModel->Delete($idEstadio);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
 //¿Por que si no estan seteados los parametros me deja cargarlos igual?
-  function agregarEstadio(){
+  function agregar(){
 
     if((isset($_POST['nombre'])) && (isset($_POST['capacidad']))){
       $nombre = $_POST['nombre'];
@@ -40,7 +40,7 @@ class EstadiosController
     }
   }
 
-  function editarEstadio($idEstadio){
+  function editar($idEstadio){
     $Estadio = $this->EstadiosModel->getId($idEstadio);
     $this->EstadiosView->mostrar($Estadio);
   }

@@ -14,6 +14,7 @@ h3, p, .datosBanda{
 }
 .mainNav, .bordeArribaNews h1, .bordeAbajoNews h2, .bordeAbajoMusic h2, .bordeArribaMusic h1, .lista li a, .datosBanda h1{
   font-family: 'Fjalla One', sans-serif;
+  font-size: 2em;
 }
 .mainNav .navbar-brand {
   font-size: 30px;
@@ -67,8 +68,9 @@ h3, p, .datosBanda{
   border-top-right-radius: 15px;
 }
 .bordeArribaNews h1, .bordeAbajoNews h2, .bordeAbajoMusic h2, .bordeArribaMusic h1{
+  padding: 1%;
   color: white;
-  margin-left: 20px;
+  margin-left: 2%;
 }
 .bordeAbajoNews a, .bordeAbajoMusic a{
   text-decoration: none;
@@ -170,7 +172,9 @@ header.masthead {/*ya esta*/
     font-size: 12px;
   }
   .bordeArribaNews h1, .bordeArribaMusic h1{
-    font-size: 25px;
+    margin-top: 20%;
+    padding: 2%;
+    font-size: 2em;
   }
   .bordeAbajoNews h2, .bordeAbajoMusic h2{
     display: none;
