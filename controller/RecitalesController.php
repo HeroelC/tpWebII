@@ -1,5 +1,7 @@
 <?php
 
+//define('TOUR' , header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour"));
+
 require_once "./view/RecitalesView.php";
 require_once "./model/RecitalesModel.php";
 
@@ -27,7 +29,7 @@ class RecitalesController
   function eliminar($idRecital){
 
     $this->RecitalesModel->delete($idRecital);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
   }
 
 //Faltaria agregar el error si no carga todo los datos
@@ -39,7 +41,7 @@ class RecitalesController
       $id_Estadio = $_POST['id_estadio'];
 
       $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
     }
 
   }

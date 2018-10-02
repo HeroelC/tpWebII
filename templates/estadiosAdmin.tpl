@@ -11,19 +11,25 @@
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Capacidad</th>
+                  <th scope="col">Capacity</th>
                 </tr>
               </thead>
               <tbody id="tablaTour">
                 {foreach from=$Estadios item=estadio}
 
                 <tr>
-                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td>
+                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}<a href=eliminarEstadio/{$estadio['id_estadio']}>Borrar</a></td>
                 </tr>
 
                 {/foreach}
               </tbody>
             </table>
+
+            <form action="agregarEstadio" method="post">
+                <input type="text" placeholder="name" name="nombre" value="">
+                <input type="number" placeholder="capacity" name="capacidad" value="">
+                <button type="submit" class="btn-danger" name="button">Cargar</button>
+            </form>
 
           </div>
         </div>

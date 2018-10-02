@@ -6,7 +6,7 @@
   <div class="row articulo">
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
       <div class="bordeArribaNews">
-        <h1>Login</h1>
+        <h1>LOGIN</h1>
       </div>
 
       <form action="agregarUsuario" method="post">

@@ -2,8 +2,8 @@
 
 {include file="nav.tpl"}
 
-{include file="estadios.tpl"}
+{include file="estadiosAdmin.tpl"}
 
-{include file="recitales.tpl"}
+{include file="recitalesAdmin.tpl"}
 
 {include file="footer.tpl"}

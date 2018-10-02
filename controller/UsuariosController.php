@@ -9,19 +9,14 @@ require_once "./model/UsuariosModel.php";
 class UsuariosController
 {
   //Atributos
-
-  private $EstadiosController;
-  private $RecitalesController;
-
   private $UsuariosView;
   private $UsuariosModel;
 
   private $EstadiosModel;
+  private $RecitalesModel;
+  
   function __construct()
   {
-
-      $this->EstadiosController = new EstadiosController;
-      $this->RecitalesController = new RecitalesController;
 
       $this->UsuariosView = new UsuariosView;
       $this->UsuariosModel = new UsuariosModel;
