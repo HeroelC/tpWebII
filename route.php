@@ -35,7 +35,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new UsuariosController();
+      $controller =  new NavegacionController();
       echo $controller->Home();
     }
 }

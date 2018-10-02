@@ -39,8 +39,6 @@ class UsuariosModel
       $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, clave, email) VALUES(?,?,?)");
       $sentencia->execute(array($nombre, $clave, $email));
     }
-
-
 }
 
 

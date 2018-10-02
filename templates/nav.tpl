@@ -29,15 +29,15 @@
 </nav>
 
 <!-- Page Header -->
-<header class="masthead">   <!-- Imagén de fondo del nav -->
+  <header class="masthead">   <!-- Imagén de fondo del nav -->
 <div class="container">
-   <div class="overlay">
+           <div class="overlay">
+          </div>
+            <div class="row">
+              <div class="col-lg-8 col-md-10">
+                <div class="site-heading">
+                 </div>
+              </div>
+            </div>
   </div>
-    <div class="row">
-      <div class="col-lg-8 col-md-10">
-        <div class="site-heading">
-         </div>
-      </div>
-    </div>
-   </div>
-  </header>
+</header>

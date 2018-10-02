@@ -28,9 +28,19 @@ Añadido formulario para cargar recitales.
 
 Se pueden obtener los usuarios
 
+Se puede añadir usuarios
+
+#UsuariosView
+
+Añadido formulario para agregar usuarios
+
 #Smarty
 
 Añadidas las librerias de smarty
+
+Añadidas vistas para Home, Music, Band, SignUp
+
+
 
 #Necesario:
 

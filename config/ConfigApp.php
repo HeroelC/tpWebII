@@ -10,12 +10,14 @@ class ConfigApp
       'band' => 'NavegacionController#Band',
       'music'=> 'NavegacionController#Music',
       'tour'=> 'TareasController#Tour',
+      'signUp' => 'UsuariosController#SignUp',
       'eliminarEstadio' => 'EstadiosController#EliminarEstadio',
       'agregarEstadio' => 'EstadiosController#agregarEstadio',
       'editarEstadio' => 'EstadiosController#editarEstadio',
       'mostrarRecitales' => 'RecitalesController#MostrarRecitales',
       'eliminarRecital' => 'RecitalesController#EliminarRecital',
-      'agregarRecital' => 'RecitalesController#AgregarRecital'
+      'agregarRecital' => 'RecitalesController#AgregarRecital',
+      'agregarUsuario' => 'UsuariosController#AgregarUsuario'
     ];
 
 }
