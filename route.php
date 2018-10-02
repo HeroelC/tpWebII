@@ -2,12 +2,10 @@
 
 //Incluimos el archivo de configuracion
 require_once "config/ConfigApp.php";
-//Incluimos el controlador de estadios.
 require_once "controller/EstadiosController.php";
-//Incluimos el controlador de recitales.
 require_once "controller/RecitalesController.php";
-//Incluimos el controlador de usuarios.
 require_once "controller/UsuariosController.php";
+require_once "controller/NavegacionController.php";
 
 function parseURL($url)
 {
