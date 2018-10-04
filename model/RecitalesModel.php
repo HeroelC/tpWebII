@@ -18,6 +18,7 @@ class RecitalesModel
     , 'root', '');
   }
 
+
   //Funcion para obtener los recitales
   function getAll(){
 
@@ -27,7 +28,7 @@ class RecitalesModel
     }
 
   //Obtener recitales mediante id
-  function getId($idRecital){
+  function getById($idRecital){
 
       $sentencia = $this->db->prepare( "SELECT * FROM recital WHERE id_recital=?");
       $sentencia->execute(array($idRecital));

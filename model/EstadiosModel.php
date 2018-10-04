@@ -27,8 +27,8 @@ class EstadiosModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-//Obtener un estadio en especifico por id
-  function getId($idEstadio){
+//Obtener un estadio en especifico por id getById()
+  function getById($idEstadio){
 
     $sentencia = $this->db->prepare( "SELECT * FROM estadio WHERE id_estadio=?");
     $sentencia->execute(array($idEstadio[0]));

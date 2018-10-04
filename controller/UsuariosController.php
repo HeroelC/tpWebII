@@ -1,8 +1,5 @@
 <?php
 
-require_once "./controller/EstadiosController.php";
-require_once "./controller/RecitalesController.php";
-
 require_once "./view/UsuariosView.php";
 require_once "./model/UsuariosModel.php";
 
@@ -12,17 +9,11 @@ class UsuariosController
   private $UsuariosView;
   private $UsuariosModel;
 
-  private $EstadiosModel;
-  private $RecitalesModel;
-  
   function __construct()
   {
 
       $this->UsuariosView = new UsuariosView;
       $this->UsuariosModel = new UsuariosModel;
-
-      $this->EstadiosModel = new EstadiosModel;
-      $this->RecitalesModel = new RecitalesModel;
   }
 
   function signUp(){
@@ -35,14 +26,6 @@ class UsuariosController
     $this->UsuariosView->login();
   }
 
-  function tour(){
-
-    $Estadios = $this->EstadiosModel->getAll();
-    $Recitales = $this->RecitalesModel->getAll();
-
-    $this->UsuariosView->tour($Estadios, $Recitales);
-
-  }
 
   function agregar(){
 

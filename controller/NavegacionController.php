@@ -2,7 +2,6 @@
 
 require_once "./view/NavegacionView.php";
 
-
 class NavegacionController
 {
 
@@ -10,7 +9,7 @@ class NavegacionController
 
   function __construct()
   {
-    
+
     $this->NavegacionView = new NavegacionView;
   }
 
