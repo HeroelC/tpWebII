@@ -12,13 +12,14 @@
                   <th scope="col">ID</th>
                   <th scope="col">Name</th>
                   <th scope="col">Capacity</th>
+                  <th scope="col">Panel</th>
                 </tr>
               </thead>
               <tbody id="tablaTour">
                 {foreach from=$Estadios item=estadio}
 
                 <tr>
-                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}<a href=eliminarEstadio/{$estadio['id_estadio']}>Borrar</a></td>
+                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td><td><a href=eliminarEstadio/{$estadio['id_estadio']}>Borrar</a></td>
                 </tr>
 
                 {/foreach}

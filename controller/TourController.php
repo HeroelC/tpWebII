@@ -1,28 +1,26 @@
 <?php
 
 require_once "./model/RecitalesModel.php";
-require_once "./view/RecitalesView.php";
-
 require_once "./model/EstadiosModel.php";
-require_once "./view/EstadiosView.php";
+
+require_once "./view/TourView.php";
 
 class TourController
 {
-  //Atributos
+  //Atributos model
   private $RecitalesModel;
-  private $RecitalesView;
-
   private $EstadiosModel;
-  private $EstadiosView;
+
+  //Atributos view
+  private $TourView;
 
   function __construct()
   {
 
     $this->RecitalesModel = new RecitalesModel();
-    $this->RecitalesView = new RecitalesView();
-
     $this->EstadiosModel = new EstadiosModel();
-    $this->EstadiosView = new EstadiosView();
+
+    $this->TourView = new TourView();
   }
 
 ##### Mostrar unión de las dos tablas ######
@@ -30,10 +28,11 @@ class TourController
   function Tour(){
 
     $recitales = $this->RecitalesModel->getAll();
-    $this->RecitalesView->mostrar($recitales);
-
+    $tabla = $this->RecitalesModel->getTable();
     $estadios = $this->EstadiosModel->getAll();
-    $this->EstadiosView->mostrar($estadios);
+
+    // $this->TourView->test($tabla);
+    $this->TourView->mostrarTablaAdmin($estadios, $recitales, $tabla);
   }
 
 ##### Funciones de los recitales #####
@@ -80,7 +79,7 @@ class TourController
   function editarEstadio($idEstadio){
 
     $Estadio = $this->EstadiosModel->getById($idEstadio);
-    $this->EstadiosView->mostrar($Estadio);
+    
   }
 
 }

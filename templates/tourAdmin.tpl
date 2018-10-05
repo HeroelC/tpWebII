@@ -6,4 +6,6 @@
 
 {include file="recitalesAdmin.tpl"}
 
+{include file="tablaCompleta.tpl"}
+
 {include file="footer.tpl"}

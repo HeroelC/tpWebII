@@ -35,6 +35,14 @@ class RecitalesModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+//Obtener tabla con sus respectivos estadios
+    function getTable(){
+
+      $setencia = $this->db->prepare("SELECT r.nombre as recital, r.precio, e.nombre as estadio, e.capacidad FROM recital r, estadio e WHERE r.estadio_id = e.id_estadio");
+      $setencia->execute();
+      return $setencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
  //Funcion para eliminar recitales
   function delete($idRecital){
 
