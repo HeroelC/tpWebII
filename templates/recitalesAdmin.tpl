@@ -12,7 +12,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">id_Stadium</th>
-                <th scope="col">Panel</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
 
@@ -20,7 +21,7 @@
               {foreach from=$Recitales item=recital}
 
                 <tr>
-                <td>{$recital['id_recital']}</td> <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td> <td>{$recital['estadio_id']}</td><td><a href=eliminarRecital/{$recital['id_recital']}>Borrar</a></td>
+                <td>{$recital['id_recital']}</td> <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td> <td>{$recital['estadio_id']}</td><td><a href="editarRecital/{$recital['id_recital']}">Editar</a></td><td><a href="eliminarRecital/{$recital['id_recital']}">Borrar</a></td>
                 </tr>
 
               {/foreach}
