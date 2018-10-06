@@ -81,6 +81,15 @@ class TourController
     $this->TourView->editarEstadio($Estadio);
   }
 
+  function actualizarEstadio($idEstadio){
+
+    $nombre = $_POST['nombre'];
+    $capacidad = $_POST['capacidad'];
+
+    $this->EstadiosModel->edit($nombre, $capacidad, $idEstadio[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+  }
+
 }
 
  ?>

@@ -14,7 +14,7 @@ Añadido formulario para cargar estadios.
 #RecitalesModel
 
 Se puede obtener (get), agregar (insert) y eliminar (delete).
-Se puede obtener un recital por ID. (getId).
+Se puede obtener un recital por ID. (getById).
 
 #RecitalesController
 
@@ -50,4 +50,4 @@ Recitales: Añadir editar
 
 Preguntar sobre como eliminar datos que poseean referencia en otra tabla.
 
-View: Generar los smartys.
+Revisar linea 10 de heder:  <base href="http://localhost/tpwebii/">

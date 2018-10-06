@@ -16,6 +16,7 @@ class ConfigApp
       'eliminarEstadio' => 'TourController#eliminarEstadio',
       'agregarEstadio' => 'TourController#agregarEstadio',
       'editarEstadio' => 'TourController#editarEstadio',
+      'actualizarEstadio' => 'TourController#actualizarEstadio',
       'mostrarRecitales' => 'TourController#mostrarRecitales',
       'eliminarRecital' => 'TourController#eliminarRecital',
       'agregarRecital' => 'TourController#agregarRecital',

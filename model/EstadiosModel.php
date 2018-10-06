@@ -50,15 +50,12 @@ class EstadiosModel
       $sentencia->execute(array($idEstadio[0]));
     }
 
-    function edit($idEstadio){
+    function edit($nombre, $capacidad, $idEstadio){
 
+      $sentencia = $this->db->prepare( "UPDATE estadio SET nombre = ?, capacidad = ? where id_estadio=?");
+      $sentencia->execute(array($nombre, $capacidad, $idEstadio));
     }
 
-
-
 }
-
-
-
 
  ?>
