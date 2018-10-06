@@ -19,7 +19,7 @@
 
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" name="clave" placeholder="Password">
+          <input type="password" class="form-control" name="clave" placeholder="Enter password">
         </div>
 
         <div class="form-group">
@@ -27,7 +27,7 @@
           <input type="email" class="form-control" name="email" placeholder="Enter email">
         </div>
 
-        <button type="submit" class="btn btn-danger">Submit</button>
+        <button type="submit" class="btn btn-danger">Sign in</button>
       </form>
     </div>
     <div class="bordeAbajoNews col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">

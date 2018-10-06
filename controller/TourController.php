@@ -31,30 +31,29 @@ class TourController
     $tabla = $this->RecitalesModel->getTable();
     $estadios = $this->EstadiosModel->getAll();
 
-    // $this->TourView->test($tabla);
     $this->TourView->mostrarTablaAdmin($estadios, $recitales, $tabla);
   }
 
 ##### Funciones de los recitales #####
 
-    //¿Y si no esta seteado?
+  //¿Y si no esta seteado?
   function eliminarRecital($idRecital){
 
         $this->RecitalesModel->delete($idRecital);
         header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
   }
 
-      //Faltaria agregar el error si no carga todo los datos
+  //Faltaria agregar el error si no carga todo los datos
   function agregarRecital(){
 
-          if((isset($_POST['nombre'])) && (isset($_POST['precio'])) &&(isset($_POST['id_estadio']))){
-            $nombre = $_POST['nombre'];
-            $precio = $_POST['precio'];
-            $id_Estadio = $_POST['id_estadio'];
+    if((isset($_POST['nombre'])) && (isset($_POST['precio'])) &&(isset($_POST['id_estadio']))){
+      $nombre = $_POST['nombre'];
+      $precio = $_POST['precio'];
+      $id_Estadio = $_POST['id_estadio'];
 
-            $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-            header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
-          }
+      $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+    }
   }
 
   ##### Funciones de los estadios #####
@@ -79,7 +78,7 @@ class TourController
   function editarEstadio($idEstadio){
 
     $Estadio = $this->EstadiosModel->getById($idEstadio);
-    
+    $this->TourView->editarEstadio($Estadio);
   }
 
 }

@@ -10,16 +10,6 @@ class TourView
 
   }
 
-  function test($Tabla){
-    print_r($Tabla);
-    echo 'Acá va una posicion del arreglo <br>';
-
-
-    foreach ($Tabla as $fila) {
-      echo $fila['recital'].' '.$fila['estadio'];
-    }
-  }
-
   function mostrarTablaAdmin($estadios, $recitales, $tabla){
 
     $smarty = new Smarty();
@@ -39,7 +29,15 @@ class TourView
     $smarty->assign('Estadios', $Estadios);
 
     $smarty->display('./templates/estadios.tpl');
+  }
 
+  function editarEstadio($Estadio){
+
+    $smarty = new Smarty();
+
+    $smarty->assign('Estadio', $Estadio);
+
+    $smarty->display('./templates/editarEstadio.tpl');
   }
 
   ###Recitales###
