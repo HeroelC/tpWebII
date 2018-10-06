@@ -10,6 +10,7 @@ class TourView
 
   }
 
+  ###Panel de administrador###
   function mostrarTablaAdmin($estadios, $recitales, $tabla){
 
     $smarty = new Smarty();
@@ -48,6 +49,16 @@ class TourView
     $smarty->assign('Recitales', $Recitales);
 
     $smarty->display('./templates/recitales.tpl');
+  }
+
+  function editarRecital($Recital, $Estadios){
+
+    $smarty = new Smarty();
+
+    $smarty->assign('Recital', $Recital);
+    $smarty->assign('Estadios', $Estadios);
+
+    $smarty->display('./templates/editarRecital.tpl');
   }
 
 }

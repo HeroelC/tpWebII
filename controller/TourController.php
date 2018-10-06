@@ -56,6 +56,24 @@ class TourController
     }
   }
 
+  function editarRecital($idRecital){
+
+    $Estadios = $this->EstadiosModel->getAll();
+    $Recital = $this->RecitalesModel->getById($idRecital);
+
+    $this->TourView->editarRecital($Recital, $Estadios);
+  }
+
+  function actualizarRecital($idRecital){
+
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $idEstadio = $_POST['estadio_id'];
+
+    $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+  }
+
   ##### Funciones de los estadios #####
 
   function agregarEstadio(){

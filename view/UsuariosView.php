@@ -4,7 +4,6 @@ require_once "./libs/smarty.class.php";
 class UsuariosView
 {
 
-
   function __construct()
   {
 
@@ -23,8 +22,6 @@ class UsuariosView
 
     $smarty->display('./templates/login.tpl');
   }
-
-
 
 }
  ?>

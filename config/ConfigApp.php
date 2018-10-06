@@ -20,6 +20,8 @@ class ConfigApp
       'mostrarRecitales' => 'TourController#mostrarRecitales',
       'eliminarRecital' => 'TourController#eliminarRecital',
       'agregarRecital' => 'TourController#agregarRecital',
+      'editarRecital' => 'TourController#editarRecital',
+      'actualizarRecital' => 'TourController#actualizarRecital',
       'agregarUsuario' => 'UsuariosController#agregar'
     ];
 

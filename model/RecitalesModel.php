@@ -8,16 +8,17 @@ class RecitalesModel
 
   function __construct()
   {
-    //Conectamos a la base de datos
+    //Conectamos a la base de datos cuando instanciamos
     $this->db = $this->Connect();
   }
 
+  //Conectarse a la base de datos mediante PDO (PHP DATA OBJECT)
   private function Connect(){
+
     return new PDO('mysql:host=localhost;'
     .'dbname=db_rolling;charset=utf8'
     , 'root', '');
   }
-
 
   //Funcion para obtener los recitales
   function getAll(){
@@ -31,7 +32,7 @@ class RecitalesModel
   function getById($idRecital){
 
       $sentencia = $this->db->prepare( "SELECT * FROM recital WHERE id_recital=?");
-      $sentencia->execute(array($idRecital));
+      $sentencia->execute(array($idRecital[0]));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -57,7 +58,12 @@ class RecitalesModel
     $sentencia->execute(array($nombre, $precio, $idEstadio));
   }
 
+  //funcion para editar un recital
+  function edit($nombre, $precio, $idEstadio, $idRecital){
 
+    $sentencia = $this->db->prepare("UPDATE recital SET nombre = ?, precio = ?, estadio_id = ? WHERE id_recital = ?");
+    $sentencia->execute(array($nombre, $precio, $idEstadio, $idRecital));
+  }
 
 }
 

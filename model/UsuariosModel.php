@@ -26,14 +26,12 @@ class UsuariosModel
   }
 
 //Obtener usuario mediante ID
-  function getId($idUsuario){
+  function getById($idUsuario){
 
     $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE id_usuario=?");
     $sentencia->execute(array($idUsuario[0]));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-
-//Obtener usuario
 
 //Agregar usuario
   function insert($nombre, $clave, $email){
