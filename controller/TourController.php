@@ -1,5 +1,8 @@
 <?php
 
+//Constantes
+define('TOUR', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/tour');
+
 require_once "./model/RecitalesModel.php";
 require_once "./model/EstadiosModel.php";
 
@@ -40,7 +43,7 @@ class TourController
   function eliminarRecital($idRecital){
 
         $this->RecitalesModel->delete($idRecital);
-        header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+        header("Location:".TOUR);
   }
 
   //Faltaria agregar el error si no carga todo los datos
@@ -52,7 +55,7 @@ class TourController
       $id_Estadio = $_POST['id_estadio'];
 
       $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+      header("Location:".TOUR);
     }
   }
 
@@ -71,7 +74,7 @@ class TourController
     $idEstadio = $_POST['estadio_id'];
 
     $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+    header("Location:".TOUR);
   }
 
   ##### Funciones de los estadios #####
@@ -83,14 +86,14 @@ class TourController
         $capacidad = $_POST['capacidad'];
 
         $this->EstadiosModel->insert($nombre, $capacidad);
-        header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+        header("Location:".TOUR);
       }
   }
 
   function eliminarEstadio($idEstadio){
 
     $this->EstadiosModel->Delete($idEstadio);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header("Location:".TOUR);
   }
 
   function editarEstadio($idEstadio){
@@ -105,7 +108,7 @@ class TourController
     $capacidad = $_POST['capacidad'];
 
     $this->EstadiosModel->edit($nombre, $capacidad, $idEstadio[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . "/tour");
+    header("Location:".TOUR);
   }
 
 }

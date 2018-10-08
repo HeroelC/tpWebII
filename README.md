@@ -10,14 +10,18 @@ Se puede obtener un recital por ID. (getById).
 
 #UsuarioModel
 
-Se pueden obtener los usuarios
+Se pueden obtener los usuarios (getAll)
 
-Se puede añadir usuarios (Faltaria verificar si el usuario existe o no y encriptar la contraseña)
+Se puede añadir usuarios (insert)
 
 #TourView
 
 Añadido formulario para cargar estadios.
 Añadido formulario para cargar recitales.
+
+#UsuariosController
+
+Se encriptan las contraseñas de los usuarios
 
 #UsuariosView
 

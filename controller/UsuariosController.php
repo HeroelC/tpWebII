@@ -1,5 +1,8 @@
 <?php
 
+//Constantes
+define('HOME', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+
 require_once "./view/UsuariosView.php";
 require_once "./model/UsuariosModel.php";
 
@@ -26,6 +29,24 @@ class UsuariosController
     $this->UsuariosView->login();
   }
 
+  function verificarLogin(){
+
+    if((isset($_POST['nombre'])) && (isset($_POST['clave']))){
+
+      $nombre = $_POST['nombre'];
+      $clave = $_POST['clave'];
+
+      //VERIFICAR SI LA PW ES IGUAL A LA QUE ESTA EN LA BASE DE DATOS
+       if(password_verify($clave, $hash)){
+
+       }else{
+          $this->login();
+       }
+    }else{
+
+    }
+
+  }
 
   function agregar(){
 
@@ -37,13 +58,13 @@ class UsuariosController
         $clave = $_POST['clave'];
         $email = $_POST['email'];
 
-        $this->UsuariosModel->insert($nombre, $clave, $email);
-        header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+        $hash = password_hash($clave, PASSWORD_DEFAULT);
+
+        $this->UsuariosModel->insert($nombre, $hash, $email);
+        header("Location:".HOME);
       }
-
+    }
   }
-
-}
 
 }
 ?>

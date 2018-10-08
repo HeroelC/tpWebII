@@ -39,6 +39,18 @@ class UsuariosModel
       $sentencia = $this->db->prepare("INSERT INTO usuario(nombre, clave, email) VALUES(?,?,?)");
       $sentencia->execute(array($nombre, $clave, $email));
     }
+
+  function getHash($nombre){
+
+  }
+
+  function getName($nombre){
+
+    $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE nombre=?");
+    $sentencia->execute(array($nombre));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
 }
 
 
