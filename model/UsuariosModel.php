@@ -42,6 +42,9 @@ class UsuariosModel
 
   function getHash($nombre){
 
+    $sentencia = $this->db->prepare("SELECT clave FROM usuario WHERE nombre=?");
+    $sentencia->execute(array($nombre));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function getName($nombre){

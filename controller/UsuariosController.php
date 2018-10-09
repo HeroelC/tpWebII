@@ -36,12 +36,15 @@ class UsuariosController
       $nombre = $_POST['nombre'];
       $clave = $_POST['clave'];
 
+      $hash = $this->UsuariosModel->getHash($nombre);
       //VERIFICAR SI LA PW ES IGUAL A LA QUE ESTA EN LA BASE DE DATOS
-       if(password_verify($clave, $hash)){
-
-       }else{
-          $this->login();
-       }
+         if(password_verify($clave, $hash[0]['clave'])){
+           echo 'Contraseña valida';
+           echo 'Password: '.$clave.' Hash: '.print_r($hash);
+         }else{
+            echo 'Contraseña invalida';
+            echo 'Password: '.$clave.' Hash: '.print_r($hash);
+         }
     }else{
 
     }
@@ -62,6 +65,7 @@ class UsuariosController
 
         $this->UsuariosModel->insert($nombre, $hash, $email);
         header("Location:".HOME);
+
       }
     }
   }

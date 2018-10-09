@@ -22,7 +22,8 @@ class ConfigApp
       'agregarRecital' => 'TourController#agregarRecital',
       'editarRecital' => 'TourController#editarRecital',
       'actualizarRecital' => 'TourController#actualizarRecital',
-      'agregarUsuario' => 'UsuariosController#agregar'
+      'agregarUsuario' => 'UsuariosController#agregar',
+      'verificarLogin' => 'UsuariosController#verificarLogin'
     ];
 
 }
