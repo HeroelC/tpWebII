@@ -18,8 +18,9 @@ class UsuariosView
     $this->smarty->display('./templates/signUp.tpl');
   }
 
-  function login(){
+  function login($message = ''){
 
+    $this->smarty->assign('message', $message);
     $this->smarty->display('./templates/login.tpl');
   }
 

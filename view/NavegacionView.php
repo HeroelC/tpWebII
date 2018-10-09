@@ -5,34 +5,27 @@ include_once "./libs/smarty.class.php";
 class NavegacionView
 {
 
+  private $smarty;
+
   function __construct()
   {
-
+    $this->smarty = new Smarty();
   }
 
   function Home(){
 
-    $smarty = new Smarty();
-
-    $smarty->display('templates/home.tpl');
+    $this->smarty->display('templates/home.tpl');
   }
 
   function Band(){
 
-    $smarty = new Smarty();
-
-    $smarty->display('templates/band.tpl');
+    $this->smarty->display('templates/band.tpl');
   }
 
   function Music(){
 
-    $smarty = new Smarty();
-
-    $smarty->display('templates/music.tpl');
+    $this->smarty->display('templates/music.tpl');
   }
-
-
-
 
 }
 

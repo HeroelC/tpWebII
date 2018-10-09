@@ -24,6 +24,7 @@ Se muestra la tabla con todo los recitales y estadios.
 #UsuariosController
 
 Se encriptan las contraseñas de los usuarios
+Se verifica que el usuario exista en la base de datos
 Se verifica la password ingresada con el hash de la base de datos
 
 #UsuariosView
@@ -45,6 +46,8 @@ Añadidas vistas para Home, Music, Band, Tour, SignUp, Login
 Tour: Faltan todo los filtros
 
 Login: Falta verificar si el nombre de usuario que se ingresa existe
+Preguntar porque cuando uso isset($dbNombre) me devuelve siempre true y un 1.
+Use != de null para verificar
 
 Registrarse: Falta verificar que no exista un usuario con el mismo nombre antes de Registrarse
 Verificar en front end que los campos no esten vacios, ¿contraseña mayor a 6 digitos? ¿se puede usar el mismo mail para dos usuarios distintos?

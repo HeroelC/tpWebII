@@ -31,28 +31,39 @@ class UsuariosController
 
   function verificarLogin(){
     //Me fijo que los valores esten seteados.
-    if((isset($_POST['nombre'])) && (isset($_POST['clave']))){
+    if((!empty($_POST['nombre'])) && (!empty($_POST['clave']))){
 
-      ####Acá debería verificar si el usuario existe en la base de datos####
-
-      //Si entre acá es porque estan seteados, los guardo.
       $nombre = $_POST['nombre'];
       $clave = $_POST['clave'];
 
-      $hash = $this->UsuariosModel->getHash($nombre);
+      ####Acá debería verificar si el usuario existe en la base de datos####
+      $dbNombre = $this->UsuariosModel->getName($nombre);
 
-      //Verificar si la password es la misma que el hash de la base de datos
-         if(password_verify($clave, $hash[0]['clave'])){
-           //Si es la misma debería loguearlo y mostrartele o tour o el home
-           echo 'Contraseña valida';
-           echo 'Password: '.$clave.' Hash: '.print_r($hash);
-         }else{
-           //Si no es la misma deberia volver al login y mostrarle algun error.
-            echo 'Contraseña invalida';
-            echo 'Password: '.$clave.' Hash: '.print_r($hash);
-         }
+      //echo '<h1> Contenido de $dbNombre: '.print_r($dbNombre).'</h1>';
+
+        if($dbNombre != null){
+
+            //Le pedimos el hash a la base de datos
+            $hash = $dbNombre[0]['clave'];
+
+            //Verificar si la password es la misma que el hash de la base de datos
+               if(password_verify($clave, $hash)){
+                 //Si es la misma debería loguearlo y mostrartele o tour o el home
+                 echo 'Contraseña valida';
+                 echo 'Password: '.$clave.' Hash: '.print_r($hash);
+               }else{
+                 //Si no es la misma deberia volver al login y mostrarle algun error.
+                  echo 'Contraseña invalida';
+                  echo 'Password: '.$clave.' Hash: '.print_r($hash);
+               }
+        }else{
+          //El usuario no existe
+          echo 'Usuario inexistente';
+        }
     }else{
+
       //Si los parametros no estan seteados le digo que todo los campos deben estar completados
+      $this->UsuariosView->login('Todo los campos deben estar llenos');
     }
 
   }

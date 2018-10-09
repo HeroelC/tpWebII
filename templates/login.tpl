@@ -20,7 +20,11 @@
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" name="clave" placeholder="Enter password">
         </div>
-
+        <div>
+          {if !empty($message) }
+            <div class="alert alert-danger" role="alert">{$message}</div>
+          {/if}
+        </div>
         <button type="submit" class="btn btn-danger">Login</button>
       </form>
     </div>
