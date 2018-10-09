@@ -4,23 +4,23 @@ require_once "./libs/smarty.class.php";
 class UsuariosView
 {
 
+  //Atributos
+  private $smarty;
+
   function __construct()
   {
 
+    $this->smarty = new Smarty();
   }
 
   function signUp(){
 
-    $smarty = new Smarty();
-
-    $smarty->display('./templates/signUp.tpl');
+    $this->smarty->display('./templates/signUp.tpl');
   }
 
   function login(){
 
-    $smarty = new Smarty();
-
-    $smarty->display('./templates/login.tpl');
+    $this->smarty->display('./templates/login.tpl');
   }
 
 }
