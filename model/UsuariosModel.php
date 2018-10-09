@@ -40,6 +40,7 @@ class UsuariosModel
       $sentencia->execute(array($nombre, $clave, $email));
     }
 
+  //Obtener hash de un usuario en especifico
   function getHash($nombre){
 
     $sentencia = $this->db->prepare("SELECT clave FROM usuario WHERE nombre=?");
@@ -47,6 +48,7 @@ class UsuariosModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  //Pedir nombre de usuario a la base de datos, si devuelve el usuario es que existe sino es nulo
   function getName($nombre){
 
     $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE nombre=?");

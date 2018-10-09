@@ -19,7 +19,7 @@ class EstadiosModel
     , 'root', '');
   }
 
-//Obtenemos todo los estadios
+//Obtenemos todo los estadios, funcionando.
   function getAll(){
 
       $sentencia = $this->db->prepare( "SELECT * FROM estadio");
@@ -35,7 +35,7 @@ class EstadiosModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-//Insertamos un estadio
+//Insertamos un estadio, probado funcionando
     function insert($nombre, $capacidad){
 
       $sentencia = $this->db->prepare("INSERT INTO estadio(nombre, capacidad) VALUES(?,?)");
@@ -50,6 +50,7 @@ class EstadiosModel
       $sentencia->execute(array($idEstadio[0]));
     }
 
+//Editar estadio, probada funcionando
     function edit($nombre, $capacidad, $idEstadio){
 
       $sentencia = $this->db->prepare( "UPDATE estadio SET nombre = ?, capacidad = ? where id_estadio=?");

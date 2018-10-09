@@ -20,7 +20,7 @@ class RecitalesModel
     , 'root', '');
   }
 
-  //Funcion para obtener los recitales
+  //Funcion para obtener todos los recitales, funcionando
   function getAll(){
 
       $sentencia = $this->db->prepare( "SELECT * FROM recital");

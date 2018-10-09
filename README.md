@@ -19,10 +19,12 @@ Se puede pedir un usuario en especifico (getName)
 
 Añadido formulario para cargar estadios.
 Añadido formulario para cargar recitales.
+Se muestra la tabla con todo los recitales y estadios.
 
 #UsuariosController
 
 Se encriptan las contraseñas de los usuarios
+Se verifica la password ingresada con el hash de la base de datos
 
 #UsuariosView
 
@@ -40,10 +42,17 @@ Añadidas vistas para Home, Music, Band, Tour, SignUp, Login
 
 #Necesario:
 
-Usuario: Añadir funcionalidad a usuarios
+Tour: Faltan todo los filtros
+
+Login: Falta verificar si el nombre de usuario que se ingresa existe
+
+Registrarse: Falta verificar que no exista un usuario con el mismo nombre antes de Registrarse
+Verificar en front end que los campos no esten vacios, ¿contraseña mayor a 6 digitos? ¿se puede usar el mismo mail para dos usuarios distintos?
 
 Preguntar sobre como eliminar datos que poseean referencia en otra tabla.
 
 Revisar linea 10 de heder:  <base href="http://localhost/tpwebii/">
 
 Centrar botoneras de los formularios de estadio, recital y editar.
+
+Smarty: Generar un panel para el usuario logueado
