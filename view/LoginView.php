@@ -1,24 +1,23 @@
 <?php
 require_once "./libs/smarty.class.php";
 
-class UsuariosView
+class LoginView
 {
-
+  //Atributos
   private $smarty;
-  
+
   function __construct()
   {
 
     $this->smarty = new Smarty();
   }
 
-  function signUp($message = ''){
+  function login($message = ''){
 
     $this->smarty->assign('message', $message);
-    $this->smarty->display('./templates/signUp.tpl');
+    $this->smarty->display('./templates/login.tpl');
   }
 
-
-
 }
+
  ?>

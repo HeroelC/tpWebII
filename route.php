@@ -5,6 +5,7 @@ require_once "config/ConfigApp.php";
 require_once "controller/TourController.php";
 require_once "controller/UsuariosController.php";
 require_once "controller/NavegacionController.php";
+require_once "controller/LoginController.php";
 
 function parseURL($url)
 {

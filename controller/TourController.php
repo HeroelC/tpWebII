@@ -8,7 +8,9 @@ require_once "./model/EstadiosModel.php";
 
 require_once "./view/TourView.php";
 
-class TourController
+require_once "SecuredController.php";
+
+class TourController extends SecuredController
 {
   //Atributos model
   private $RecitalesModel;
@@ -20,6 +22,7 @@ class TourController
   function __construct()
   {
 
+    parent::__construct();
     $this->RecitalesModel = new RecitalesModel();
     $this->EstadiosModel = new EstadiosModel();
 
