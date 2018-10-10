@@ -11,7 +11,6 @@ class ConfigApp
       'music'=> 'NavegacionController#Music',
       'tour'=> 'TourController#Tour',
       'signUp' => 'UsuariosController#SignUp',
-      'login' => 'LoginController#Login',
       'mostrarEstadio' => 'TourController#mostrarEstadio',
       'eliminarEstadio' => 'TourController#eliminarEstadio',
       'agregarEstadio' => 'TourController#agregarEstadio',
@@ -23,7 +22,9 @@ class ConfigApp
       'editarRecital' => 'TourController#editarRecital',
       'actualizarRecital' => 'TourController#actualizarRecital',
       'agregarUsuario' => 'UsuariosController#agregar',
-      'verificarLogin' => 'LoginController#verificarLogin'
+      'verificarLogin' => 'LoginController#verificarLogin',
+      'login' => 'LoginController#login',
+      'logout' => 'LoginController#logout'
     ];
 
 }
