@@ -26,7 +26,9 @@
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" name="email" placeholder="Enter email">
         </div>
-
+        {if !empty($message) }
+          <div class="alert alert-danger" role="alert">{$message}</div>
+        {/if}
         <button type="submit" class="btn btn-danger">Sign in</button>
       </form>
     </div>

@@ -43,7 +43,7 @@ class UsuariosController
 
         if($dbNombre != null){
 
-            //Le pedimos el hash a la base de datos
+            //Le pedimos el hash
             $hash = $dbNombre[0]['clave'];
 
             //Verificar si la password es la misma que el hash de la base de datos
@@ -53,26 +53,23 @@ class UsuariosController
                  echo 'Password: '.$clave.' Hash: '.print_r($hash);
                }else{
                  //Si no es la misma deberia volver al login y mostrarle algun error.
-                  echo 'Contraseña invalida';
-                  echo 'Password: '.$clave.' Hash: '.print_r($hash);
+                  $this->UsuariosView->login('Contraseña incorrecta');
                }
         }else{
           //El usuario no existe
-          echo 'Usuario inexistente';
+          $this->UsuariosView->login('Usuario inexistente');
         }
     }else{
-
       //Si los parametros no estan seteados le digo que todo los campos deben estar completados
-      $this->UsuariosView->login('Todo los campos deben estar llenos');
+      $this->UsuariosView->login('Todos los campos deben estar llenos');
     }
 
   }
 
   function agregar(){
 
-    if(isset($_POST['nombre'])){
-       $length = strlen($_POST['nombre']);
-      if ($length > 0) {
+    if((!empty($_POST['nombre']))&&(!empty($_POST['clave']))&&(!empty($_POST['email']))){
+       // $length = strlen($_POST['nombre']);
 
         //Guardo todo los parametros que me envian desde el formulario
         $nombre = $_POST['nombre'];
@@ -85,7 +82,8 @@ class UsuariosController
         //Le pido al modelo que me agregue al usuario
         $this->UsuariosModel->insert($nombre, $hash, $email);
         header("Location:".HOME);
-      }
+    }else{
+      $this->UsuariosView->signUp('Todos los campos deben estar llenos');
     }
   }
 
