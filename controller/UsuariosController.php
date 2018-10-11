@@ -26,21 +26,27 @@ class UsuariosController
 
   function agregar(){
 
+    //Si no estan vacios
     if((!empty($_POST['nombre']))&&(!empty($_POST['clave']))&&(!empty($_POST['email']))){
-       // $length = strlen($_POST['nombre']);
 
-        //Guardo todo los parametros que me envian desde el formulario
-        $nombre = $_POST['nombre'];
-        $clave = $_POST['clave'];
-        $email = $_POST['email'];
+       //Guardo todo los parametros que me envian desde el formulario
+       $nombre = $_POST['nombre'];
+       $clave = $_POST['clave'];
+       $email = $_POST['email'];
+       $dbNombre = $this->UsuariosModel->getName($nombre);
+       if(!isset($dbNombre)){
 
-        //Encripto la contraseña con bcrypt
-        $hash = password_hash($clave, PASSWORD_DEFAULT);
+          //Encripto la contraseña con bcrypt
+          $hash = password_hash($clave, PASSWORD_DEFAULT);
 
-        //Le pido al modelo que me agregue al usuario
-        $this->UsuariosModel->insert($nombre, $hash, $email);
-        header("Location:".HOME);
+          //Le pido al modelo que me agregue al usuario
+          $this->UsuariosModel->insert($nombre, $hash, $email);
+          header("Location:".HOME);
+       }else{
+         $this->UsuariosView->signUp('El usuario ya existe elige otro');
+       }
     }else{
+      //Si entro acá es porque algun campo no esta lleno
       $this->UsuariosView->signUp('Todos los campos deben estar llenos');
     }
   }
