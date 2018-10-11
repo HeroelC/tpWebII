@@ -1,8 +1,5 @@
 <?php
 
-//Constantes
-define('TOUR', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/tour');
-
 require_once "./model/RecitalesModel.php";
 require_once "./model/EstadiosModel.php";
 
@@ -46,7 +43,7 @@ class TourController extends SecuredController
   function eliminarRecital($idRecital){
 
         $this->RecitalesModel->delete($idRecital);
-        header("Location:".TOUR);
+        header(TOUR);
   }
 
   //Faltaria agregar el error si no carga todo los datos
@@ -58,7 +55,7 @@ class TourController extends SecuredController
       $id_Estadio = $_POST['id_estadio'];
 
       $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-      header("Location:".TOUR);
+      header(TOUR);
     }
   }
 
@@ -77,7 +74,7 @@ class TourController extends SecuredController
     $idEstadio = $_POST['estadio_id'];
 
     $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
-    header("Location:".TOUR);
+    header(TOUR);
   }
 
   ##### Funciones de los estadios #####
@@ -89,14 +86,14 @@ class TourController extends SecuredController
         $capacidad = $_POST['capacidad'];
 
         $this->EstadiosModel->insert($nombre, $capacidad);
-        header("Location:".TOUR);
+        header(TOUR);
       }
   }
 
   function eliminarEstadio($idEstadio){
 
     $this->EstadiosModel->Delete($idEstadio);
-    header("Location:".TOUR);
+    header(TOUR);
   }
 
   function editarEstadio($idEstadio){
@@ -111,7 +108,7 @@ class TourController extends SecuredController
     $capacidad = $_POST['capacidad'];
 
     $this->EstadiosModel->edit($nombre, $capacidad, $idEstadio[0]);
-    header("Location:".TOUR);
+    header(TOUR);
   }
 
 }

@@ -1,8 +1,5 @@
 <?php
 
-//Constantes
-define('HOME', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
 require_once "./view/UsuariosView.php";
 require_once "./model/UsuariosModel.php";
 
@@ -41,8 +38,9 @@ class UsuariosController
 
           //Le pido al modelo que me agregue al usuario
           $this->UsuariosModel->insert($nombre, $hash, $email);
-          header("Location:".HOME);
+          header(HOME);
        }else{
+
          $this->UsuariosView->signUp('El usuario ya existe elige otro');
        }
     }else{

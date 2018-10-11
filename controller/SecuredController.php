@@ -1,7 +1,5 @@
 <?php
 
-define('LOGIN', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/login');
-
 class SecuredController
 {
 
@@ -13,14 +11,14 @@ class SecuredController
       }
         $_SESSION['LAST_ACTIVITY'] = time(); // actualiza el último instante de actividad
     }else{
-        header("Location:".LOGIN);
+        header(LOGIN);
     }
   }
 
   function logout(){
     session_start();
     session_destroy();
-    header("Location:".LOGIN);
+    header(LOGIN);
   }
 
 }
