@@ -25,4 +25,8 @@
 
 <body>
 
+{if (isset($smarty.session.User))}
+{include file="navAdmin.tpl"}
+{else}
 {include file="nav.tpl"}
+{/if}

@@ -43,7 +43,7 @@ class LoginController
                  //Si es la misma debería loguearlo y mostrartele o tour o el home
                  session_start();
                  $_SESSION["User"] = $nombre;
-                 header("Location:".HOME);
+                 header("Location:".TOUR);
                }else{
                  //Si no es la misma deberia volver al login y mostrarle algun error.
                   $this->LoginView->login('Contraseña incorrecta');

@@ -21,7 +21,7 @@
       <a class="nav-link" href="music">MUSIC</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"></a>
+      <a class="nav-link">{$smarty.session.User|upper}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="logout">LOGOUT</a>
