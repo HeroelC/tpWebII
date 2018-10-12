@@ -15,7 +15,7 @@
       <a class="nav-link" href="band">BAND</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="tour">TOUR</a>
+      <a class="nav-link" href="tourAdmin">TOUR</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="music">MUSIC</a>

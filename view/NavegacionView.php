@@ -22,6 +22,12 @@ class NavegacionView
     $this->smarty->display('templates/band.tpl');
   }
 
+  function Tour($Tabla){
+
+    $this->smarty->assign('Tabla', $Tabla);
+    $this->smarty->display('templates/tour.tpl');
+  }
+
   function Music(){
 
     $this->smarty->display('templates/music.tpl');

@@ -8,7 +8,7 @@ Se puede obtener un estadio por ID. (getId).
 Se puede obtener (get), agregar (insert) y eliminar (delete).
 Se puede obtener un recital por ID. (getById).
 
-#UsuarioModel
+#UsuarioModel [Listo]
 
 Se pueden obtener los usuarios (getAll)
 Se puede añadir usuarios (insert)
@@ -21,41 +21,41 @@ Añadido formulario para cargar estadios.
 Añadido formulario para cargar recitales.
 Se muestra la tabla con todo los recitales y estadios.
 
-#UsuariosController
+#UsuariosController [Listo]
 
 Se encriptan las contraseñas de los usuarios
-Se verifica que el usuario exista en la base de datos
+Se verifica que el usuario no exista en la base de datos, para no tener usuarios duplicados
+
+#LoginController [Listo]
+
 Se verifica la password ingresada con el hash de la base de datos
+Verificar si el nombre de usuario que se ingresa existe
 
-#UsuariosView
+#LoginView [Listo]
 
-Añadido formulario para agregar usuarios
 Añadido formulario para loguearse
 
-#NavegacionView
+#UsuariosView [Listo]
+
+Añadido formulario para registrarse
+
+#NavegacionView [Listo]
 
 En esta sección se encuentra todo el contenido estatico de la página
 
-#Smarty
+#Smarty [Listo]
 
 Añadidas las librerias de smarty
 Añadidas vistas para Home, Music, Band, Tour, SignUp, Login
 
 #Necesario:
 
-Tour: Faltan todo los filtros
+Tour: Faltan todo los filtros, ¿Se muestra la tabla si no esta logueado? Preguntar.
 
-Login: Falta verificar si el nombre de usuario que se ingresa existe
-Preguntar porque cuando uso isset($dbNombre) me devuelve siempre true y un 1.
-Use != de null para verificar
-
-Registrarse: Falta verificar que no exista un usuario con el mismo nombre antes de Registrarse
-Verificar en front end que los campos no esten vacios, ¿contraseña mayor a 6 digitos? ¿se puede usar el mismo mail para dos usuarios distintos?
+Registrarse: Verificar en front end que los campos no esten vacios, ¿contraseña mayor a 6 digitos? ¿se puede usar el mismo mail para dos usuarios distintos?
 
 Preguntar sobre como eliminar datos que poseean referencia en otra tabla.
 
-Revisar linea 10 de heder:  <base href="http://localhost/tpwebii/">
+Revisar linea 10 de heder
 
 Centrar botoneras de los formularios de estadio, recital y editar.
-
-Smarty: Generar un panel para el usuario logueado

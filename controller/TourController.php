@@ -25,10 +25,9 @@ class TourController extends SecuredController
 
     $this->TourView = new TourView();
   }
-
 ##### Mostrar unión de las dos tablas ######
 
-  function Tour(){
+  function TourAdmin(){
 
     $recitales = $this->RecitalesModel->getAll();
     $tabla = $this->RecitalesModel->getTable();
