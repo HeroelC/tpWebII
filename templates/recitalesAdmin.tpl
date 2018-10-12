@@ -21,7 +21,7 @@
               {foreach from=$Recitales item=recital}
 
                 <tr>
-                <td>{$recital['id_recital']}</td> <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td> <td>{$recital['estadio_id']}</td><td><a href="editarRecital/{$recital['id_recital']}">Editar</a></td><td><a href="eliminarRecital/{$recital['id_recital']}">Borrar</a></td>
+                <td>{$recital['id_recital']}</td> <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td> <td>{$recital['estadio_id']}</td><td><a class="btn btn-danger" href="editarRecital/{$recital['id_recital']}">Editar</a></td><td><a class="btn btn-danger" href="eliminarRecital/{$recital['id_recital']}">Borrar</a></td>
                 </tr>
 
               {/foreach}

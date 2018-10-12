@@ -20,7 +20,7 @@
                 {foreach from=$Estadios item=estadio}
 
                 <tr>
-                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td><td><a href="editarEstadio/{$estadio['id_estadio']}">Editar</a></td><td><a href="eliminarEstadio/{$estadio['id_estadio']}">Borrar</a></td>
+                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td><td><a class="btn btn-danger" href="editarEstadio/{$estadio['id_estadio']}">Editar</a></td><td><a class="btn btn-danger" href="eliminarEstadio/{$estadio['id_estadio']}">Borrar</a></td>
                 </tr>
 
                 {/foreach}

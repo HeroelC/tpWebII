@@ -31,7 +31,7 @@ class UsuariosController
        $clave = $_POST['clave'];
        $email = $_POST['email'];
        $dbNombre = $this->UsuariosModel->getName($nombre);
-       if(!isset($dbNombre)){
+       if(empty($dbNombre)){
 
           //Encripto la contraseña con bcrypt
           $hash = password_hash($clave, PASSWORD_DEFAULT);
