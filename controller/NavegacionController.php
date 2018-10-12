@@ -8,26 +8,31 @@ class NavegacionController
 
   private $NavegacionView;
   private $RecitalesModel;
+  private $Session;
 
   function __construct()
   {
 
     $this->NavegacionView = new NavegacionView;
     $this->RecitalesModel = new RecitalesModel;
+    $this->Session = session_start();
   }
 
   function home(){
 
+    $this->Session;
     $this->NavegacionView->Home();
   }
 
   function band(){
 
+    $this->Session;
     $this->NavegacionView->Band();
   }
 
   function music(){
 
+    $this->Session;
     $this->NavegacionView->Music();
   }
 
@@ -38,6 +43,7 @@ class NavegacionController
   }
 
   function detalleRecital($id_recital){
+
 
     $Fila = $this->RecitalesModel->getConcert($id_recital);
     $this->NavegacionView->detalleRecital($Fila);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2018 a las 17:49:10
+-- Tiempo de generación: 13-10-2018 a las 00:32:50
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.8
 
@@ -41,13 +41,10 @@ CREATE TABLE `estadio` (
 --
 
 INSERT INTO `estadio` (`id_estadio`, `nombre`, `capacidad`) VALUES
-(1, 'Camp Nou', 120000),
-(5, 'RMonumental', 65000),
-(6, 'El Monumental', 65000),
-(7, 'Amalfitani', 3000),
-(8, 'Union', 2000),
-(9, 'Amalfitani', 3000),
-(10, 'Aitani', 4000);
+(30, 'Wembley', 80000),
+(31, 'Camp Nou', 90000),
+(32, 'Old Traford', 50000),
+(33, 'La Bombonera', 54000);
 
 -- --------------------------------------------------------
 
@@ -67,16 +64,10 @@ CREATE TABLE `recital` (
 --
 
 INSERT INTO `recital` (`id_recital`, `nombre`, `precio`, `estadio_id`) VALUES
-(2, '0', 300, 1),
-(3, '0', 300, 1),
-(13, 'virus', 200, 1),
-(18, 'virus', 200, 1),
-(20, 'virus', 200, 5),
-(21, 'virus', 200, 9),
-(22, 'Divididos', 300, 1),
-(23, 'Beatles', 2000, 1),
-(24, 'asd', 1, 1),
-(25, 'a1', 1, 1);
+(5, 'Blue & Lonesome Tour', 1000, 30),
+(6, 'Blue & Lonesome Tour', 500, 33),
+(7, 'Satisfaction', 250, 33),
+(8, 'Satisfaction', 300, 32);
 
 -- --------------------------------------------------------
 
@@ -90,6 +81,13 @@ CREATE TABLE `usuario` (
   `clave` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `email`) VALUES
+(1, 'usuario', '$2y$10$Jil73fYmXU9pRn7jqCyaiO1SUwwHM.FilH/Ixtv7eVRwJNksXKTKK', 'a@a');
 
 --
 -- Índices para tablas volcadas
@@ -122,19 +120,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `estadio`
 --
 ALTER TABLE `estadio`
-  MODIFY `id_estadio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_estadio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `recital`
 --
 ALTER TABLE `recital`
-  MODIFY `id_recital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_recital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
