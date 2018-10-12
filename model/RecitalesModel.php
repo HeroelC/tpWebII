@@ -39,8 +39,15 @@ class RecitalesModel
 //Obtener tabla con sus respectivos estadios
     function getTable(){
 
-      $setencia = $this->db->prepare("SELECT r.id_recital as id_recital, r.nombre as recital, r.precio, e.nombre as estadio, e.capacidad FROM recital r, estadio e WHERE r.estadio_id = e.id_estadio");
+      $setencia = $this->db->prepare("SELECT r.id_recital as id_recital, r.nombre as recital, r.precio, e.nombre as estadio, e.capacidad, e.id_estadio as id_estadio FROM recital r, estadio e WHERE r.estadio_id = e.id_estadio");
       $setencia->execute();
+      return $setencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getTableByStadium($id_estadio){
+
+      $setencia = $this->db->prepare("SELECT r.id_recital as id_recital, r.nombre as recital, r.precio, e.nombre as estadio, e.capacidad, e.id_estadio as id_estadio FROM recital r, estadio e WHERE r.estadio_id = e.id_estadio and e.id_estadio = ?");
+      $setencia->execute(array($id_estadio[0]));
       return $setencia->fetchAll(PDO::FETCH_ASSOC);
     }
 

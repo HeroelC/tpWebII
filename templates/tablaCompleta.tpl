@@ -18,7 +18,7 @@
               {foreach from=$Tabla item=fila}
 
                 <tr>
-                  <td>{$fila['recital']}</td><td>{$fila['precio']}</td><td> <a href="tour/{$fila['id_estadio']}">{$fila['estadio']}</a> </td><td>{$fila['capacidad']}</td>
+                  <td>{$fila['recital']}</td><td>{$fila['precio']}</td><td> <a href="Estadio/{$fila['id_estadio']}">{$fila['estadio']}</a> </td><td>{$fila['capacidad']}</td>
                   <td> <a class="btn btn-danger" href="detalleRecital/{$fila['id_recital']}">Details</a> </td>
                 </tr>
 

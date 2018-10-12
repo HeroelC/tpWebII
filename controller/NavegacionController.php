@@ -42,6 +42,12 @@ class NavegacionController
     $Fila = $this->RecitalesModel->getConcert($id_recital);
     $this->NavegacionView->detalleRecital($Fila);
   }
+
+  function Estadio($id_estadio){
+
+    $Tabla = $this->RecitalesModel->getTableByStadium($id_estadio);
+    $this->NavegacionView->tour($Tabla);
+  }
 }
 
  ?>

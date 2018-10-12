@@ -15,6 +15,7 @@ class ConfigApp
       'music'=> 'NavegacionController#Music',
       'tour'=> 'NavegacionController#Tour',
       'detalleRecital'=> 'NavegacionController#detalleRecital',
+      'Estadio'=> 'NavegacionController#Estadio',
       'tourAdmin'=> 'TourController#TourAdmin',
       'mostrarEstadio' => 'TourController#mostrarEstadio',
       'eliminarEstadio' => 'TourController#eliminarEstadio',
