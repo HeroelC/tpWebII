@@ -1,6 +1,6 @@
 <footer class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-xs-10 col-lg-offset-4 col-md-offset-4 col-xs-offset-1">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-10 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 col-xs-offset-1">
         <ul class="list-inline text-center">
           <li class="list-inline-item">
             <a href="http://twitter.com/RollingStones"><img src="img/iconotwitter.ico" alt=""></a>
