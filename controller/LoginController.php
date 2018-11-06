@@ -44,7 +44,7 @@ class LoginController
                  session_start();
                  $_SESSION['User'] = $nombre;
                  $_SESSION['admin'] = $datosUsuario[0]['admin'];
-                 header(TOUR);
+                 header(HOME);
                }else{
                  //Si no es la misma deberia volver al login y mostrarle algun error.
                   $this->LoginView->login('Contraseña incorrecta');

@@ -29,11 +29,16 @@ class TourController extends SecuredController
 
   function TourAdmin(){
 
-    $recitales = $this->RecitalesModel->getAll();
-    $tabla = $this->RecitalesModel->getTable();
-    $estadios = $this->EstadiosModel->getAll();
+    if($_SESSION['admin'] == 1){
+      $recitales = $this->RecitalesModel->getAll();
+      $tabla = $this->RecitalesModel->getTable();
+      $estadios = $this->EstadiosModel->getAll();
 
-    $this->TourView->mostrarTablaAdmin($estadios, $recitales, $tabla);
+      $this->TourView->mostrarTablaAdmin($estadios, $recitales, $tabla);
+    }else{
+
+      header(HOME);
+    }
   }
 
 ##### Funciones de los recitales #####
@@ -42,7 +47,7 @@ class TourController extends SecuredController
   function eliminarRecital($idRecital){
 
         $this->RecitalesModel->delete($idRecital);
-        header(TOUR);
+        header(TOURADMIN);
   }
 
   //Faltaria agregar el error si no carga todo los datos
@@ -54,7 +59,7 @@ class TourController extends SecuredController
       $id_Estadio = $_POST['id_estadio'];
 
       $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-      header(TOUR);
+      header(TOURADMIN);
     }
   }
 
@@ -73,7 +78,7 @@ class TourController extends SecuredController
     $idEstadio = $_POST['estadio_id'];
 
     $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
-    header(TOUR);
+    header(TOURADMIN);
   }
 
   ##### Funciones de los estadios #####
@@ -85,14 +90,14 @@ class TourController extends SecuredController
         $capacidad = $_POST['capacidad'];
 
         $this->EstadiosModel->insert($nombre, $capacidad);
-        header(TOUR);
+        header(TOURADMIN);
       }
   }
 
   function eliminarEstadio($idEstadio){
 
     $this->EstadiosModel->Delete($idEstadio);
-    header(TOUR);
+    header(TOURADMIN);
   }
 
   function editarEstadio($idEstadio){
@@ -103,11 +108,12 @@ class TourController extends SecuredController
 
   function actualizarEstadio($idEstadio){
 
+
     $nombre = $_POST['nombre'];
     $capacidad = $_POST['capacidad'];
 
     $this->EstadiosModel->edit($nombre, $capacidad, $idEstadio[0]);
-    header(TOUR);
+    header(TOURADMIN);
   }
 
 }
