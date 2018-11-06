@@ -5,7 +5,7 @@ class UsuariosView
 {
 
   private $smarty;
-  
+
   function __construct()
   {
 
@@ -18,7 +18,11 @@ class UsuariosView
     $this->smarty->display('./templates/signUp.tpl');
   }
 
+  function getAllUser($usuarios){
 
+    $this->smarty->assign('usuarios', $usuarios);
+    $this->smarty->display('./templates/usuarios.tpl');
+  }
 
 }
  ?>

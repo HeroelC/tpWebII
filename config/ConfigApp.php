@@ -31,7 +31,8 @@ class ConfigApp
       'verificarLogin' => 'LoginController#verificarLogin',
       'signUp' => 'UsuariosController#SignUp',
       'login' => 'LoginController#login',
-      'logout' => 'LoginController#logout'
+      'logout' => 'LoginController#logout',
+      'usuarios' => 'UsuariosAdminController#mostrarUsuarios'
     ];
 
 }

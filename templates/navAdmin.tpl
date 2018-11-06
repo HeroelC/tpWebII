@@ -21,6 +21,9 @@
       <a class="nav-link" href="music">MUSIC</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="usuarios">USUARIOS</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="logout">LOGOUT</a>
     </li>
     <li class="nav-item">

@@ -6,6 +6,7 @@ require_once "controller/TourController.php";
 require_once "controller/UsuariosController.php";
 require_once "controller/NavegacionController.php";
 require_once "controller/LoginController.php";
+require_once "controller/UsuariosAdminController.php";
 
 function parseURL($url)
 {
@@ -35,8 +36,9 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new NavegacionController();
-      echo $controller->Home();
+      // $controller =  new NavegacionController();
+      // $controller->Home();
+      header(HOME);
     }
 }
 
