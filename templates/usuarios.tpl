@@ -19,10 +19,15 @@
               <tbody id="tablaTour">
                 {foreach from=$usuarios item=usuario}
 
-                <tr>
-                  <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>{$usuario['admin']}</td>
-                </tr>
-
+                  {if $usuario['admin'] == 0}
+                    <tr>
+                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>No</td>
+                    </tr>
+                  {else}
+                    <tr>
+                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>Yes</td>
+                    </tr>
+                  {/if}
                 {/foreach}
               </tbody>
             </table>

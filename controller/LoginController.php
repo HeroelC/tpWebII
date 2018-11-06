@@ -29,20 +29,21 @@ class LoginController
       $clave = $_POST['clave'];
 
       ####Acá debería verificar si el usuario existe en la base de datos####
-      $dbNombre = $this->UsuariosModel->getName($nombre);
+      $datosUsuario = $this->UsuariosModel->getName($nombre);
 
       //echo '<h1> Contenido de $dbNombre: '.print_r($dbNombre).'</h1>';
 
-        if($dbNombre != null){
+        if($datosUsuario != null){
 
             //Le pedimos el hash
-            $hash = $dbNombre[0]['clave'];
+            $hash = $datosUsuario[0]['clave'];
 
             //Verificar si la password es la misma que el hash de la base de datos
                if(password_verify($clave, $hash)){
                  //Si es la misma debería loguearlo y mostrartele o tour o el home
                  session_start();
-                 $_SESSION["User"] = $nombre;
+                 $_SESSION['User'] = $nombre;
+                 $_SESSION['admin'] = $datosUsuario[0]['admin'];
                  header(TOUR);
                }else{
                  //Si no es la misma deberia volver al login y mostrarle algun error.
