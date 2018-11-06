@@ -61,7 +61,7 @@ class RecitalesModel
  //Funcion para eliminar recitales
   function delete($idRecital){
 
-      $sentencia = $this->db->prepare( "DELETE FROM recital where id_recital=?");
+      $sentencia = $this->db->prepare("DELETE FROM recital where id_recital=?");
       $sentencia->execute(array($idRecital[0]));
     }
 

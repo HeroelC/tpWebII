@@ -48,6 +48,12 @@ class UsuariosModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function delete($id_usuario){
+
+    $sentencia = $this->db->prepare("DELETE FROM usuario where id_usuario=?");
+    $sentencia->execute(array($id_usuario[0]));
+  }
+
 }
 
 
