@@ -5,6 +5,7 @@ define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["P
 define('TOUR', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/tour');
 define('TOURADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/tourAdmin');
 define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/login');
+define('USUARIOS', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/usuarios');
 
 class ConfigApp
 {
@@ -34,7 +35,8 @@ class ConfigApp
       'signUp' => 'UsuariosController#SignUp',
       'login' => 'LoginController#login',
       'logout' => 'LoginController#logout',
-      'usuarios' => 'UsuariosAdminController#mostrarUsuarios'
+      'usuarios' => 'UsuariosAdminController#mostrarUsuarios',
+      'eliminarUsuario' => 'UsuariosAdminController#eliminarUsuario'
     ];
 
 }

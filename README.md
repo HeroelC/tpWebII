@@ -28,6 +28,8 @@ Se muestra la tabla con todo los recitales y estadios.
 #UsuariosAdminController [En Construccion]
 
 Muestra todo los usuarios registrados si se es administrador
+Se agregaron botones de eliminar y editar
+Se puede eliminar usuarios
 
 #UsuariosController [En construccion]
 

@@ -26,8 +26,18 @@ class UsuariosAdminController extends SecuredController
       $usuarios = $this->UsuariosModel->getAll();
       $this->UsuariosView->getAllUser($usuarios);
     }else{
-      
+
       header(HOME);
+    }
+  }
+
+  function eliminarUsuario($id_usuario){
+
+    if($_SESSION['admin'] == 1){
+
+      $id = $id_usuario[0];
+      $this->UsuariosModel->delete($id);
+      header(USUARIOS);
     }
   }
 

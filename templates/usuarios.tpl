@@ -14,6 +14,8 @@
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Admin</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody id="tablaTour">
@@ -21,11 +23,11 @@
 
                   {if $usuario['admin'] == 0}
                     <tr>
-                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>No</td>
+                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>No</td><td><a class="btn btn-danger" href="editarUsuario/{$usuario['id_usuario']}">Edit</a></td><td><a class="btn btn-danger" href="eliminarUsuario/{$usuario['id_usuario']}">Delete</a></td>
                     </tr>
                   {else}
                     <tr>
-                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>Yes</td>
+                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>Yes</td><td><a class="btn btn-danger" href="editarUsuario/{$usuario['id_usuario']}">Edit</a></td><td><a class="btn btn-danger" href="eliminarUsuario/{$usuario['id_usuario']}">Delete</a></td>
                     </tr>
                   {/if}
                 {/foreach}
