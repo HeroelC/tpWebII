@@ -11,7 +11,7 @@
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Capacidad</th>
+                  <th scope="col">Capacity</th>
                 </tr>
               </thead>
               <tbody id="tablaTour">
