@@ -55,6 +55,7 @@ class UsuariosAdminController extends SecuredController
 
         $admin = $_POST['admin'];
         $this->UsuariosModel->edit($id_usuario[0], $admin);
+        session_start();
         header(USUARIOS);
       }
     }

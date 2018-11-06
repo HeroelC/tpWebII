@@ -73,3 +73,5 @@ Añadir imagenes a los estadios
 Preguntar si se debe poner if($_SESSION[admin])==1) a todo
 
 Consultar linea 55 UsuariosAdminController
+
+Si se le saca el admin a el mismo, hasta que no se desloguea no deja de ser administrador
