@@ -21,8 +21,14 @@ class UsuariosAdminController extends SecuredController
 
   function mostrarUsuarios(){
 
-    $usuarios = $this->UsuariosModel->getAll();
-    $this->UsuariosView->getAllUser($usuarios);
+    if($_SESSION['admin'] == 1){
+
+      $usuarios = $this->UsuariosModel->getAll();
+      $this->UsuariosView->getAllUser($usuarios);
+    }else{
+      
+      header(HOME);
+    }
   }
 
 }
