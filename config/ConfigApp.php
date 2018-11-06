@@ -36,7 +36,9 @@ class ConfigApp
       'login' => 'LoginController#login',
       'logout' => 'LoginController#logout',
       'usuarios' => 'UsuariosAdminController#mostrarUsuarios',
-      'eliminarUsuario' => 'UsuariosAdminController#eliminarUsuario'
+      'eliminarUsuario' => 'UsuariosAdminController#eliminarUsuario',
+      'editarUsuario' => 'UsuariosAdminController#editarUsuario',
+      'guardarUsuario' => 'UsuariosAdminController#guardarUsuario'
     ];
 
 }

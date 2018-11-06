@@ -14,7 +14,6 @@ class UsuariosAdminController extends SecuredController
   {
 
     parent::__construct(); //Inicializamos el constructor de SecuredController
-
     $this->UsuariosModel = new UsuariosModel();
     $this->UsuariosView = new UsuariosView();
   }
@@ -41,8 +40,24 @@ class UsuariosAdminController extends SecuredController
     }
   }
 
-}
+  function editarUsuario($id_usuario){
 
+    if($_SESSION['admin'] == 1){
 
+      $usuario = $this->UsuariosModel->getById($id_usuario); //Consultamos los datos del usuario
+      $this->UsuariosView->editarUsuario($usuario);
+    }
+  }
+
+  function guardarUsuario($id_usuario){
+
+    if($_SESSION['admin'] == 1){
+
+        $admin = $_POST['admin'];
+        $this->UsuariosModel->edit($id_usuario[0], $admin);
+        header(USUARIOS);
+      }
+    }
+  }
 
  ?>

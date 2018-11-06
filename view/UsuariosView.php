@@ -24,5 +24,11 @@ class UsuariosView
     $this->smarty->display('./templates/usuarios.tpl');
   }
 
+  function editarUsuario($usuario){
+
+    $this->smarty->assign('usuario', $usuario);
+    $this->smarty->display('./templates/editarUsuario.tpl');
+  }
+
 }
  ?>

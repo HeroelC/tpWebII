@@ -54,6 +54,12 @@ class UsuariosModel
     $sentencia->execute(array($id_usuario[0]));
   }
 
+  function edit($id_usuario, $admin){
+
+    $sentencia = $this->db->prepare("UPDATE usuario SET admin=? WHERE id_usuario=?");
+    $sentencia->execute(array($admin, $id_usuario));
+  }
+
 }
 
 

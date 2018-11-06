@@ -22,7 +22,6 @@ class TourController extends SecuredController
     parent::__construct();
     $this->RecitalesModel = new RecitalesModel();
     $this->EstadiosModel = new EstadiosModel();
-
     $this->TourView = new TourView();
   }
 ##### Mostrar unión de las dos tablas ######
