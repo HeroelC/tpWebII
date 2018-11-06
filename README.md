@@ -25,6 +25,10 @@ Añadido formulario para cargar estadios.
 Añadido formulario para cargar recitales.
 Se muestra la tabla con todo los recitales y estadios.
 
+#UsuariosAdminController [En Construccion]
+
+Muestra todo los usuarios registrados
+
 #UsuariosController [En construccion]
 
 Se encriptan las contraseñas de los usuarios
@@ -42,6 +46,7 @@ Añadido formulario para loguearse
 #UsuariosView [En construccion]
 
 Añadido formulario para registrarse
+Añadida vista de todo los usuarios para los administradores
 
 #NavegacionView [Listo]
 
@@ -57,3 +62,5 @@ Añadidas vistas para Home, Music, Band, Tour, SignUp, Login
 Revisar filtro, ahora tiene que ser un dropdown
 
 Añadir imagenes a los estadios
+
+Preguntar si se debe poner if($_SESSION[admin])==1) a todo
