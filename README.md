@@ -27,7 +27,7 @@ Se muestra la tabla con todo los recitales y estadios.
 
 #UsuariosAdminController [En Construccion]
 
-Muestra todo los usuarios registrados
+Muestra todo los usuarios registrados si se es administrador
 
 #UsuariosController [En construccion]
 
@@ -56,6 +56,11 @@ En esta sección se encuentra todo el contenido estatico de la página
 
 Añadidas las librerias de smarty
 Añadidas vistas para Home, Music, Band, Tour, SignUp, Login
+
+#Header.tpl [Listo]
+
+Verifica si el usuario esta logueado o no y si es adminitrador del sitio o no.
+Muestra una barra de navegación diferente al usuario no logueado, usuario y administrador
 
 #Necesario:
 
