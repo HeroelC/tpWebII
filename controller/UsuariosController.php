@@ -38,6 +38,11 @@ class UsuariosController
 
           //Le pido al modelo que me agregue al usuario
           $this->UsuariosModel->insert($nombre, $hash, $email);
+
+          //Logueo al usuario creado
+          session_start();
+          $_SESSION['User'] = $nombre;
+          $_SESSION['admin'] = 0;
           header(HOME);
        }else{
 
