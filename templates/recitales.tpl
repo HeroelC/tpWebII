@@ -8,7 +8,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <table class="table">
             <thead>
-              <tr>
+              <tr class="centrarfila warning">
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
@@ -18,7 +18,7 @@
             <tbody id="tablaTour">
               {foreach from=$Recitales item=recital}
 
-                <tr>
+                <tr class="centrarfila">
                 <td>{$recital['id_recital']}</td> <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td> <td>{$recital['estadio_id']}</td>
                 </tr>
 

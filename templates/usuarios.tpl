@@ -9,8 +9,8 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <table class="table">
-              <thead>
-                <tr>
+              <thead class="centrarfila">
+                <tr class="centrarfila">
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Admin</th>
@@ -20,17 +20,18 @@
               </thead>
               <tbody id="tablaTour">
                 {foreach from=$usuarios item=usuario}
-
-                  {if $usuario['admin'] == 0}
-                    <tr>
-                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>No</td><td><a class="btn btn-danger" href="editarUsuario/{$usuario['id_usuario']}">Edit</a></td><td><a class="btn btn-danger" href="eliminarUsuario/{$usuario['id_usuario']}">Delete</a></td>
-                    </tr>
-                  {else}
-                    <tr>
-                      <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>Yes</td><td><a class="btn btn-danger" href="editarUsuario/{$usuario['id_usuario']}">Edit</a></td><td><a class="btn btn-danger" href="eliminarUsuario/{$usuario['id_usuario']}">Delete</a></td>
-                    </tr>
-                  {/if}
-                {/foreach}
+                  {if $smarty.session.User != $usuario['nombre']}
+                      {if $usuario['admin'] == 0}
+                        <tr class="success centrarfila">
+                          <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>No</td><td><a class="btn btn-danger" href="editarUsuario/{$usuario['id_usuario']}">Edit</a></td><td><a class="btn btn-danger" href="eliminarUsuario/{$usuario['id_usuario']}">Delete</a></td>
+                        </tr>
+                      {else}
+                        <tr class="danger centrarfila">
+                          <td>{$usuario['nombre']}</td><td>{$usuario['email']}</td><td>Yes</td><td><a class="btn btn-danger" href="editarUsuario/{$usuario['id_usuario']}">Edit</a></td><td><a class="btn btn-danger" href="eliminarUsuario/{$usuario['id_usuario']}">Delete</a></td>
+                        </tr>
+                      {/if}
+                    {/if}
+                    {/foreach}
               </tbody>
             </table>
 

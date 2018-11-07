@@ -19,29 +19,31 @@
               </thead>
               <tbody id="tablaTour">
                 {foreach from=$usuario item=user}
-                  {if $user['admin'] == 0}
-                  <form action="guardarUsuario/{$user['id_usuario']}" method="post">
-                    <tr>
-                      <td>{$user['nombre']}</td><td>{$user['email']}</td>
-                      <td><select class="form-control form-control-lg" name="admin">
-                          <option value="0">No</option>
-                          <option value="1">Yes</option>
-                      </select></td>
-                      <td><button type="submit" class="btn-danger" name="button">Save</button></td>
-                    </tr>
-                  </form>
-                  {else}
-                  <form action="guardarUsuario/{$user['id_usuario']}" method="post">
-                    <tr>
-                      <td>{$user['nombre']}</td><td>{$user['email']}</td>
-                      <td><select class="form-control form-control-lg" name="admin">
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
-                      </select></td>
-                      <td><button type="submit" class="btn-danger" name="button">Save</button></td>
-                    </tr>
-                  </form>
-                  {/if}
+                  {if $smarty.session.User != $user['nombre']}
+                    {if $user['admin'] == 0}
+                    <form action="guardarUsuario/{$user['id_usuario']}" method="post">
+                      <tr>
+                        <td>{$user['nombre']}</td><td>{$user['email']}</td>
+                        <td><select class="form-control form-control-lg" name="admin">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select></td>
+                        <td><button type="submit" class="btn-danger" name="button">Save</button></td>
+                      </tr>
+                    </form>
+                    {else}
+                    <form action="guardarUsuario/{$user['id_usuario']}" method="post">
+                      <tr>
+                        <td>{$user['nombre']}</td><td>{$user['email']}</td>
+                        <td><select class="form-control form-control-lg" name="admin">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select></td>
+                        <td><button type="submit" class="btn-danger" name="button">Save</button></td>
+                      </tr>
+                    </form>
+                    {/if}
+                    {/if}
                 {/foreach}
               </tbody>
             </table>

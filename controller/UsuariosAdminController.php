@@ -52,13 +52,18 @@ class UsuariosAdminController extends SecuredController
   function guardarUsuario($id_usuario){
 
     if($_SESSION['admin'] == 1){
-
-        $admin = $_POST['admin'];
-        $this->UsuariosModel->edit($id_usuario[0], $admin);
-        session_start();
-        header(USUARIOS);
+        if(isset($_POST['admin'])){
+          $admin = $_POST['admin'];
+          $this->UsuariosModel->edit($id_usuario[0], $admin);
+          header(USUARIOS);
+        }
       }
     }
+
+
+
+
+
   }
 
  ?>

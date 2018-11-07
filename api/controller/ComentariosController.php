@@ -13,7 +13,11 @@ class ComentariosController
     $this->ComentariosModel = new ComentariosModel();
   }
 
-  
+  function mostrarComentarios($id_estadio){
+    
+  }
+
+
 }
 
 

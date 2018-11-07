@@ -9,7 +9,6 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
                   <th scope="col">Name</th>
                   <th scope="col">Capacity</th>
                 </tr>
@@ -17,8 +16,8 @@
               <tbody id="tablaTour">
                 {foreach from=$Estadios item=estadio}
 
-                <tr>
-                  <td>{$estadio['id_estadio']}</td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td>
+                <tr class="centrarfila">
+                  <td><td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td>
                 </tr>
 
                 {/foreach}

@@ -7,11 +7,9 @@
 
           <table class="table">
             <thead>
-              <tr>
-                <th scope="col">ID</th>
+              <tr class="centrarfila warning">
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
-                <th scope="col">id_Stadium</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
               </tr>
@@ -20,8 +18,8 @@
             <tbody id="tablaTour">
               {foreach from=$Recitales item=recital}
 
-                <tr>
-                <td>{$recital['id_recital']}</td> <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td> <td>{$recital['estadio_id']}</td><td><a class="btn btn-danger" href="editarRecital/{$recital['id_recital']}">Editar</a></td><td><a class="btn btn-danger" href="eliminarRecital/{$recital['id_recital']}">Borrar</a></td>
+                <tr class="centrarfila">
+                  <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td><td><a class="btn btn-danger" href="editarRecital/{$recital['id_recital']}">Editar</a></td><td><a class="btn btn-danger" href="eliminarRecital/{$recital['id_recital']}">Borrar</a></td>
                 </tr>
 
               {/foreach}

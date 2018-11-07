@@ -3,6 +3,16 @@ h3{
   text-decoration: none;
   font-weight: bold;
 }
+
+th{
+  text-align: center;
+}
+
+.centrarfila{
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
 h3, p, .datosBanda{
   font-family: 'Abel', sans-serif;
 }

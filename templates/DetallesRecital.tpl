@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody id="tablaTour">
-          <tr>
+          <tr class="centrarfila warning">
             <td>{$fila['recital']}</td><td>{$fila['precio']}</td><td>{$fila['estadio']}</td><td>{$fila['capacidad']}</td>
           </tr>
         </tbody>

@@ -70,7 +70,7 @@ Revisar filtro, ahora tiene que ser un dropdown
 
 Añadir imagenes a los estadios
 
-Preguntar si se debe poner if($_SESSION[admin])==1) a todo
+Preguntar si se debe poner if(SESSION[admin])==1) a todo
 
 Consultar linea 55 UsuariosAdminController
 
