@@ -8,7 +8,7 @@
       </div>
       <table class="table">
         <thead>
-          <tr>
+          <tr class="centrarfila warning">
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Stadium</th>
@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody id="tablaTour">
-          <tr class="centrarfila warning">
+          <tr class="centrarfila">
             <td>{$fila['recital']}</td><td>{$fila['precio']}</td><td>{$fila['estadio']}</td><td>{$fila['capacidad']}</td>
           </tr>
         </tbody>

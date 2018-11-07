@@ -12,6 +12,7 @@
                 <th scope="col">Price</th>
                 <th scope="col">Stadium</th>
                 <th scope="col">Capacity</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody id="tablaTour">

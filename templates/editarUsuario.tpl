@@ -10,7 +10,7 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <table class="table">
               <thead>
-                <tr>
+                <tr class="centrarfila warning">
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Admin</th>
@@ -22,7 +22,7 @@
                   {if $smarty.session.User != $user['nombre']}
                     {if $user['admin'] == 0}
                     <form action="guardarUsuario/{$user['id_usuario']}" method="post">
-                      <tr>
+                      <tr class="centrarfila">
                         <td>{$user['nombre']}</td><td>{$user['email']}</td>
                         <td><select class="form-control form-control-lg" name="admin">
                             <option value="0">No</option>
@@ -33,7 +33,7 @@
                     </form>
                     {else}
                     <form action="guardarUsuario/{$user['id_usuario']}" method="post">
-                      <tr>
+                      <tr class="centrarfila">
                         <td>{$user['nombre']}</td><td>{$user['email']}</td>
                         <td><select class="form-control form-control-lg" name="admin">
                             <option value="1">Yes</option>
