@@ -17,15 +17,15 @@ class ComentariosModel
     , 'root', '');
   }
 
-  function insert($mensaje, $puntaje, $id_estadio, $id_usuario){
+  function insert($mensaje, $puntaje, $id_recital, $id_usuario){
 
     $sentencia = $this->db->prepare("INSERT INTO comentario(mensaje, puntaje, id_estadio, id_usuario) VALUES(?,?,?,?)");
-    $setencia->execute(array($mensaje, $puntaje, $id_estadio, $id_usuario));
+    $setencia->execute(array($mensaje, $puntaje, $recital, $id_usuario));
   }
 
-  function get($id_estadio){
+  function getByRecital($id_recital){
 
-    $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_estadio = ?");
+    $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_recital = ?");
     $sentencia->execute($id_estadio);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

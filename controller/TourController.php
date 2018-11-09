@@ -45,58 +45,88 @@ class TourController extends SecuredController
   //¿Y si no esta seteado?
   function eliminarRecital($idRecital){
 
+    if($_SESSION['admin'] == 1){
         $this->RecitalesModel->delete($idRecital);
         header(TOURADMIN);
+    }else{
+
+      header(HOME);
+    }
   }
 
   //Faltaria agregar el error si no carga todo los datos
   function agregarRecital(){
 
-    if((isset($_POST['nombre'])) && (isset($_POST['precio'])) &&(isset($_POST['id_estadio']))){
-      $nombre = $_POST['nombre'];
-      $precio = $_POST['precio'];
-      $id_Estadio = $_POST['id_estadio'];
+    if($_SESSION['admin'] == 1){
+      if((isset($_POST['nombre'])) && (isset($_POST['precio'])) &&(isset($_POST['id_estadio']))){
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        $id_Estadio = $_POST['id_estadio'];
 
-      $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-      header(TOURADMIN);
+        $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
+        header(TOURADMIN);
+      }else{
+
+        header(HOME);
+      }
     }
   }
 
   function editarRecital($idRecital){
 
-    $Estadios = $this->EstadiosModel->getAll();
-    $Recital = $this->RecitalesModel->getById($idRecital);
+    if($_SESSION['admin'] == 1){
+      $Estadios = $this->EstadiosModel->getAll();
+      $Recital = $this->RecitalesModel->getById($idRecital);
 
-    $this->TourView->editarRecital($Recital, $Estadios);
+      $this->TourView->editarRecital($Recital, $Estadios);
+    }else{
+
+      header(HOME);
+    }
   }
 
   function actualizarRecital($idRecital){
 
-    $nombre = $_POST['nombre'];
-    $precio = $_POST['precio'];
-    $idEstadio = $_POST['estadio_id'];
+    if($_SESSION['admin'] == 1){
+      $nombre = $_POST['nombre'];
+      $precio = $_POST['precio'];
+      $idEstadio = $_POST['estadio_id'];
 
-    $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
-    header(TOURADMIN);
+      $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
+      header(TOURADMIN);
+    }else{
+
+      header(HOME);
+    }
   }
 
   ##### Funciones de los estadios #####
 
   function agregarEstadio(){
 
-      if((isset($_POST['nombre'])) && (isset($_POST['capacidad']))){
-        $nombre = $_POST['nombre'];
-        $capacidad = $_POST['capacidad'];
+    if($_SESSION['admin'] == 1){
+        if((isset($_POST['nombre'])) && (isset($_POST['capacidad']))){
+          $nombre = $_POST['nombre'];
+          $capacidad = $_POST['capacidad'];
 
-        $this->EstadiosModel->insert($nombre, $capacidad);
-        header(TOURADMIN);
-      }
+          $this->EstadiosModel->insert($nombre, $capacidad);
+          header(TOURADMIN);
+        }
+    }else{
+
+      header(HOME);
+    }
   }
 
   function eliminarEstadio($idEstadio){
 
-    $this->EstadiosModel->Delete($idEstadio);
-    header(TOURADMIN);
+    if($_SESSION['admin'] == 1){
+      $this->EstadiosModel->Delete($idEstadio);
+      header(TOURADMIN);
+    }else{
+
+      header(HOME);
+    }
   }
 
   function editarEstadio($idEstadio){

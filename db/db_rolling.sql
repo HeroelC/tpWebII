@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2018 a las 01:43:47
+-- Tiempo de generación: 09-11-2018 a las 16:10:00
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.8
 
@@ -34,8 +34,8 @@ CREATE TABLE `comentario` (
   `id_comentario` int(11) NOT NULL,
   `mensaje` varchar(500) NOT NULL,
   `puntaje` int(11) NOT NULL,
-  `id_estadio` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL
+  `id_usuario` int(11) NOT NULL,
+  `id_recital` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -103,7 +103,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `email`, `admin`) VALUES
-(1, 'usuario', '$2y$10$Jil73fYmXU9pRn7jqCyaiO1SUwwHM.FilH/Ixtv7eVRwJNksXKTKK', 'a@a', 0);
+(1, 'usuario', '$2y$10$Jil73fYmXU9pRn7jqCyaiO1SUwwHM.FilH/Ixtv7eVRwJNksXKTKK', 'a@a', 1),
+(6, 'Heroel', '$2y$10$iwqNfSmKTlAbv.5OCSzd9e5AHS7RZDk.SvBL30bMAdNUgELIg4xl.', 'a@a', 0);
 
 --
 -- Índices para tablas volcadas
@@ -114,8 +115,8 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `email`, `admin`) VALUES
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id_comentario`),
-  ADD KEY `id_estadio` (`id_estadio`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_recital` (`id_recital`);
 
 --
 -- Indices de la tabla `estadio`
@@ -162,7 +163,7 @@ ALTER TABLE `recital`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -173,7 +174,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_estadio`) REFERENCES `estadio` (`id_estadio`);
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_recital`) REFERENCES `recital` (`id_recital`);
 
 --
 -- Filtros para la tabla `recital`
