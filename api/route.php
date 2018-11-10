@@ -2,6 +2,7 @@
 
 require_once "config/ConfigApi.php";
 require_once "controller/ComentariosApiController.php";
+require_once "controller/UserComentariosApiController.php";
 
 function parseURL($url)
 {
