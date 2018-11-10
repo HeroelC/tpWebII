@@ -131,8 +131,14 @@ class TourController extends SecuredController
 
   function editarEstadio($idEstadio){
 
-    $Estadio = $this->EstadiosModel->getById($idEstadio);
-    $this->TourView->editarEstadio($Estadio);
+    if($_SESSION['admin'] == 1){
+      $Estadio = $this->EstadiosModel->getById($idEstadio);
+      $this->TourView->editarEstadio($Estadio);
+    }else{
+
+      header(HOME);
+    }
+
   }
 
   function actualizarEstadio($idEstadio){
