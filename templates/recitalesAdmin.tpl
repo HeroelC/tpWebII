@@ -38,6 +38,10 @@
 
                   {/foreach}
               </select>
+              <div class="form-group">
+                <label for="imagen">Imagen</label>
+                <input type="file" id="imagenes" name="imagenes[]">
+              </div>
 
             <button type="submit" class="btn-danger" name="button">Cargar</button>
 

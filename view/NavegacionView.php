@@ -33,9 +33,10 @@ class NavegacionView
     $this->smarty->display('templates/music.tpl');
   }
 
-  function detalleRecital($Fila){
+  function detalleRecital($Fila, $imagenes){
 
     $this->smarty->assign('fila', $Fila);
+    $this->smarty->assign('imagenes', $imagenes);
     $this->smarty->display('templates/DetallesRecital.tpl');
   }
 

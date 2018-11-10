@@ -2,6 +2,7 @@
 
 require_once "./view/NavegacionView.php";
 require_once "./model/RecitalesModel.php";
+require_once "./model/ImagenesModel.php";
 
 class NavegacionController
 {
@@ -9,12 +10,14 @@ class NavegacionController
   private $NavegacionView;
   private $RecitalesModel;
   private $Session;
+  private $ImagenesModel;
 
   function __construct()
   {
 
-    $this->NavegacionView = new NavegacionView;
-    $this->RecitalesModel = new RecitalesModel;
+    $this->NavegacionView = new NavegacionView();
+    $this->ImagenesModel = new ImagenesModel();
+    $this->RecitalesModel = new RecitalesModel();
     $this->Session = session_start();
   }
 
@@ -44,9 +47,9 @@ class NavegacionController
 
   function detalleRecital($id_recital){
 
-
+    $imagenes = $this->ImagenesModel->getByRecital($id_recital);
     $Fila = $this->RecitalesModel->getConcert($id_recital);
-    $this->NavegacionView->detalleRecital($Fila);
+    $this->NavegacionView->detalleRecital($Fila, $imagenes);
   }
 
   function Estadio($id_estadio){

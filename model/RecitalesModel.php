@@ -73,7 +73,7 @@ class RecitalesModel
     $sentencia = $this->db->prepare("INSERT INTO recital(nombre, precio, estadio_id) VALUES(?,?,?)");
     $sentencia->execute(array($nombre, $precio, $idEstadio));
     ///Agregar Imagenes
-    $path = $this->subirImagen($tempPath);/
+    $path = $this->subirImagen($tempPath);
     $lastId =  $this->db->lastInsertId();
     $this->ImagenesModel->insert($path, $lastId);
   }
@@ -93,7 +93,7 @@ class RecitalesModel
 
   //imagenes ???
   private function subirImagen($imagen){
-        $destino_final = 'images/' . uniqid() . '.jpg';
+        $destino_final = 'img/' . uniqid() . '.jpg';
         echo "destino_final: ".$destino_final;
         move_uploaded_file($imagen, $destino_final);
         return $destino_final;
