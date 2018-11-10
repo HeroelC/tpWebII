@@ -1,15 +1,17 @@
 <?php
-
+require_once "ImagenesModel.php";
 class RecitalesModel
 {
 
   //Atributos
   private $db;
+  private $ImagenesModel;
 
   function __construct()
   {
     //Conectamos a la base de datos cuando instanciamos
     $this->db = $this->Connect();
+    $this->ImagenesModel = new ImagenesModel();
   }
 
   //Conectarse a la base de datos mediante PDO (PHP DATA OBJECT)
@@ -66,10 +68,20 @@ class RecitalesModel
     }
 
   //Funcion para añadir un recital
-  function insert($nombre, $precio, $idEstadio){
+  function insert($nombre, $precio, $idEstadio, $tempPath){
 
     $sentencia = $this->db->prepare("INSERT INTO recital(nombre, precio, estadio_id) VALUES(?,?,?)");
     $sentencia->execute(array($nombre, $precio, $idEstadio));
+    ///Agregar Imagenes
+    $path = $this->subirImagen($tempPath);/
+    $lastId =  $this->db->lastInsertId();
+    $this->ImagenesModel->insert($path, $lastId);
+  }
+
+  private function lastInsertId(){
+    $sentencia = $this->db->prepare("SELECT id_recital FROM recital ORDER BY id_recital  DESC LIMIT 1");
+    $sentencia->execute();
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
   //funcion para editar un recital
@@ -78,6 +90,16 @@ class RecitalesModel
     $sentencia = $this->db->prepare("UPDATE recital SET nombre = ?, precio = ?, estadio_id = ? WHERE id_recital = ?");
     $sentencia->execute(array($nombre, $precio, $idEstadio, $idRecital));
   }
+
+  //imagenes ???
+  private function subirImagen($imagen){
+        $destino_final = 'images/' . uniqid() . '.jpg';
+        echo "destino_final: ".$destino_final;
+        move_uploaded_file($imagen, $destino_final);
+        return $destino_final;
+    }
+
+
 
 }
 
