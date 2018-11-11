@@ -7,7 +7,7 @@
         <h1>CONCERTS</h1>
       </div>
 
-          <form action="actualizarRecital/{$Recital[0]['id_recital']}" method="post">
+          <form class="centrarfila" action="actualizarRecital/{$Recital[0]['id_recital']}" method="post">
 
             <input type="text" placeholder="{$Recital[0]['nombre']}" name="nombre" value="{$Recital[0]['nombre']}">
             <input type="number" placeholder="{$Recital[0]['precio']}" name="precio" value="{$Recital[0]['precio']}">

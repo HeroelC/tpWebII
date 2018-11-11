@@ -62,6 +62,7 @@ class TourController extends SecuredController
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $id_Estadio = $_POST['id_estadio'];
+
         $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
 
         $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio, $rutaTempImagenes);

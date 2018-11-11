@@ -27,7 +27,7 @@ class ImagenesModel
   }
 
   function getByRecital($id_recital){
-    $sentencia = $this->db->prepare("SELECT * FROM imagen i, recital r WHERE i.id_recital=r.id_recital and id_recital=?");
+    $sentencia = $this->db->prepare("SELECT * FROM imagen i, recital r WHERE i.id_recital=r.id_recital and r.id_recital=?");
     $sentencia->execute(array($id_recital[0]));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

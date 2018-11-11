@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-            <form action="actualizarEstadio/{$Estadio[0]['id_estadio']}" method="post">
+            <form class="centrarfila" action="actualizarEstadio/{$Estadio[0]['id_estadio']}" method="post">
                 <input type="text" placeholder="{$Estadio[0]['nombre']}" name="nombre" value="{$Estadio[0]['nombre']}" />
                 <input type="number" placeholder="{$Estadio[0]['capacidad']}" name="capacidad" value="{$Estadio[0]['capacidad']}" />
                 <button type="submit" class="btn-danger" name="button">Guardar</button>

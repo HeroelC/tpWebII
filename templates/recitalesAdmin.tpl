@@ -26,7 +26,7 @@
             </tbody>
           </table>
 
-          <form action="agregarRecital" method="post">
+          <form class="centrarfila" action="agregarRecital" method="post">
 
             <input type="text" placeholder="name" name="nombre" value="">
             <input type="number" placeholder="price" name="precio" value="">
@@ -38,10 +38,8 @@
 
                   {/foreach}
               </select>
-              <div class="form-group">
-                <label for="imagen">Imagen</label>
-                <input type="file" id="imagenes" name="imagenes[]">
-              </div>
+
+            <input type="file" id="imagenes" name="imagenes[]">
 
             <button type="submit" class="btn-danger" name="button">Cargar</button>
 
