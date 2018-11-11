@@ -26,7 +26,7 @@
             </tbody>
           </table>
 
-          <form class="centrarfila" action="agregarRecital" method="post">
+          <form enctype="multipart/form-data" class="centrarfila" action="agregarRecital" method="post">
 
             <input type="text" placeholder="name" name="nombre" value="">
             <input type="number" placeholder="price" name="precio" value="">
@@ -39,7 +39,7 @@
                   {/foreach}
               </select>
 
-            <input type="file" id="imagenes" name="imagenes[]">
+            <input type="file" id="imagenes" name="imagenes">
 
             <button type="submit" class="btn-danger" name="button">Cargar</button>
 
