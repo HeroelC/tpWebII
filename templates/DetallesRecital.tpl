@@ -25,9 +25,16 @@
       <div class="bordeAbajoNews col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <a class="back" href="tour"> < BACK </a>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <figure class="col-lg-6 col-md-10 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-1 col-sm-offset-1">
       {include file="slideImg.tpl"}
-      </div>
-      </div>
+    </figure>
+
+  </div>
+
 </div>
 
 {include file="footer.tpl"}
