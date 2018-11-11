@@ -2,9 +2,7 @@
 
 require_once "./model/RecitalesModel.php";
 require_once "./model/EstadiosModel.php";
-
 require_once "./view/TourView.php";
-
 require_once "SecuredController.php";
 
 class TourController extends SecuredController
@@ -46,10 +44,13 @@ class TourController extends SecuredController
   function eliminarRecital($idRecital){
 
     if($_SESSION['admin'] == 1){
+      if(isset($idRecital)){
         $this->RecitalesModel->delete($idRecital);
         header(TOURADMIN);
+      }else{
+        header(HOME);
+      }
     }else{
-
       header(HOME);
     }
   }
@@ -82,7 +83,6 @@ class TourController extends SecuredController
 
       $this->TourView->editarRecital($Recital, $Estadios);
     }else{
-
       header(HOME);
     }
   }
@@ -97,7 +97,6 @@ class TourController extends SecuredController
       $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
       header(TOURADMIN);
     }else{
-
       header(HOME);
     }
   }
@@ -115,7 +114,6 @@ class TourController extends SecuredController
           header(TOURADMIN);
         }
     }else{
-
       header(HOME);
     }
   }
@@ -126,7 +124,6 @@ class TourController extends SecuredController
       $this->EstadiosModel->Delete($idEstadio);
       header(TOURADMIN);
     }else{
-
       header(HOME);
     }
   }
@@ -137,22 +134,22 @@ class TourController extends SecuredController
       $Estadio = $this->EstadiosModel->getById($idEstadio);
       $this->TourView->editarEstadio($Estadio);
     }else{
-
       header(HOME);
     }
-
   }
 
   function actualizarEstadio($idEstadio){
 
+    if($_SESSION['admin'] == 1){
+      $nombre = $_POST['nombre'];
+      $capacidad = $_POST['capacidad'];
 
-    $nombre = $_POST['nombre'];
-    $capacidad = $_POST['capacidad'];
-
-    $this->EstadiosModel->edit($nombre, $capacidad, $idEstadio[0]);
-    header(TOURADMIN);
+      $this->EstadiosModel->edit($nombre, $capacidad, $idEstadio[0]);
+      header(TOURADMIN);
+    }else{
+      header(HOME);
+    }
   }
-
 }
 
  ?>

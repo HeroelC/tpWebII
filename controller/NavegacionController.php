@@ -45,14 +45,14 @@ class NavegacionController
     $this->NavegacionView->tour($Tabla);
   }
 
-  function detalleRecital($id_recital){
+  function detalleRecital($id_recital = null){
 
-    $imagenes = $this->ImagenesModel->getByRecital($id_recital);
-    $Fila = $this->RecitalesModel->getConcert($id_recital);
-    $this->NavegacionView->detalleRecital($Fila, $imagenes);
+      $imagenes = $this->ImagenesModel->getByRecital($id_recital);
+      $Fila = $this->RecitalesModel->getConcert($id_recital);
+      $this->NavegacionView->detalleRecital($Fila, $imagenes);
   }
 
-  function Estadio($id_estadio){
+  function Estadio($id_estadio = null){
 
     $Tabla = $this->RecitalesModel->getTableByStadium($id_estadio);
     $this->NavegacionView->tour($Tabla);
