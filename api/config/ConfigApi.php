@@ -5,9 +5,9 @@ class ConfigApi
     public static $RESOURCE = 'resource';
     public static $PARAMS = 'params';
     public static $RESOURCES = [
-      'comentarios#GET'=> 'ComentariosApiController#mostrarComentarios',
-      'tarea#DELETE'=> 'TareasApiController#DeleteTarea',
-      'comentarios#POST'=> 'UserComentariosApiController#InsertarComentario',
+      'comentarios#GET'=> 'ComentariosApiController#MostrarComentarios',
+      'comentarios#DELETE'=> 'ComentariosApiController#BorrarComentarios',
+      'comentarios#POST'=> 'ComentariosApiController#InsertarComentario',
       'tarea#PUT'=> 'TareasApiController#UpdateTarea'
     ];
 

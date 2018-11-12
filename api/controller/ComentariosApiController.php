@@ -48,16 +48,14 @@ class ComentariosApiController extends Api{
   }
 
   function BorrarComentarios($id_comentario){
-    if ($_SESSION['admin'] == 1) {
+    // if ($_SESSION['admin'] == 1) {
       if (isset($id_comentario)) {
         $this->ComentariosModel->delete($id_comentario);
       }else {
-        // code...
+        $this->json_response(null, 303);
       }
-    }else {
-      // code...
     }
-  }
+  // }
 
 }
 
