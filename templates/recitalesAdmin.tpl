@@ -39,7 +39,7 @@
                   {/foreach}
               </select>
 
-            <input type="file" id="imagenes" name="imagenes">
+            <input type="file" id="imagenes" name="imagenes" multiple>
 
             <button type="submit" class="btn-danger" name="button">Cargar</button>
 

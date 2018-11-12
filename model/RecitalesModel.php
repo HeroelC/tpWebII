@@ -78,7 +78,7 @@ class RecitalesModel
     $this->ImagenesModel->insert($path, $lastId);
   }
 
-  private function lastInsertId(){
+  function lastInsertId(){
     $sentencia = $this->db->prepare("SELECT id_recital FROM recital ORDER BY id_recital  DESC LIMIT 1");
     $sentencia->execute();
     return $sentencia->fetch(PDO::FETCH_ASSOC);
