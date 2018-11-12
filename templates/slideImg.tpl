@@ -2,19 +2,21 @@
 <div class="bordeArribaCarousel">
  </div>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousell" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousell" data-slide-to="1"></li>
-    <li data-target="#myCarousell" data-slide-to="2"></li>
-  </ol>
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+  </ol> -->
    <!-- Wrapper for slides -->
+   {$cantidad = count($imagenes)}
   <div class="carousel-inner">
-    {foreach from=$imagenes item=imagen}
-      <div class="item active">
-        <img src="{$imagen['url']}">
+    <div class="item active">
+      <img src="{$imagenes[0]['url']}">
+    </div>
+    {for $i=1 to $cantidad-1}
+      <div class="item">
+        <img src="{$imagenes[$i]['url']}">
       </div>
-    {/foreach}
+    {/for}
+
   </div>
    <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">

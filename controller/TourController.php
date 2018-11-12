@@ -2,6 +2,7 @@
 
 require_once "./model/RecitalesModel.php";
 require_once "./model/EstadiosModel.php";
+require_once "./model/ImagenesModel.php";
 require_once "./view/TourView.php";
 require_once "SecuredController.php";
 
@@ -10,6 +11,7 @@ class TourController extends SecuredController
   //Atributos model
   private $RecitalesModel;
   private $EstadiosModel;
+  private $ImagenesModel;
 
   //Atributos view
   private $TourView;
@@ -20,6 +22,8 @@ class TourController extends SecuredController
     parent::__construct();
     $this->RecitalesModel = new RecitalesModel();
     $this->EstadiosModel = new EstadiosModel();
+    $this->ImagenesModel = new ImagenesModel();
+
     $this->TourView = new TourView();
   }
 ##### Mostrar unión de las dos tablas ######
@@ -64,16 +68,48 @@ class TourController extends SecuredController
         $precio = $_POST['precio'];
         $id_Estadio = $_POST['id_estadio'];
 
-        $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+        // $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+        $arrayImagenes = array();
 
-        $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio, $rutaTempImagenes);
-        header(TOURADMIN);
+        if (isset($_FILES['imagenes'])){
+
+        	$cantidad= count($_FILES["imagenes"]["tmp_name"]);
+
+        	for ($i=0; $i<$cantidad; $i++){
+        	   //Comprobamos si el fichero es una imagen
+        	  if ($_FILES['imagenes']['type'][$i]=='image/png' || $_FILES['imagenes']['type'][$i]=='image/jpeg'){
+              array_push($arrayImagenes, $this->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
+        	   }
+
+          }
+        }
+
+        $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
+
+        $numeroRecital = $this->RecitalesModel->lastInsertId();
+
+        $cantidad = count($arrayImagenes);
+        print_r($arrayImagenes);
+        for ($i=0; $i < $cantidad ; $i++) {
+          $this->ImagenesModel->insert($arrayImagenes[$i], $numeroRecital['id_recital']);
+          print_r($arrayImagenes[$i]);
+          print_r($numeroRecital['id_recital']);
+        }
+        // header(TOURADMIN);
       }else{
 
         header(HOME);
       }
     }
   }
+
+
+  private function subirImagen($imagen){
+        $destino_final = 'images/' . uniqid() . '.jpg';
+        echo "destino_final: ".$destino_final;
+        move_uploaded_file($imagen, $destino_final);
+        return $destino_final;
+    }
 
   function editarRecital($idRecital){
 
