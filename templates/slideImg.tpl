@@ -1,6 +1,3 @@
-
-<div class="bordeArribaCarousel">
- </div>
 <div id="myCarousel" class="carousel slide maxCarousel" data-ride="carousel">
   <!-- <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -28,5 +25,3 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="bordeAbajoCarousel">
- </div>
