@@ -3,6 +3,7 @@
 require_once "SecuredController.php";
 
 require_once "./model/UsuariosModel.php";
+
 require_once "./view/UsuariosView.php";
 
 class UsuariosAdminController extends SecuredController

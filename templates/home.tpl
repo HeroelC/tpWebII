@@ -15,16 +15,16 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <div class="carousel-inner imageCarousel">
           <div class="item active">
-            <img src="img/rs1.jpg" alt="RS 1" style="width:100%;">
+            <img src="img/rs1.jpg" alt="RS 1">
           </div>
 
           <div class="item">
-            <img src="img/rs2.jpg" alt="RS 2" style="width:100%;">
+            <img src="img/rs2.jpg" alt="RS 2">
           </div>
         <div class="item">
-            <img src="img/rs3.jpg" alt="RS 3" style="width:100%;">
+            <img src="img/rs3.jpg" alt="RS 3">
           </div>
         </div>
 

@@ -6,9 +6,9 @@
         </div>
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <table class="table">
+            <table class="table centrarfila">
               <thead>
-                <tr class="centrarfila warning">
+                <tr class="warning">
                   <th scope="col">Name</th>
                   <th scope="col">Capacity</th>
                   <th scope="col">Edit</th>
@@ -18,7 +18,7 @@
               <tbody id="tablaTour">
                 {foreach from=$Estadios item=estadio}
 
-                <tr class="centrarfila">
+                <tr>
                   <td>{$estadio['nombre']}</td><td>{$estadio['capacidad']}</td><td><a class="btn btn-danger" href="editarEstadio/{$estadio['id_estadio']}">Editar</a></td><td><a class="btn btn-danger" href="eliminarEstadio/{$estadio['id_estadio']}">Borrar</a></td>
                 </tr>
 
@@ -26,7 +26,7 @@
               </tbody>
             </table>
 
-            <form action="agregarEstadio" method="post">
+            <form class="centrarfila" action="agregarEstadio" method="post">
                 <input type="text" placeholder="name" name="nombre" value="">
                 <input type="number" placeholder="capacity" name="capacidad" value="">
                 <button type="submit" class="btn-danger" name="button">Cargar</button>

@@ -1,13 +1,13 @@
 
 <div class="bordeArribaCarousel">
  </div>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide maxCarousel" data-ride="carousel">
   <!-- <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
   </ol> -->
    <!-- Wrapper for slides -->
    {$cantidad = count($imagenes)}
-  <div class="carousel-inner">
+  <div class="carousel-inner imgCarousel">
     <div class="item active">
       <img src="{$imagenes[0]['url']}">
     </div>
