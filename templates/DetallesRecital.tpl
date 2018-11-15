@@ -30,11 +30,16 @@
 
 {if !empty($imagenes)}
   <div class="row">
-    <figure class="col-lg-8 col-md-10 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-1 col-sm-offset-1">
+    <figure class="col-lg-6 col-md-10 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-1 col-sm-offset-1">
       {include file="slideImg.tpl"}
     </figure>
   </div>
 {/if}
+<div class="row">
+  <figure class="col-lg-6 col-md-10 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-1 col-sm-offset-1">
+    {include file="Comentarios.hbs"}
+  </figure>
+</div>
 </div>
 
 {include file="footer.tpl"}
