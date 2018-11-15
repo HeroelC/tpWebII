@@ -8,7 +8,7 @@ class ConfigApi
       'comentarios#GET'=> 'ComentariosApiController#MostrarComentarios',
       'comentarios#DELETE'=> 'ComentariosApiController#BorrarComentarios',
       'comentarios#POST'=> 'ComentariosApiController#InsertarComentario',
-      'tarea#PUT'=> 'TareasApiController#UpdateTarea'
+
     ];
 
 }

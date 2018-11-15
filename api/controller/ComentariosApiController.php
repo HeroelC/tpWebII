@@ -3,17 +3,20 @@
 require_once "Api.php";
 require_once "../model/ComentariosModel.php";
 require_once "ApiSecuredController.php";
+require_once "../model/UsuariosModel.php";
 
 class ComentariosApiController extends ApiSecuredController{
 
 
   private $ComentariosModel;
+  private $UsuariosModel;
 
   function __construct()
   {
 
     parent::__construct();
     $this->ComentariosModel = new ComentariosModel();
+    $this->UsuariosModel = new UsuariosModel();
   }
 
   function MostrarComentarios($param = null){
@@ -32,20 +35,6 @@ class ComentariosApiController extends ApiSecuredController{
 
   }
 
-  function getComentario($param = null){
-
-    if (isset($param)) {
-      $id_comentario = $param[0];
-      $comentario = $this->ComentariosModel->getComentario($id_comentario);
-    }else {
-      $this->ComentariosModel->getAll();
-    }
-    if (isset($comentario)) {
-      return $this->json_response($comentario, 200);
-    }else {
-      return $this->json_response(null, 404);
-    }
-  }
 
   function InsertarComentario($id_recital){
 
@@ -67,7 +56,6 @@ class ComentariosApiController extends ApiSecuredController{
     if ($this->Logueado() && $this->esAdmin()) {
      if (isset($param)) {
        $id_comentario = $param[0];
-       $comentario = $this->ComentariosModel->getComentario($id_comentario);
        if ($comentario) {
          $this->ComentariosModel->delete($id_comentario);
          $this->json_response("Comentario Borrado", 200)
