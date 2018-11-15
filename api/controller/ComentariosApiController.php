@@ -2,41 +2,57 @@
 
 require_once "Api.php";
 require_once "../model/ComentariosModel.php";
-require_once "../model/UsuariosModel.php";
+require_once "ApiSecuredController.php";
 
-class ComentariosApiController extends Api{
+class ComentariosApiController extends ApiSecuredController{
 
 
   private $ComentariosModel;
-  private $UsuariosModel;
 
   function __construct()
   {
+
     parent::__construct();
     $this->ComentariosModel = new ComentariosModel();
-    $this->UsuariosModel = new UsuariosModel();
   }
 
-  function MostrarComentarios($id_recital = null){
+  function MostrarComentarios($param = null){
 
-    if(isset($id_recital)){
-      $data = $this->ComentariosModel->getByRecital($id_recital);
+    if(isset($param)){
+      $id_recital = $param[0];
+      $comentario = $this->ComentariosModel->getByRecital($id_recital);
     }else{
-      $data = $this->ComentariosModel->getAll();
+      $comentario = $this->ComentariosModel->getAll();
     }
-    if (isset($data)) {
-      return $this->json_response($data,200);
+    if (isset($comentario)) {
+      return $this->json_response($comentario, 200);
     }else {
-      return $this->json_response(null,404);
+      return $this->json_response(null, 404);
     }
 
+  }
+
+  function getComentario($param = null){
+
+    if (isset($param)) {
+      $id_comentario = $param[0];
+      $comentario = $this->ComentariosModel->getComentario($id_comentario);
+    }else {
+      $this->ComentariosModel->getAll();
+    }
+    if (isset($comentario)) {
+      return $this->json_response($comentario, 200);
+    }else {
+      return $this->json_response(null, 404);
+    }
   }
 
   function InsertarComentario($id_recital){
+
     $mensaje = $_POST['mensaje'];
     $puntaje = $_POST['puntaje'];
 
-    if(isset($_SESSION['User'])){
+    if($this->Logueado())){
       $nombre = $_SESSION['User'];
       $datosUsuario = $this->UsuariosModel->getName($nombre);
       if ((isset($mensaje))&&(isset($puntaje))) {
@@ -47,15 +63,22 @@ class ComentariosApiController extends Api{
     }
   }
 
-  function BorrarComentarios($id_comentario){
-    // if ($_SESSION['admin'] == 1) {
-      if (isset($id_comentario)) {
-        $this->ComentariosModel->delete($id_comentario);
-      }else {
-        $this->json_response(null, 303);
-      }
-    }
-  // }
+  function BorrarComentarios($param = null){
+    if ($this->Logueado() && $this->esAdmin()) {
+     if (isset($param)) {
+       $id_comentario = $param[0];
+       $comentario = $this->ComentariosModel->getComentario($id_comentario);
+       if ($comentario) {
+         $this->ComentariosModel->delete($id_comentario);
+         $this->json_response("Comentario Borrado", 200)
+       }else{
+         $this->json_response(null, 300);
+       }
+     }else {
+       $this->json_response(null, 303);
+     }
+   }
+ }
 
 }
 
