@@ -68,7 +68,6 @@ class TourController extends SecuredController
         $precio = $_POST['precio'];
         $id_Estadio = $_POST['id_estadio'];
 
-        // $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
         $arrayImagenes = array();
 
         if (isset($_FILES['imagenes'])){
@@ -78,38 +77,31 @@ class TourController extends SecuredController
         	for ($i=0; $i<$cantidad; $i++){
         	   //Comprobamos si el fichero es una imagen
         	  if ($_FILES['imagenes']['type'][$i]=='image/png' || $_FILES['imagenes']['type'][$i]=='image/jpeg'){
-              array_push($arrayImagenes, $this->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
+              array_push($arrayImagenes, $this->ImagenesModel->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
         	   }
-
           }
         }
 
+        //Insertamos el recital
         $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
 
+        //Ultimo recital insertado
         $numeroRecital = $this->RecitalesModel->lastInsertId();
 
-        $cantidad = count($arrayImagenes);
-        print_r($arrayImagenes);
+        $cantidad = count($arrayImagenes); //Contamos cantidad de imagenes que selecciono
+
         for ($i=0; $i < $cantidad ; $i++) {
+
           $this->ImagenesModel->insert($arrayImagenes[$i], $numeroRecital['id_recital']);
-          print_r($arrayImagenes[$i]);
-          print_r($numeroRecital['id_recital']);
         }
-        // header(TOURADMIN);
+
+        header(TOURADMIN); //Redireccionamos al TourAdmin
       }else{
 
-        header(HOME);
+        header(HOME); //Si no es admin va al home
       }
     }
   }
-
-
-  private function subirImagen($imagen){
-        $destino_final = 'images/' . uniqid() . '.jpg';
-        echo "destino_final: ".$destino_final;
-        move_uploaded_file($imagen, $destino_final);
-        return $destino_final;
-    }
 
   function editarRecital($idRecital){
 

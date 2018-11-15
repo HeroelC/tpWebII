@@ -31,9 +31,7 @@ class LoginController
       ####Acá debería verificar si el usuario existe en la base de datos####
       $datosUsuario = $this->UsuariosModel->getName($nombre);
 
-      //echo '<h1> Contenido de $dbNombre: '.print_r($dbNombre).'</h1>';
-
-        if($datosUsuario != null){
+        if(!empty($datosUsuario)){
 
             //Le pedimos el hash
             $hash = $datosUsuario[0]['clave'];
