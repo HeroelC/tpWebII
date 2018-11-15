@@ -26,6 +26,7 @@ class TourController extends SecuredController
 
     $this->TourView = new TourView();
   }
+
 ##### Mostrar unión de las dos tablas ######
 
   function TourAdmin(){
@@ -44,7 +45,6 @@ class TourController extends SecuredController
 
 ##### Funciones de los recitales #####
 
-  //¿Y si no esta seteado?
   function eliminarRecital($idRecital){
 
     if($_SESSION['admin'] == 1){
@@ -59,7 +59,8 @@ class TourController extends SecuredController
     }
   }
 
-  //Faltaria agregar el error si no carga todo los datos
+  //IMPORTANTE: Faltaria agregar el error si no carga todo los datos, deberia modularizar
+  //Para que no quede una funcion tan grande
   function agregarRecital(){
 
     if($_SESSION['admin'] == 1){

@@ -53,9 +53,10 @@ class UsuariosAdminController extends SecuredController
 
     if($_SESSION['admin'] == 1){
         if(isset($_POST['admin'])){
+
           $admin = $_POST['admin'];
           $this->UsuariosModel->edit($id_usuario[0], $admin);
-          header(USUARIOS);
+          header(USUARIOS); //Redireccionamos a panel usuarios
         }
       }
     }

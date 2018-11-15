@@ -10,11 +10,11 @@ class ImagenesModel
   function __construct()
   {
     //Conectamos a la base de datos cuando instanciamos
-    $this->db = $this->Connect();
+    $this->db = $this->connect();
   }
 
   //Conectarse a la base de datos mediante PDO (PHP DATA OBJECT)
-  private function Connect(){
+  private function connect(){
 
     return new PDO('mysql:host=localhost;'
     .'dbname=db_rolling;charset=utf8'

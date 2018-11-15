@@ -10,10 +10,10 @@ class EstadiosModel
   {
 
     //Conectamos a la base de datos
-    $this->db = $this->Connect();
+    $this->db = $this->connect();
   }
 
-  private function Connect(){
+  private function connect(){
     return new PDO('mysql:host=localhost;'
     .'dbname=db_rolling;charset=utf8'
     , 'root', '');
@@ -21,7 +21,6 @@ class EstadiosModel
 
 //Obtenemos todo los estadios, funcionando.
   function getAll(){
-
       $sentencia = $this->db->prepare( "SELECT * FROM estadio");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +28,6 @@ class EstadiosModel
 
 //Obtener un estadio en especifico por id getById()
   function getById($idEstadio){
-
     $sentencia = $this->db->prepare( "SELECT * FROM estadio WHERE id_estadio=?");
     $sentencia->execute(array($idEstadio[0]));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -37,22 +35,18 @@ class EstadiosModel
 
 //Insertamos un estadio, probado funcionando
     function insert($nombre, $capacidad){
-
       $sentencia = $this->db->prepare("INSERT INTO estadio(nombre, capacidad) VALUES(?,?)");
       $sentencia->execute(array($nombre, $capacidad));
     }
 
-//Probada la funcion eliminar, ahora elimina bien.
-//Preguntar tema de eliminar cuando esta asociado a otra tabla.
+//Eliminar estadio
     function delete($idEstadio){
-
       $sentencia = $this->db->prepare( "DELETE FROM estadio where id_estadio=?");
       $sentencia->execute(array($idEstadio[0]));
     }
 
 //Editar estadio, probada funcionando
     function edit($nombre, $capacidad, $idEstadio){
-
       $sentencia = $this->db->prepare( "UPDATE estadio SET nombre = ?, capacidad = ? where id_estadio=?");
       $sentencia->execute(array($nombre, $capacidad, $idEstadio));
     }
