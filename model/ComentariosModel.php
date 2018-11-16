@@ -16,7 +16,6 @@ class ComentariosModel
     .'dbname=db_rolling;charset=utf8'
     , 'root', '');
   }
-}
 
 //Insertar un comentario
   function insert($mensaje, $puntaje, $id_usuario, $id_recital){
@@ -35,7 +34,6 @@ class ComentariosModel
 
 //Obtener todo los comentarios
   function getAll(){
-
     $sentencia = $this->db->prepare("SELECT * FROM comentario");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -49,10 +47,4 @@ class ComentariosModel
   }
 
 }
-
-
-
-
-
-
  ?>
