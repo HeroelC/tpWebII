@@ -44,7 +44,7 @@ class ImagenesModel
    function getUrl($id_img){
      $sentencia = $this->db->prepare("SELECT url FROM imagen WHERE id_imagen = ?");
      $sentencia->execute($id_img[0]);
-     $return $sentencia->fetch(PDO::FETCH_ASSOC);
+     return $sentencia->fetch(PDO::FETCH_ASSOC);
    }
 
    //Funcion para eliminar una imagen, también se debe eliminar el archivo del servidor

@@ -32,4 +32,6 @@
       </div>
 </div>
 
+{include file="panelImgEditRecital.tpl"}
+
 {include file="footer.tpl"}
