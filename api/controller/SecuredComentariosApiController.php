@@ -19,22 +19,6 @@ class SecuredComentariosApiController extends ApiSecuredController{
     $this->UsuariosModel = new UsuariosModel();
   }
 
-  function InsertarComentario($id_recital){
-
-    $mensaje = $_POST['mensaje'];
-    $puntaje = $_POST['puntaje'];
-
-    if($this->Logueado())){
-      $nombre = $_SESSION['User'];
-      $datosUsuario = $this->UsuariosModel->getName($nombre);
-      if ((isset($mensaje))&&(isset($puntaje))) {
-        $this->ComentariosModel->insert($mensaje, $puntaje, $datosUsuario[0]['id_usuario'], $id_recital);
-      }else{
-        $this->json_response(null, 300);
-        }
-    }
-  }
-
   function BorrarComentarios($param = null){
     if ($this->Logueado() && $this->esAdmin()) {
      if (isset($param)) {
