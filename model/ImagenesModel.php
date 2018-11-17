@@ -43,7 +43,7 @@ class ImagenesModel
    //Se le pasa un ID de imagen a la funcion y devuelve la URL.
    function getUrl($id_img){
      $sentencia = $this->db->prepare("SELECT url FROM imagen WHERE id_imagen = ?");
-     $sentencia->execute($id_img[0]);
+     $sentencia->execute(array($id_img[0]));
      return $sentencia->fetch(PDO::FETCH_ASSOC);
    }
 
@@ -51,9 +51,9 @@ class ImagenesModel
    //Alojado en images
    function delete($id_img){
      $url = $this->getUrl($id_img);
-     unlink($url);
+     unlink($url['url']);
      $sentencia = $this->db->prepare("DELETE FROM imagen WHERE id_imagen=?");
-     $sentencia->execute($id_img[0]);
+     $sentencia->execute(array($id_img[0]));
    }
 
 

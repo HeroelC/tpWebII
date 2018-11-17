@@ -179,6 +179,17 @@ class TourController extends SecuredController
       header(HOME);
     }
   }
+
+  function eliminarImagen($id_img){
+    if($_SESSION['admin'] == 1){
+      $this->ImagenesModel->delete($id_img);
+
+      header(TOURADMIN);
+    }else{
+
+      header(HOME);
+    }
+  }
 }
 
  ?>

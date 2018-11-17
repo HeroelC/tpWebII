@@ -30,6 +30,7 @@ class ConfigApp
       'agregarRecital' => 'TourController#agregarRecital',
       'editarRecital' => 'TourController#editarRecital',
       'actualizarRecital' => 'TourController#actualizarRecital',
+      'eliminarImagen' => 'TourController#eliminarImagen',
       'agregarUsuario' => 'UsuariosController#agregar',
       'verificarLogin' => 'LoginController#verificarLogin',
       'signUp' => 'UsuariosController#SignUp',

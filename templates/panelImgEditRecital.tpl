@@ -9,7 +9,7 @@
           <img width="90%" height="200px" src="{$imagen['url']}" alt="Image">
           <figcaption>
           <a class="btn btn-danger link" href="">Edit</a>
-          <a class="btn btn-danger" href="">Delete</a>
+          <a class="btn btn-danger" href="eliminarImagen/{$imagen['id_imagen']}">Delete</a>
          </figcaption>
       </figure>
 
