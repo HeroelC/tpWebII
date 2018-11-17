@@ -45,11 +45,11 @@ class TourView
     $this->smarty->display('./templates/recitales.tpl');
   }
 
-  function editarRecital($Recital, $Estadios){
+  function editarRecital($Recital, $Estadios, $Imagenes){
 
     $this->smarty->assign('Recital', $Recital);
     $this->smarty->assign('Estadios', $Estadios);
-
+    $this->smarty->assign('imagenes', $Imagenes);
     $this->smarty->display('./templates/editarRecital.tpl');
   }
 

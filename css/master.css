@@ -1,3 +1,11 @@
+.link{
+  margin-left: 1%
+  margin-top: 0.1%;
+}
+.linkImg{
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center;
+}
 .maxCarousel{
   height: 250px;
 }

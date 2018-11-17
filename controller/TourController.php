@@ -109,8 +109,8 @@ class TourController extends SecuredController
     if($_SESSION['admin'] == 1){
       $Estadios = $this->EstadiosModel->getAll();
       $Recital = $this->RecitalesModel->getById($idRecital);
-
-      $this->TourView->editarRecital($Recital, $Estadios);
+      $Imagenes = $this->ImagenesModel->getByRecital($idRecital);
+      $this->TourView->editarRecital($Recital, $Estadios, $Imagenes);
     }else{
       header(HOME);
     }
