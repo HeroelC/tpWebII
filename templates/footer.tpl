@@ -21,13 +21,13 @@
       </div>
     </div>
   </footer>
- <!-- Carousel -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Custom scripts for this template -->
-<script src="js/clean-blog.js"></script>
-<script src="js/main.js"></script>
-<script src="js/handlebars.js"></script>
- <script  src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+   <!-- Carousel -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/handlebars.js"></script>
+  <script  src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 </body>
 </html>
