@@ -1,6 +1,10 @@
-'use strict'
+'use strict';
+
 let templateComentarios;
-document.querySelector("#comment").addEventListener("click", loadComments);
+
+document.addEventListener('DOMContentLoaded', loadComments);
+
+//document.querySelector("#comment").addEventListener("click", loadComments);
 
 function loadComments(){
   //DESCARGAR Y COMPILAR EL TEMPLATE (SE DESCARGA UNA VEZ AL PRINCIPIO)
