@@ -2,9 +2,10 @@
   <section class="comentarios">
 
   </section>
-  <div class="bordeArribaNews">
-    <h1>COMMENTS</h1>
 
+  {if (isset($smarty.session.User))}
+  <div class="bordeArribaNews">
+    <h1>COMMENT</h1>
   </div>
   <form>
     <div class="form-group">
@@ -21,9 +22,8 @@
       <option>5</option>
     </select>
   </div>
-  <button type="button" class="btn-danger" id="comment" name="comment">Comment</button>
-
-</div>
-<div class="bordeAbajoNews col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-
+  <button type="button" class="btn-danger" id="comment" name="comment">Send</button>
+  <div class="bordeAbajoNews">
+  </div>
+  {/if}
 </div>

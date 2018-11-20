@@ -40,13 +40,14 @@ function agregarComentario(){
   //para pasarlos al objeto
   let mensaje = document.querySelector("#texto").value;
   let puntaje = document.querySelector("#puntaje").value;
-
+  let recital = document.querySelector("#id_recital").value;
+  
   //Creamos el objeto comentario para enviar, con los atributos de la DB
   let comentario = {
     "mensaje": mensaje,
     "puntaje": puntaje,
     "id_usuario": 1,
-    "id_recital": 6
+    "id_recital": recital
   }
 
   //ID USUARIO Y ID RECITAL HARDCODEADO, ESTO SE TIENE QUE CAMBIAR
