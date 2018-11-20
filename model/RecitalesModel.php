@@ -55,7 +55,7 @@ class RecitalesModel
 
     function getConcert($id_recital){
 
-      $setencia = $this->db->prepare("SELECT r.nombre as recital, r.precio, e.nombre as estadio, e.capacidad FROM recital r, estadio e WHERE r.estadio_id = e.id_estadio and r.id_recital = ?");
+      $setencia = $this->db->prepare("SELECT r.id_recital, r.nombre as recital, r.precio, e.nombre as estadio, e.capacidad FROM recital r, estadio e WHERE r.estadio_id = e.id_estadio and r.id_recital = ?");
       $setencia->execute(array($id_recital[0]));
       return $setencia->fetch(PDO::FETCH_ASSOC);
     }

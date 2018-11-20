@@ -8,13 +8,12 @@
   </div>
   <form>
     <div class="form-group">
-      <label for="mensaje">Comment</label>
       <textarea class="form-control" id="texto" rows="5"></textarea>
     </div>
   </form>
   <div class="form-group">
     <label for="puntaje">Score</label>
-    <select multiple class="form-control" id="puntaje">
+    <select class="form-control" id="puntaje">
       <option>1</option>
       <option>2</option>
       <option>3</option>
