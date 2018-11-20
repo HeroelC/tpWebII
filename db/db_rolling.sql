@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2018 a las 18:29:40
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 7.2.8
+-- Tiempo de generación: 20-11-2018 a las 08:57:05
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_rolling`
 --
-CREATE DATABASE IF NOT EXISTS `db_rolling` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `db_rolling`;
 
 -- --------------------------------------------------------
 
@@ -43,10 +41,9 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `mensaje`, `puntaje`, `id_usuario`, `id_recital`) VALUES
-(2, 'lalal', 3, 1, 6),
-(3, 'lalal', 3, 1, 6),
 (4, 'lalal', 3, 1, 6),
-(5, 'lalal', 3, 1, 6);
+(5, 'lalal', 3, 1, 6),
+(6, 'Hola woooo', 5, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -89,10 +86,8 @@ CREATE TABLE `imagen` (
 
 INSERT INTO `imagen` (`id_imagen`, `url`, `id_recital`) VALUES
 (24, 'images/5be7d42b3c2e3.jpg', 32),
-(25, 'images/5bed68f60bee6.jpg', 33),
-(27, 'images/5bed749d0da49.jpg', 35),
-(28, 'images/5bed749d0ea9e.jpg', 35),
-(29, 'images/5bed749d0ff9d.jpg', 35);
+(30, 'images/5bf0690fa31d1.jpg', 36),
+(31, 'images/5bf0690fa396e.jpg', 36);
 
 -- --------------------------------------------------------
 
@@ -117,8 +112,7 @@ INSERT INTO `recital` (`id_recital`, `nombre`, `precio`, `estadio_id`) VALUES
 (7, 'Satisfaction', 250, 33),
 (8, 'Satisfaction', 300, 32),
 (32, 'Rolling Stones', 3000, 30),
-(33, 'Elliot', 12, 30),
-(35, 'as', 111, 30);
+(36, 'Prueba Imagen', 150, 30);
 
 -- --------------------------------------------------------
 
@@ -188,32 +182,27 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `estadio`
 --
 ALTER TABLE `estadio`
   MODIFY `id_estadio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `recital`
 --
 ALTER TABLE `recital`
-  MODIFY `id_recital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
+  MODIFY `id_recital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- Restricciones para tablas volcadas
 --
