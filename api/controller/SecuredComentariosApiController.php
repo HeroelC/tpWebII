@@ -6,7 +6,7 @@ require_once "ApiSecuredController.php";
 require_once "../model/ComentariosModel.php";
 require_once "../model/UsuariosModel.php";
 
-class SecuredComentariosApiController extends ApiSecuredController{
+class SecuredComentariosApiController extends Api{
 
   private $ComentariosModel;
   private $UsuariosModel;
@@ -31,23 +31,25 @@ class SecuredComentariosApiController extends ApiSecuredController{
         return $this->json_response($response, 200);
     }
 
-
-
     //ESTA FUNCION VA EN LA API SecuredComentariosApiController
     function BorrarComentario($param = null){
-      if ($this->Logueado() && $this->esAdmin()) {
+
        if (count($param) == 1) {
          $id_comentario = $param[0];
          $response = $this->ComentariosModel->delete($id_comentario);
-         if ($response == false) {
-           return $this->json_response($response, 300);
-         }else{
-           return $this->json_response($response, 200);
-         }
-       }else {
-         return $this->json_response("No Task Specified", 300);
        }
-     }
+  
+           return $this->json_response($response, 200);
+
+       //   if ($response == false) {
+       //     return $this->json_response($response, 300);
+       //   }else{
+       //     return $this->json_response($response, 200);
+       //   }
+       // }else {
+       //   return $this->json_response("No Task Specified", 300);
+       // }
+
     }
 
 

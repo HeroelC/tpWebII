@@ -2,6 +2,7 @@
 
 let urlAPI = "api/comentarios";
 let templateComentarios;
+let timer;
 
 document.addEventListener('DOMContentLoaded', loadComments);
 
@@ -13,9 +14,10 @@ function loadComments(){
     .then(template => {
       templateComentarios = Handlebars.compile(template); // compila y prepara el template
 
-      setTimeout(getComentarios() , 2000);
+      getComentarios();
 
       // getComentarios();
+      document.querySelector("#comment").addEventListener('click', agregarComentario);
   });
 }
 function getComentarios() {
@@ -35,6 +37,11 @@ function mostrarComentarios(jsonComentarios) {
     }
     let html = templateComentarios(context);
     document.querySelector(".comentarios").innerHTML = html;
+
+    let b = document.querySelectorAll(".borrar");
+
+    b.forEach(b=> {b.addEventListener("click",function(){borrarComentario(b.getAttribute("data"))});
+   });
 }
 
 function agregarComentario(){
@@ -43,7 +50,7 @@ function agregarComentario(){
   let mensaje = document.querySelector("#texto").value;
   let puntaje = document.querySelector("#puntaje").value;
   let recital = document.querySelector("#id_recital").value;
-
+  console.log(recital);
   //Creamos el objeto comentario para enviar, con los atributos de la DB
   let comentario = {
     "mensaje": mensaje,
@@ -69,7 +76,14 @@ function agregarComentario(){
       })
     }
   })
-
 }
 
-document.querySelector("#comment").addEventListener('click', agregarComentario);
+  function borrarComentario(id_comentario){
+    console.log("borrar");
+    console.log(id_comentario);
+    fetch(urlAPI + '/' + id_comentario,  {
+    'method': 'DELETE',
+    'headers': {'Content-Type': 'application/json'},
+    })
+    .then(r => loadComments())
+  }
