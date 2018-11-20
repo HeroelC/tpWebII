@@ -9,7 +9,7 @@
   <form>
     <div class="form-group">
       <label for="mensaje">Comment</label>
-      <textarea class="form-control" id="comentario" rows="5"></textarea>
+      <textarea class="form-control" id="texto" rows="5"></textarea>
     </div>
   </form>
   <div class="form-group">
