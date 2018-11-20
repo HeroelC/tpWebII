@@ -4,6 +4,11 @@
   </section>
 
   {if (isset($smarty.session.User))}
+  {if $smarty.session.admin == 1}
+  <input type="input" hidden="hidden" class="admin" data="admin">
+  {else}
+  <input type="input" hidden="hidden" class="admin" data="noAdmin">
+  {/if}
   <div class="bordeArribaNews">
     <h1>COMMENT</h1>
   </div>

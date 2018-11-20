@@ -31,9 +31,20 @@ function getComentarios() {
     })
   }
 function mostrarComentarios(jsonComentarios) {
+  let admin = document.querySelector(".admin").getAttribute("data");
+    console.log(admin);
+    if (admin === "admin") {
+      admin = 1;
+      console.log(admin);
+    }
+    else {
+      admin = 0;
+      console.log(admin);
+    }
   //INSTANCIAR TEMPLATE CON UN CONTEXTO
     let context = { // como el assign de smarty
-        comentarios: jsonComentarios
+        comentarios: jsonComentarios,
+        administrador: admin
     }
     let html = templateComentarios(context);
     document.querySelector(".comentarios").innerHTML = html;
