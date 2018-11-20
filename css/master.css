@@ -1,3 +1,17 @@
+#imagenes{
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.comentario{
+  background-color: AntiqueWhite;
+  text-align: center;
+}
+.comentarios{
+  font-family: 'Fjalla One', sans-serif;
+  margin-top: 1%;
+}
 .link{
   margin: 1%;
 }

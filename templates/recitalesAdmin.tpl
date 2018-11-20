@@ -39,9 +39,11 @@
                   {/foreach}
               </select>
 
-            <input type="file" id="imagenes" name="imagenes[]" multiple>
 
-            <button type="submit" class="btn-danger" name="button">Cargar</button>
+              <input type="file" id="imagenes" name="imagenes[]" multiple>
+
+              <button type="submit" class="btn btn-danger" name="button">Cargar</button>
+
 
            </form>
 
