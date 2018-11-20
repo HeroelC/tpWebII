@@ -13,7 +13,9 @@ function loadComments(){
     .then(template => {
       templateComentarios = Handlebars.compile(template); // compila y prepara el template
 
-      getComentarios();
+      setTimeout(getComentarios() , 2000);
+
+      // getComentarios();
   });
 }
 function getComentarios() {
@@ -41,7 +43,7 @@ function agregarComentario(){
   let mensaje = document.querySelector("#texto").value;
   let puntaje = document.querySelector("#puntaje").value;
   let recital = document.querySelector("#id_recital").value;
-  
+
   //Creamos el objeto comentario para enviar, con los atributos de la DB
   let comentario = {
     "mensaje": mensaje,
@@ -61,6 +63,7 @@ function agregarComentario(){
     if(r.ok){
       r.json().then(t => {
         console.log("Se cargo con éxito");
+        getComentarios();
         //Se deberian vaciar los puntajes y texto
         //Acá se deberia volver a llamar a la función de cargar comentarios, todavia no
       })
