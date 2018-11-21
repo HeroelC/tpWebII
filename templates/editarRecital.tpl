@@ -7,7 +7,7 @@
         <h1>CONCERTS</h1>
       </div>
 
-          <form class="centrarfila" action="actualizarRecital/{$Recital[0]['id_recital']}" method="post">
+          <form class="centrarfila" enctype="multipart/form-data" action="actualizarRecital/{$Recital[0]['id_recital']}" method="post">
 
             <input type="text" placeholder="{$Recital[0]['nombre']}" name="nombre" value="{$Recital[0]['nombre']}">
             <input type="number" placeholder="{$Recital[0]['precio']}" name="precio" value="{$Recital[0]['precio']}">
@@ -19,6 +19,8 @@
 
                   {/foreach}
               </select>
+
+              <input type="file" id="imagenes" name="imagenes[]" multiple>
 
             <button type="submit" class="btn-danger" name="button">Cargar</button>
 

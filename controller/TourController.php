@@ -85,7 +85,10 @@ class TourController extends SecuredController
 
         //Insertamos el recital
         $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-        $this->subirImg($arrayImagenes);
+        //Ultimo recital insertado
+        $numeroRecital = $this->RecitalesModel->lastInsertId();
+
+        $this->subirImg($arrayImagenes, $numeroRecital['id_recital']);
 
         header(TOURADMIN); //Redireccionamos al TourAdmin
       }else{
@@ -95,15 +98,14 @@ class TourController extends SecuredController
     }
   }
 
-  function subirImg($arrayImagenes){
-    //Ultimo recital insertado
-    $numeroRecital = $this->RecitalesModel->lastInsertId();
+  function subirImg($arrayImagenes, $numeroRecital){
+
 
     $cantidad = count($arrayImagenes); //Contamos cantidad de imagenes que selecciono
 
     for ($i=0; $i < $cantidad ; $i++) {
 
-      $this->ImagenesModel->insert($arrayImagenes[$i], $numeroRecital['id_recital']);
+      $this->ImagenesModel->insert($arrayImagenes[$i], $numeroRecital);
     }
   }
 
@@ -114,8 +116,8 @@ class TourController extends SecuredController
       $Recital = $this->RecitalesModel->getById($idRecital);
       $Imagenes = $this->ImagenesModel->getByRecital($idRecital);
       $this->TourView->editarRecital($Recital, $Estadios, $Imagenes);
-    }else{
-      header(HOME);
+      }else{
+        header(HOME);
     }
   }
 
@@ -125,8 +127,21 @@ class TourController extends SecuredController
       $nombre = $_POST['nombre'];
       $precio = $_POST['precio'];
       $idEstadio = $_POST['estadio_id'];
-
       $this->RecitalesModel->edit($nombre, $precio, $idEstadio, $idRecital[0]);
+      $arrayImagenes = array();
+
+      if (isset($_FILES['imagenes'])){
+
+        $cantidad= count($_FILES["imagenes"]["tmp_name"]);
+
+        for ($i=0; $i<$cantidad; $i++){
+           //Comprobamos si el fichero es una imagen
+          if ($_FILES['imagenes']['type'][$i]=='image/png' || $_FILES['imagenes']['type'][$i]=='image/jpeg'){
+            array_push($arrayImagenes, $this->ImagenesModel->subirImagen($_FILES["imagenes"]["tmp_name"][$i]));
+           }
+        }
+        $this->subirImg($arrayImagenes, $idRecital[0]);
+      }
       header(TOURADMIN);
     }else{
       header(HOME);
