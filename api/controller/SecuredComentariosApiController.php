@@ -6,7 +6,7 @@ require_once "ApiSecuredController.php";
 require_once "../model/ComentariosModel.php";
 require_once "../model/UsuariosModel.php";
 
-class SecuredComentariosApiController extends Api{
+class SecuredComentariosApiController extends ApiSecuredController{
 
   private $ComentariosModel;
   private $UsuariosModel;
@@ -21,14 +21,18 @@ class SecuredComentariosApiController extends Api{
 
   //ESTA FUNCION VA EN LA API SecuredComentariosApiController
     function InsertarComentario(){
+        if ($this->Logueado()) {
+          $comentarioJSON = $this->getJSONData();
 
-        //FALTA CAMBIAR EL MODELO PARA QUE DEVUELVA UN BOOLEAN
-        $comentarioJSON = $this->getJSONData();
+          $response = $this->ComentariosModel->insert($comentarioJSON->mensaje, $comentarioJSON->puntaje,
+          $comentarioJSON->id_usuario, $comentarioJSON->id_recital);
 
-        $response = $this->ComentariosModel->insert($comentarioJSON->mensaje, $comentarioJSON->puntaje,
-        $comentarioJSON->id_usuario, $comentarioJSON->id_recital);
+          return $this->json_response($response, 200);
+        }else {
+          return $this->json_response(null, 404);
+        }
+        
 
-        return $this->json_response($response, 200);
     }
 
     //ESTA FUNCION VA EN LA API SecuredComentariosApiController
@@ -38,7 +42,7 @@ class SecuredComentariosApiController extends Api{
          $id_comentario = $param[0];
          $response = $this->ComentariosModel->delete($id_comentario);
        }
-  
+
            return $this->json_response($response, 200);
 
        //   if ($response == false) {
