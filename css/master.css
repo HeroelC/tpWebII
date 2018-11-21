@@ -3,7 +3,12 @@
   margin-top: 2%;
   margin-bottom: 2%;
 }
-
+.borrar{
+  margin-top: 1%;
+}
+#puntaje{
+  height: 30px;
+}
 .comentario{
   background-color: AntiqueWhite;
   text-align: center;

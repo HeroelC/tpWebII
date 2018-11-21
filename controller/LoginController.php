@@ -42,6 +42,7 @@ class LoginController
                  session_start();
                  $_SESSION['User'] = $nombre;
                  $_SESSION['admin'] = $datosUsuario[0]['admin'];
+                 $_SESSION['idUsuario'] = $datosUsuario[0]['id_usuario'];
                  header(HOME);
                }else{
                  //Si no es la misma deberia volver al login y mostrarle algun error.

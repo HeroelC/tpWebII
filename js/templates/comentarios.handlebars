@@ -2,13 +2,12 @@
   {{#each comentarios}}
     <div class="row">
       <div class="comentarios col col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3">
-        <li class="list-group-item list-group-item-dark">User: </li>
+        <li class="list-group-item list-group-item-dark"> {{nombre}}</li>
         <p class="list-group-item list-group-item-dark puntaje">Score: {{puntaje}}</p>
         <li class="list-group-item list-group-item-dark comentario">{{mensaje}}</li>
       </div>
-    </div>
-    {{#if administrador}}
       <button class="borrar btn btn-danger" data="{{id_comentario}}">BORRAR</button></li>
-    {{/if}}
+    </div>
+
   {{/each}}
 </ul>

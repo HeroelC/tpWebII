@@ -27,7 +27,7 @@ class ComentariosModel
 //Obtener un comentario medinate el id de un recital
   function getByRecital($id_recital){
 
-    $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_recital = ?");
+    $sentencia = $this->db->prepare("SELECT c.*, u.nombre FROM comentario c, usuario u WHERE c.id_recital = ? and c.id_usuario = u.id_usuario");
     $sentencia->execute($id_recital);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

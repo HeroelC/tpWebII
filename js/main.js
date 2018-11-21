@@ -31,20 +31,21 @@ function getComentarios() {
     })
   }
 function mostrarComentarios(jsonComentarios) {
-  let admin = document.querySelector(".admin").getAttribute("data");
-    console.log(admin);
-    if (admin === "admin") {
-      admin = 1;
-      console.log(admin);
-    }
-    else {
-      admin = 0;
-      console.log(admin);
-    }
+  // let admin = 0;
+  // admin = document.querySelector(".admin").getAttribute("data");
+  //   console.log(admin);
+  //   if (admin === "admin") {
+  //     admin = 1;
+  //     console.log(admin);
+  //   }
+  //   else {
+  //     admin = 0;
+  //     console.log(admin);
+  //   }
   //INSTANCIAR TEMPLATE CON UN CONTEXTO
     let context = { // como el assign de smarty
         comentarios: jsonComentarios,
-        administrador: admin
+        // administrador: admin
     }
     let html = templateComentarios(context);
     document.querySelector(".comentarios").innerHTML = html;
@@ -61,12 +62,14 @@ function agregarComentario(){
   let mensaje = document.querySelector("#texto").value;
   let puntaje = document.querySelector("#puntaje").value;
   let recital = document.querySelector("#id_recital").value;
+  let idUsuario = document.querySelector(".idUsuario").getAttribute("data");
+
   console.log(recital);
   //Creamos el objeto comentario para enviar, con los atributos de la DB
   let comentario = {
     "mensaje": mensaje,
     "puntaje": puntaje,
-    "id_usuario": 1,
+    "id_usuario": idUsuario,
     "id_recital": recital
   }
 

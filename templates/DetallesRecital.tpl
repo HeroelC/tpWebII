@@ -29,18 +29,17 @@
       </div>
     </div>
   </div>
+  {if !empty($imagenes)}
   <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
       <div class="bordeArribaNews">
         <h1>IMAGES</h1>
       </div>
-      {if !empty($imagenes)}
         <div class="row">
-          
+
             {include file="slideImg.tpl"}
 
         </div>
-      {/if}
       <div class="row">
         <figure class="col-lg-6 col-md-10 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-1 col-sm-offset-1">
 
@@ -51,6 +50,7 @@
       </div>
     </div>
   </div>
+  {/if}
 
     {include file="comentarios.tpl"}
 
