@@ -85,22 +85,25 @@ class TourController extends SecuredController
 
         //Insertamos el recital
         $this->RecitalesModel->Insert($nombre, $precio, $id_Estadio);
-
-        //Ultimo recital insertado
-        $numeroRecital = $this->RecitalesModel->lastInsertId();
-
-        $cantidad = count($arrayImagenes); //Contamos cantidad de imagenes que selecciono
-
-        for ($i=0; $i < $cantidad ; $i++) {
-
-          $this->ImagenesModel->insert($arrayImagenes[$i], $numeroRecital['id_recital']);
-        }
+        $this->subirImg($arrayImagenes);
 
         header(TOURADMIN); //Redireccionamos al TourAdmin
       }else{
 
         header(HOME); //Si no es admin va al home
       }
+    }
+  }
+
+  function subirImg($arrayImagenes){
+    //Ultimo recital insertado
+    $numeroRecital = $this->RecitalesModel->lastInsertId();
+
+    $cantidad = count($arrayImagenes); //Contamos cantidad de imagenes que selecciono
+
+    for ($i=0; $i < $cantidad ; $i++) {
+
+      $this->ImagenesModel->insert($arrayImagenes[$i], $numeroRecital['id_recital']);
     }
   }
 
