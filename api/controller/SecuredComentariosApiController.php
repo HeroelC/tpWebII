@@ -21,18 +21,13 @@ class SecuredComentariosApiController extends ApiSecuredController{
 
   //ESTA FUNCION VA EN LA API SecuredComentariosApiController
     function InsertarComentario(){
-        if ($this->Logueado()) {
+    
           $comentarioJSON = $this->getJSONData();
 
           $response = $this->ComentariosModel->insert($comentarioJSON->mensaje, $comentarioJSON->puntaje,
           $comentarioJSON->id_usuario, $comentarioJSON->id_recital);
 
           return $this->json_response($response, 200);
-        }else {
-          return $this->json_response(null, 404);
-        }
-        
-
     }
 
     //ESTA FUNCION VA EN LA API SecuredComentariosApiController
