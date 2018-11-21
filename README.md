@@ -65,13 +65,6 @@ Verifica si el usuario esta logueado o no y si es adminitrador del sitio o no.
 Muestra una barra de navegación diferente al usuario no logueado, usuario y administrador
 
 #Necesario:
+Preguntar SERVER_PORT de Smarty en el base href
 
-Revisar filtro, ahora tiene que ser un dropdown
-
-Añadir imagenes a los estadios
-
-Preguntar si se debe poner if(SESSION[admin])==1) a todo
-
-Consultar linea 55 UsuariosAdminController
-
-Si se le saca el admin a el mismo, hasta que no se desloguea no deja de ser administrador
+No mostrar botones de eliminar a los usuarios y navegacion normal

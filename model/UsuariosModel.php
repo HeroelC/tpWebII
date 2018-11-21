@@ -54,6 +54,12 @@ class UsuariosModel
     $sentencia->execute(array($admin, $id_usuario));
   }
 
+  function lastInsertId(){
+    $sentencia = $this->db->prepare("SELECT id_usuario FROM usuario ORDER BY id_usuario  DESC LIMIT 1");
+    $sentencia->execute();
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
+
 }
 
 

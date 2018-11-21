@@ -1,5 +1,4 @@
 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-  {if !empty($comentarios)}
     <div class="bordeArribaNews">
       <h1>COMMENTS</h1>
     </div>
@@ -9,7 +8,6 @@
     <div class="bordeAbajoNews">
 
     </div>
-  {/if}
   {if (isset($smarty.session.User))}
   <input type="input" hidden="hidden" class="idUsuario" data="{$smarty.session.idUsuario}">
   {if $smarty.session.admin == 1}

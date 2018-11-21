@@ -1,11 +1,13 @@
 <?php
 
 //CONSTANTES
-define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/home');
-define('TOUR', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/tour');
-define('TOURADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/tourAdmin');
-define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/login');
-define('USUARIOS', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]) . '/usuarios');
+define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"]. ':'.$_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/home');
+define('TOUR', 'Location: http://'.$_SERVER["SERVER_NAME"]. ':'.$_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/tour');
+define('TOURADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"]. ':'.$_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/tourAdmin');
+define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"]. ':'.$_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/login');
+define('USUARIOS', 'Location: http://'.$_SERVER["SERVER_NAME"]. ':'.$_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/usuarios');
+
+
 
 class ConfigApp
 {

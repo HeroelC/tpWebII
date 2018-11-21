@@ -39,10 +39,14 @@ class UsuariosController
           //Le pido al modelo que me agregue al usuario
           $this->UsuariosModel->insert($nombre, $hash, $email);
 
+         //Preguntamos el id del usuario que se ha creado
+          $idUsuarioNuevo = $this->UsuariosModel->lastInsertId();
+
           //Logueo al usuario creado
           session_start();
           $_SESSION['User'] = $nombre;
           $_SESSION['admin'] = 0;
+          $_SESSION['idUsuario'] = $idUsuarioNuevo['id_usuario'];
           header(HOME);
        }else{
 
