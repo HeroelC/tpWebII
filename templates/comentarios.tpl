@@ -20,7 +20,7 @@
   </div>
   <form>
     <div class="form-group">
-      <textarea class="form-control" id="texto" rows="5"></textarea>
+      <textarea class="form-control" id="texto" rows="5" placeholder="Comment Here"></textarea>
     </div>
   </form>
   <div class="form-group">

@@ -2,7 +2,7 @@
 
 let urlAPI = "api/comentarios";
 let templateComentarios;
-let timer;
+
 
 document.addEventListener('DOMContentLoaded', loadComments);
 
@@ -18,6 +18,7 @@ function loadComments(){
 
       // getComentarios();
       document.querySelector("#comment").addEventListener('click', agregarComentario);
+      let timer = setInterval(getComentarios, 2000);
   });
 }
 function getComentarios() {
@@ -90,7 +91,11 @@ function agregarComentario(){
       })
     }
   })
+  let msj = document.querySelector("#texto");
+  msj.value = '';
+  msj.innerHTML = '';
 }
+
 
   function borrarComentario(id_comentario){
     console.log("borrar");
