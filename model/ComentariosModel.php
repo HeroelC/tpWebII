@@ -21,7 +21,7 @@ class ComentariosModel
   function insert($mensaje, $puntaje, $id_usuario, $id_recital){
 
     $sentencia = $this->db->prepare("INSERT INTO comentario(mensaje, puntaje, id_usuario, id_recital) VALUES(?,?,?,?)");
-    $sentencia->execute(array($mensaje, $puntaje, $id_usuario, $id_recital));
+    return $sentencia->execute(array($mensaje, $puntaje, $id_usuario, $id_recital));
   }
 
 //Obtener un comentario medinate el id de un recital
