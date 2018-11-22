@@ -1,4 +1,7 @@
-.hidden
+.linkRed{
+  color: red;
+  text-decoration: none;
+}
 .imgDetalleRecital{
   padding-top: 5%;
 }

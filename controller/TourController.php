@@ -59,8 +59,6 @@ class TourController extends SecuredController
     }
   }
 
-  //IMPORTANTE: Faltaria agregar el error si no carga todo los datos, deberia modularizar
-  //Para que no quede una funcion tan grande
   function agregarRecital(){
 
     if($_SESSION['admin'] == 1){
@@ -99,7 +97,6 @@ class TourController extends SecuredController
   }
 
   function subirImg($arrayImagenes, $numeroRecital){
-
 
     $cantidad = count($arrayImagenes); //Contamos cantidad de imagenes que selecciono
 
@@ -155,9 +152,13 @@ class TourController extends SecuredController
         if((isset($_POST['nombre'])) && (isset($_POST['capacidad']))){
           $nombre = $_POST['nombre'];
           $capacidad = $_POST['capacidad'];
-
+        if(empty($nombre)){
+          header(TOURADMIN);
+        }else{
           $this->EstadiosModel->insert($nombre, $capacidad);
           header(TOURADMIN);
+        }
+
         }
     }else{
       header(HOME);

@@ -4,7 +4,6 @@
       <div class="bordeArribaNews">
         <h1>CONCERTS ADMIN</h1>
       </div>
-
           <table class="table">
             <thead>
               <tr class="centrarfila warning">
@@ -14,14 +13,12 @@
                 <th scope="col">Delete</th>
               </tr>
             </thead>
-
             <tbody id="tablaTour">
               {foreach from=$Recitales item=recital}
 
                 <tr class="centrarfila">
                   <td>{$recital['nombre']}</td> <td>{$recital['precio']}</td><td><a class="btn btn-danger" href="editarRecital/{$recital['id_recital']}">Editar</a></td><td><a class="btn btn-danger" href="eliminarRecital/{$recital['id_recital']}">Borrar</a></td>
                 </tr>
-
               {/foreach}
             </tbody>
           </table>

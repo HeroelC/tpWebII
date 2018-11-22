@@ -12,15 +12,15 @@
                 <th scope="col">Price</th>
                 <th scope="col">Stadium</th>
                 <th scope="col">Capacity</th>
-                <th scope="col"></th>
+                <th scope="col">Details</th>
               </tr>
             </thead>
             <tbody id="tablaTour">
               {foreach from=$Tabla item=fila}
 
                 <tr class="centrarfila">
-                  <td>{$fila['recital']}</td><td>{$fila['precio']}</td><td> <a href="Estadio/{$fila['id_estadio']}">{$fila['estadio']}</a> </td><td>{$fila['capacidad']}</td>
-                  <td> <a class="btn btn-danger" href="detalleRecital/{$fila['id_recital']}">Details</a> </td>
+                  <td>{$fila['recital']}</td><td>{$fila['precio']}</td><td> <a class="linkRed" href="Estadio/{$fila['id_estadio']}">{$fila['estadio']}</a> </td><td>{$fila['capacidad']}</td>
+                  <td> <a class="linkRed" href="detalleRecital/{$fila['id_recital']}">View</a> </td>
                 </tr>
 
               {/foreach}
