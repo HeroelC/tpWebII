@@ -149,7 +149,6 @@ class TourController extends SecuredController
   }
 
   ##### Funciones de los estadios #####
-
   function agregarEstadio(){
 
     if($_SESSION['admin'] == 1){

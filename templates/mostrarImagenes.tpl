@@ -4,7 +4,7 @@
       <div class="bordeArribaNews">
         <h1>NEWS</h1>
       </div>
-      <div class = 'noticia col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+      <div class = "noticia col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <img width="90%" src="img/news1.jpg" alt="Image News"><h3>EXHIBITIONISM OPENS</h3></a>
       </div>
     </div>

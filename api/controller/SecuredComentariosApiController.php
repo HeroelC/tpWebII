@@ -19,9 +19,9 @@ class SecuredComentariosApiController extends ApiSecuredController{
     $this->UsuariosModel = new UsuariosModel();
   }
 
-  //ESTA FUNCION VA EN LA API SecuredComentariosApiController
+    //Enviar un comentario(Usuario y administrador)
     function InsertarComentario(){
-    
+
           $comentarioJSON = $this->getJSONData();
 
           $response = $this->ComentariosModel->insert($comentarioJSON->mensaje, $comentarioJSON->puntaje,
@@ -30,27 +30,23 @@ class SecuredComentariosApiController extends ApiSecuredController{
           return $this->json_response($response, 200);
     }
 
-    //ESTA FUNCION VA EN LA API SecuredComentariosApiController
-    function BorrarComentario($param = null){
-
-       if (count($param) == 1) {
-         $id_comentario = $param[0];
-         $response = $this->ComentariosModel->delete($id_comentario);
+    //Borrar un comentario (solo administrador)
+    function BorrarComentario($param = null)
+    {
+      if(isset($param)){
+          if (count($param) == 1){
+          $id_comentario = $param[0];
+          $response = $this->ComentariosModel->delete($id_comentario);
+              if($response){
+                return $this->json_response($response, 200);
+              }else{
+                return $this->json_response($response, 300);
+              }
+          }
+      }else{
+         return $this->json_response("No task specified", 300);
        }
-
-           return $this->json_response($response, 200);
-
-       //   if ($response == false) {
-       //     return $this->json_response($response, 300);
-       //   }else{
-       //     return $this->json_response($response, 200);
-       //   }
-       // }else {
-       //   return $this->json_response("No Task Specified", 300);
-       // }
-
     }
-
 
 }
 
