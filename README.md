@@ -8,16 +8,17 @@ Se puede obtener un estadio por ID. (getId).
 Se puede obtener (get), agregar (insert) y eliminar (delete).
 Se puede obtener un recital por ID. (getById).
 
-#UsuarioModel [En construccion]
+#UsuarioModel [Listo]
 
 Se pueden obtener los usuarios (getAll)
 Se puede añadir usuarios (insert)
 Se puede obtener el hash de la base de dato de un usuario en particular (getHash)
 Se puede pedir un usuario en especifico (getName)
+Se puede pedir el ultimo usuario registrado (getLastId)
 
-#ComentariosModel [En Construccion]
+#ComentariosModel [Listo]
 
-Se puede insetar un comentario (insert) Falta testing
+Se puede insetar, eliminar y obtener comentarios.
 
 #TourView [En construccion]
 
@@ -25,13 +26,14 @@ Añadido formulario para cargar estadios.
 Añadido formulario para cargar recitales.
 Se muestra la tabla con todo los recitales y estadios.
 
-#UsuariosAdminController [En Construccion]
+#UsuariosAdminController [Listo]
 
 Muestra todo los usuarios registrados si se es administrador
 Se agregaron botones de eliminar y editar
 Se puede eliminar usuarios
+Se puede editar usuarios
 
-#UsuariosController [En construccion]
+#UsuariosController [Listo]
 
 Se encriptan las contraseñas de los usuarios
 Se verifica que el usuario no exista en la base de datos, para no tener usuarios duplicados
@@ -45,7 +47,7 @@ Verificar si el nombre de usuario que se ingresa existe
 
 Añadido formulario para loguearse
 
-#UsuariosView [En construccion]
+#UsuariosView [Listo]
 
 Añadido formulario para registrarse
 Añadida vista de todo los usuarios para los administradores
@@ -65,6 +67,5 @@ Verifica si el usuario esta logueado o no y si es adminitrador del sitio o no.
 Muestra una barra de navegación diferente al usuario no logueado, usuario y administrador
 
 #Necesario:
-Preguntar SERVER_PORT de Smarty en el base href
 
-No mostrar botones de eliminar a los usuarios y navegacion normal
+Preguntar SERVER_PORT de Smarty en el base href
