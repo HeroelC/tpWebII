@@ -6,6 +6,7 @@ let templateComentarios;
 
 document.addEventListener('DOMContentLoaded', loadComments);
 
+//Funcion para cargar los comentarios cuando carga la página
 function loadComments(){
 
   //DESCARGAR Y COMPILAR EL TEMPLATE (SE DESCARGA UNA VEZ AL PRINCIPIO)
@@ -13,14 +14,14 @@ function loadComments(){
     .then(response => response.text())
     .then(template => {
       templateComentarios = Handlebars.compile(template); // compila y prepara el template
-
       getComentarios();
-
       // getComentarios();
       document.querySelector("#comment").addEventListener('click', agregarComentario);
       let timer = setInterval(getComentarios, 2000);
   });
 }
+
+//Traer comentarios
 function getComentarios() {
 
   let id_recital = document.querySelector("#id_recital").value;
@@ -31,6 +32,7 @@ function getComentarios() {
         mostrarComentarios(jsonComentarios);
     })
   }
+  
 function mostrarComentarios(jsonComentarios) {
 
   //INSTANCIAR TEMPLATE CON UN CONTEXTO
@@ -52,14 +54,13 @@ function mostrarComentarios(jsonComentarios) {
 }
 
 function agregarComentario(){
-  //Aca deberiamos agarrar los input de mensaje puntaje id recital y id usuario
-  //para pasarlos al objeto
+
+  //Valores para crear el objeto
   let mensaje = document.querySelector("#texto").value;
   let puntaje = document.querySelector("#puntaje").value;
   let recital = document.querySelector("#id_recital").value;
   let idUsuario = document.querySelector(".idUsuario").getAttribute("data");
 
-  console.log(recital);
   //Creamos el objeto comentario para enviar, con los atributos de la DB
   let comentario = {
     "mensaje": mensaje,
@@ -67,8 +68,6 @@ function agregarComentario(){
     "id_usuario": idUsuario,
     "id_recital": recital
   }
-
-  //ID USUARIO Y ID RECITAL HARDCODEADO, ESTO SE TIENE QUE CAMBIAR
 
   fetch(urlAPI, {
     'method': 'POST',
@@ -80,11 +79,11 @@ function agregarComentario(){
       r.json().then(t => {
         console.log("Se cargo con éxito");
         getComentarios();
-        //Se deberian vaciar los puntajes y texto
-        //Acá se deberia volver a llamar a la función de cargar comentarios, todavia no
       })
     }
   })
+
+  //Limpiamos la caja de texto después de enviar el comentario
   let msj = document.querySelector("#texto");
   msj.value = '';
   msj.innerHTML = '';
