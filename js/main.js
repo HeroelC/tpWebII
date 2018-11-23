@@ -15,8 +15,12 @@ function loadComments(){
     .then(template => {
       templateComentarios = Handlebars.compile(template); // compila y prepara el template
       getComentarios();
-      // getComentarios();
-      document.querySelector("#comment").addEventListener('click', agregarComentario);
+      let enviarComentario = document.querySelector("#comment");
+
+      //Añade funcionalidad al boton comentar
+      if(enviarComentario){
+        enviarComentario.addEventListener('click', agregarComentario);
+      }
       let timer = setInterval(getComentarios, 2000);
   });
 }
@@ -24,7 +28,10 @@ function loadComments(){
 //Traer comentarios
 function getComentarios() {
 
-  let id_recital = document.querySelector("#id_recital").value;
+  let id_recital = document.querySelector("#id_recital");
+  if(id_recital){
+    id_recital = id_recital.value;
+  }
     console.log(id_recital);
     fetch(urlAPI + '/' + id_recital)
     .then(r => r.json())
@@ -32,7 +39,7 @@ function getComentarios() {
         mostrarComentarios(jsonComentarios);
     })
   }
-  
+
 function mostrarComentarios(jsonComentarios) {
 
   //INSTANCIAR TEMPLATE CON UN CONTEXTO
@@ -41,7 +48,11 @@ function mostrarComentarios(jsonComentarios) {
     }
 
     let html = templateComentarios(context);
-    document.querySelector(".comentarios").innerHTML = html;
+    let mostrarComentarios = document.querySelector(".comentarios");
+
+    if(html!=null){
+      mostrarComentarios.innerHTML = html;
+    }
 
     let b = document.querySelectorAll(".borrar");
     let administador = document.querySelector(".admin").getAttribute("data");

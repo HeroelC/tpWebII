@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2018 a las 08:57:05
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Tiempo de generación: 23-11-2018 a las 03:32:32
+-- Versión del servidor: 10.1.34-MariaDB
+-- Versión de PHP: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_rolling`
 --
+CREATE DATABASE IF NOT EXISTS `db_rolling` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `db_rolling`;
 
 -- --------------------------------------------------------
 
@@ -41,9 +43,10 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `mensaje`, `puntaje`, `id_usuario`, `id_recital`) VALUES
-(4, 'lalal', 3, 1, 6),
-(5, 'lalal', 3, 1, 6),
-(6, 'Hola woooo', 5, 1, 6);
+(136, 'Recital en Argentina', 5, 1, 50),
+(137, 'Rolling Stones', 5, 1, 50),
+(138, 'Primer comentario', 1, 1, 48),
+(139, 'Segundo comentario', 1, 1, 48);
 
 -- --------------------------------------------------------
 
@@ -85,9 +88,12 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_imagen`, `url`, `id_recital`) VALUES
-(24, 'images/5be7d42b3c2e3.jpg', 32),
-(30, 'images/5bf0690fa31d1.jpg', 36),
-(31, 'images/5bf0690fa396e.jpg', 36);
+(92, 'images/5bf765ad3f028.jpg', 48),
+(93, 'images/5bf765ad45510.jpg', 48),
+(94, 'images/5bf765d25c8e3.jpg', 49),
+(95, 'images/5bf7660627334.jpg', 50),
+(96, 'images/5bf76606280b7.jpg', 50),
+(97, 'images/5bf76606284a9.jpg', 50);
 
 -- --------------------------------------------------------
 
@@ -107,12 +113,9 @@ CREATE TABLE `recital` (
 --
 
 INSERT INTO `recital` (`id_recital`, `nombre`, `precio`, `estadio_id`) VALUES
-(5, 'Blue & Lonesome Tour', 1000, 30),
-(6, 'Blue & Lonesome Tour', 500, 33),
-(7, 'Satisfaction', 250, 33),
-(8, 'Satisfaction', 300, 32),
-(32, 'Rolling Stones', 3000, 30),
-(36, 'Prueba Imagen', 150, 30);
+(48, 'Rolling Stones', 4000, 30),
+(49, 'Satisfaccion', 2500, 30),
+(50, 'Rolling Stones', 200, 31);
 
 -- --------------------------------------------------------
 
@@ -134,7 +137,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `clave`, `email`, `admin`) VALUES
 (1, 'usuario', '$2y$10$Jil73fYmXU9pRn7jqCyaiO1SUwwHM.FilH/Ixtv7eVRwJNksXKTKK', 'a@a', 1),
-(6, 'Heroel', '$2y$10$iwqNfSmKTlAbv.5OCSzd9e5AHS7RZDk.SvBL30bMAdNUgELIg4xl.', 'a@a', 0);
+(6, 'Heroel', '$2y$10$iwqNfSmKTlAbv.5OCSzd9e5AHS7RZDk.SvBL30bMAdNUgELIg4xl.', 'a@a', 0),
+(7, 'Administrador', '$2y$10$7TQHX4yO9hrSsq2vKCPmO.rit635ZJx6VlDcH.tWUwwYn2H.H04ne', 'a@a', 0),
+(8, 'Leandro', '$2y$10$cvoq3qTkb3SrxUQzzIcMc.gNzSy21234HtlGIwkU.hBEj3Y8uFhi.', 'a@a', 1);
 
 --
 -- Índices para tablas volcadas
@@ -182,27 +187,32 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+
 --
 -- AUTO_INCREMENT de la tabla `estadio`
 --
 ALTER TABLE `estadio`
   MODIFY `id_estadio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+
 --
 -- AUTO_INCREMENT de la tabla `recital`
 --
 ALTER TABLE `recital`
-  MODIFY `id_recital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_recital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -211,8 +221,8 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_recital`) REFERENCES `recital` (`id_recital`);
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_recital`) REFERENCES `recital` (`id_recital`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `imagen`
@@ -224,7 +234,7 @@ ALTER TABLE `imagen`
 -- Filtros para la tabla `recital`
 --
 ALTER TABLE `recital`
-  ADD CONSTRAINT `recital_ibfk_1` FOREIGN KEY (`estadio_id`) REFERENCES `estadio` (`id_estadio`);
+  ADD CONSTRAINT `recital_ibfk_1` FOREIGN KEY (`estadio_id`) REFERENCES `estadio` (`id_estadio`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
