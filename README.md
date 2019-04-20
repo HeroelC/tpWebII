@@ -1,3 +1,5 @@
+﻿![Presentación del sitio](img/rs1.jpg)
+
 #EstadiosModel [Listo]
 
 Se puede obtener (get), eliminar (delete), editar (edit) y agregar (insert) estadios.
