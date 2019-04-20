@@ -1,7 +1,7 @@
-﻿![Presentación del sitio](preview/00.jpg)
-![Presentación del sitio](preview/01.jpg)
-![Presentación del sitio](preview/02.jpg)
-![Presentación del sitio](preview/03.jpg)
+﻿![Presentación del sitio](preview/00.png)
+![Presentación del sitio](preview/01.png)
+![Presentación del sitio](preview/02.png)
+![Presentación del sitio](preview/03.png)
 
 #EstadiosModel [Listo]
 
