@@ -70,7 +70,3 @@ Añadidas vistas para Home, Music, Band, Tour, SignUp, Login
 
 Verifica si el usuario esta logueado o no y si es adminitrador del sitio o no.
 Muestra una barra de navegación diferente al usuario no logueado, usuario y administrador
-
-#Necesario:
-
-Preguntar SERVER_PORT de Smarty en el base href
